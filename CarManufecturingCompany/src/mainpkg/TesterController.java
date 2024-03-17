@@ -33,8 +33,8 @@ public class TesterController implements Initializable {
 
     @FXML
     private void mdDashboardOnClick(ActionEvent event) throws IOException {
-        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
-        Scene scene1 = new Scene(fileChooserViewParent);
+        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+        Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("MD Dashboard");
         newWindow.setScene(scene1);
@@ -43,12 +43,72 @@ public class TesterController implements Initializable {
 
     @FXML
     private void hrDashboardOnClick(ActionEvent event) throws IOException {
-        Parent fileChooserViewParent = FXMLLoader.load(getClass().getResource("HR_DashboardScene.fxml"));
-        Scene scene1 = new Scene(fileChooserViewParent);
+        Parent parent = FXMLLoader.load(getClass().getResource("HR_DashboardScene.fxml"));
+        Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("HR Dashboard");
         newWindow.setScene(scene1);
         newWindow.show();
+    }
+
+    @FXML
+    private void pmDashboardOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("ProductionManagerDashboardScene.fxml"));
+        Scene scene1 = new Scene(parent);
+        Stage newWindow  = new Stage();
+        newWindow.setTitle("Production Manager Dashboard");
+        newWindow.setScene(scene1);
+        newWindow.show();
+    }
+
+    @FXML
+    private void fmDashboardOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("FinanceManagerDashboardScene.fxml"));
+        Scene scene1 = new Scene(parent);
+        Stage newWindow  = new Stage();
+        newWindow.setTitle("Finance Manager Dashboard");
+        newWindow.setScene(scene1);
+        newWindow.show();
+    }
+
+    @FXML
+    private void aLineWorkerDashboardOnClick(ActionEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
+        Scene scene1 = new Scene(parent);
+        Stage newWindow  = new Stage();
+        newWindow.setTitle("Assembly Line Worker Dashboard");
+        newWindow.setScene(scene1);
+        newWindow.show();
+    }
+
+    @FXML
+    private void customerDashboardOnClick(ActionEvent event) {
+//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+//        Scene scene1 = new Scene(parent);
+//        Stage newWindow  = new Stage();
+//        newWindow.setTitle("MD Dashboard");
+//        newWindow.setScene(scene1);
+//        newWindow.show();
+    }
+
+    @FXML
+    private void supplierDashboardOnClick(ActionEvent event) {
+//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+//        Scene scene1 = new Scene(parent);
+//        Stage newWindow  = new Stage();
+//        newWindow.setTitle("MD Dashboard");
+//        newWindow.setScene(scene1);
+//        newWindow.show();
+    }
+
+    @FXML
+    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
+//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+//        Scene scene1 = new Scene(parent);
+//        Stage newWindow  = new Stage();
+//        newWindow.setTitle("MD Dashboard");
+//        newWindow.setScene(scene1);
+//        newWindow.show();
     }
 
 }
