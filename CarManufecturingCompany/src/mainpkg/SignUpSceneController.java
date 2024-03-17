@@ -26,6 +26,7 @@ public class SignUpSceneController implements Initializable {
     private PasswordField userPasswordPwfield;
     @FXML
 
+
     private ComboBox<String> userTypeComboBox;
 
    
