@@ -9,3 +9,7 @@
 >>>>>>> origin/main
 *.properties
 *.properties
+*.properties
+*.html
+*.jar
+*.jnlp
