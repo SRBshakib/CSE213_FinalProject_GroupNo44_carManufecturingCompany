@@ -6,8 +6,8 @@ package mainpkg;
 
 /**
  *
- * @author Lenovo
+ * @author SRB Shakib
  */
-public class Time {
+public class FlagReport {
     
 }
