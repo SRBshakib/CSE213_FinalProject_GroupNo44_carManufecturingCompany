@@ -1,3 +1,5 @@
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
+*.properties
+*.properties
