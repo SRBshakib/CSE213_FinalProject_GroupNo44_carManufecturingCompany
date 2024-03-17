@@ -1,18 +1,22 @@
-
+<<<<<<< HEAD
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
-
-
+=======
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
-
-CarManufecturingCompany/build/built-jar.properties
+>>>>>>> origin/main
+*.properties
+*.properties
+*.properties
 *.html
 *.jar
 *.jnlp
 *.properties
+*.html
+*.jar
+*.jnlp
 *.html
 *.jar
 *.jnlp
