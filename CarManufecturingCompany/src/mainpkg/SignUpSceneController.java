@@ -26,14 +26,13 @@ public class SignUpSceneController implements Initializable {
     private PasswordField userPasswordPwfield;
     @FXML
 
+
     private ComboBox<String> userTypeComboBox;
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
     }    
 
     @FXML
