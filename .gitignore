@@ -9,3 +9,10 @@
 /CarManufecturingCompany/dist/
 
 CarManufecturingCompany/build/built-jar.properties
+*.html
+*.jar
+*.jnlp
+*.properties
+*.html
+*.jar
+*.jnlp
