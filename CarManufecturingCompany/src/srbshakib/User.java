@@ -1,6 +1,7 @@
+package srbshakib;
+
 
 import java.util.UUID;
-import mainpkg.UserType;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
