@@ -44,27 +44,57 @@ public class MD_DashboardSceneController implements Initializable {
     }
 
     @FXML
-    private void auditCheckButtonOnClick(ActionEvent event) {
+    private void auditCheckButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_AuditCheckScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
-    private void newModelsOfCarButtonOnClick(ActionEvent event) {
+    private void newModelsOfCarButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_NewModelsOfCarCheckScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
-    private void addFundButtonOnClick(ActionEvent event) {
+    private void addFundButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_AddFundCheckFundScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
-    private void checkInventoryButtonOnClick(ActionEvent event) {
+    private void checkInventoryButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_InventoryCheckScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
-    private void budgetButtonOnClick(ActionEvent event) {
+    private void budgetButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_BudgetCheckScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
-    private void directoryButtonOnClick(ActionEvent event) {
+    private void directoryButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_DirectoryCheckScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
     }
 
     @FXML
