@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -8,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.AssemblyLineWorkerDashboardSceneController">
+
     <children>
         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
             <children>
