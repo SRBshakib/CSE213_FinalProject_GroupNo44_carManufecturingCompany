@@ -81,7 +81,11 @@ public class TesterController implements Initializable {
         newWindow.show();
 
     }    
+  @FXML
+    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
 
+
+    }
 
     @FXML
     private void customerDashboardOnClick(ActionEvent event) {
@@ -106,6 +110,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void supplyChainManagerDashboardOnClick(ActionEvent event) {
+
 //        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
 //        Scene scene1 = new Scene(parent);
 //        Stage newWindow  = new Stage();
@@ -113,7 +118,5 @@ public class TesterController implements Initializable {
 //        newWindow.setScene(scene1);
 //        newWindow.show();
     }
-
-    
-    
+  
 }
