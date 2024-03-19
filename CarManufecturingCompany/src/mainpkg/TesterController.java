@@ -81,7 +81,33 @@ public class TesterController implements Initializable {
         newWindow.show();
 
     }    
+  @FXML
+    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
 
+
+
+    }
+
+    @FXML
+    private void customerDashboardOnClick(ActionEvent event) {
+//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+//        Scene scene1 = new Scene(parent);
+//        Stage newWindow  = new Stage();
+//        newWindow.setTitle("MD Dashboard");
+//        newWindow.setScene(scene1);
+//        newWindow.show();
+
+    }
+
+    @FXML
+    private void supplierDashboardOnClick(ActionEvent event) {
+//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+//        Scene scene1 = new Scene(parent);
+//        Stage newWindow  = new Stage();
+//        newWindow.setTitle("MD Dashboard");
+//        newWindow.setScene(scene1);
+//        newWindow.show();
+    }
 
 
     @FXML
