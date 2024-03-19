@@ -1,4 +1,6 @@
 
+<<<<<<< HEAD
+=======
 
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
@@ -12,14 +14,19 @@
 CarManufecturingCompany/build/built-jar.properties
 =======
 
+>>>>>>> main
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
+
+
+/CarManufecturingCompany/nbproject/private/
+/CarManufecturingCompany/build/
+/CarManufecturingCompany/dist/
+
+<<<<<<< HEAD
+CarManufecturingCompany/build/built-jar.properties
 =======
-/CarManufecturingCompany/nbproject/private/
-/CarManufecturingCompany/build/
-/CarManufecturingCompany/dist/
-
 *.properties
 *.properties
 *.properties
@@ -36,3 +43,4 @@ CarManufecturingCompany/build/built-jar.properties
 *.jar
 *.jnlp
 
+>>>>>>> main
