@@ -25,6 +25,8 @@ public class TesterController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,12 +83,6 @@ public class TesterController implements Initializable {
         newWindow.show();
 
     }    
-  @FXML
-    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
-
-
-
-    }
 
     @FXML
     private void customerDashboardOnClick(ActionEvent event) {
