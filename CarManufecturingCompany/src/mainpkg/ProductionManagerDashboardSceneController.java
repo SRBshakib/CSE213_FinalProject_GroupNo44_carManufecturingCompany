@@ -26,35 +26,35 @@ public class ProductionManagerDashboardSceneController implements Initializable 
     }    
 
     @FXML
-    private void carModelButtonOnClick(ActionEvent event) {
+    private void carModelButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void working_Schedule_Button_On_Click(ActionEvent event) {
+    private void upcomingCarModelsButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void upcomingCarModelsButtonOnClick(ActionEvent event) {
+    private void carLunchingEventButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void assemblyManuelButtonOnClick(ActionEvent event) {
+    private void issueButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void carLunchingEventButtonOnClick(ActionEvent event) {
+    private void assemblyManuelButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void assignTasksButtonOnClick(ActionEvent event) {
+    private void assignTasksButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void carDesignButtonOnClick(ActionEvent event) {
+    private void workingScheduleButtonOnClicked(ActionEvent event) {
     }
 
     @FXML
-    private void issueButtonOnClick(ActionEvent event) {
+    private void carDesignButtonOnClicked(ActionEvent event) {
     }
     
 }

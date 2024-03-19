@@ -9,7 +9,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+<<<<<<< HEAD
 import javafx.fxml.FXMLLoader;
+=======
+>>>>>>> main
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -29,6 +32,7 @@ public class TesterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+<<<<<<< HEAD
     }
 
     @FXML
@@ -79,30 +83,59 @@ public class TesterController implements Initializable {
         newWindow.setTitle("Assembly Line Worker Dashboard");
         newWindow.setScene(scene1);
         newWindow.show();
+=======
+    }    
+
+    @FXML
+    private void mdDashboardOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void hrDashboardOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void pmDashboardOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void fmDashboardOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void aLineWorkerDashboardOnClick(ActionEvent event) {
+>>>>>>> main
     }
 
     @FXML
     private void customerDashboardOnClick(ActionEvent event) {
+<<<<<<< HEAD
 //        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
 //        Scene scene1 = new Scene(parent);
 //        Stage newWindow  = new Stage();
 //        newWindow.setTitle("MD Dashboard");
 //        newWindow.setScene(scene1);
 //        newWindow.show();
+=======
+>>>>>>> main
     }
 
     @FXML
     private void supplierDashboardOnClick(ActionEvent event) {
+<<<<<<< HEAD
 //        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
 //        Scene scene1 = new Scene(parent);
 //        Stage newWindow  = new Stage();
 //        newWindow.setTitle("MD Dashboard");
 //        newWindow.setScene(scene1);
 //        newWindow.show();
+=======
+>>>>>>> main
     }
 
     @FXML
     private void supplyChainManagerDashboardOnClick(ActionEvent event) {
+<<<<<<< HEAD
 //        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
 //        Scene scene1 = new Scene(parent);
 //        Stage newWindow  = new Stage();
@@ -111,4 +144,8 @@ public class TesterController implements Initializable {
 //        newWindow.show();
     }
 
+=======
+    }
+    
+>>>>>>> main
 }
