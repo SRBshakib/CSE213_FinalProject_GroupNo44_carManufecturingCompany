@@ -1,6 +1,8 @@
 package srbshakib;
 
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.UUID;
 
 /*
@@ -12,34 +14,25 @@ import java.util.UUID;
  *
  * @author SRB Shakib
  */
-public class User {
+public class User implements Serializable{
     private String name;
-    private String id;
+    private String UserId;
     private String password;
     private UserType userType;
+    private String email;
+    private int phone;
+    private String address;
+    private LocalDate DoB;
 
-    public User(String name, String id, String password, UserType userType) {
+    public User(String name, String UserId, String password, UserType userType, String email, int phone, String address, LocalDate DoB) {
         this.name = name;
-        this.id = id;
+        this.UserId = UserId;
         this.password = password;
         this.userType = userType;
-    }
-    private String generateID() {
-        // Generate a unique ID using UUID
-        return UUID.randomUUID().toString();
-    }
-
-    private String generatePassword() {
-        // Generate a random password
-        // You can implement your logic to generate a password here
-        // For simplicity, let's generate a random 8-character password
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        StringBuilder password = new StringBuilder();
-        for (int i = 0; i < 8; i++) {
-            int index = (int) (Math.random() * characters.length());
-            password.append(characters.charAt(index));
-        }
-        return password.toString();
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.DoB = DoB;
     }
 
     public String getName() {
@@ -50,12 +43,12 @@ public class User {
         this.name = name;
     }
 
-    public String getId() {
-        return id;
+    public String getUserId() {
+        return UserId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserId(String UserId) {
+        this.UserId = UserId;
     }
 
     public String getPassword() {
@@ -74,10 +67,53 @@ public class User {
         this.userType = userType;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public LocalDate getDoB() {
+        return DoB;
+    }
+
+    public void setDoB(LocalDate DoB) {
+        this.DoB = DoB;
+    }
+    public void login(){
+    }
+    public void verifyLogin(){
+    }
+    public void forgotPassword(){
+    }
+    public void signUp(){
+    }
+    public void showNoticeBoard(){
+    }
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", id=" + id + ", password=" + password + ", userType=" + userType + '}';
+        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", userType=" + userType + ", email=" + email + ", phone=" + phone + ", address=" + address + ", DoB=" + DoB + '}';
     }
     
+
+   
     
 }
