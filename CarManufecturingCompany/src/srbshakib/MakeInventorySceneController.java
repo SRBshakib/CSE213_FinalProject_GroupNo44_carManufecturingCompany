@@ -4,30 +4,27 @@
  */
 package srbshakib;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author SRB Shakib
  */
-public class AssemblyLineWorkerDashboardSceneController implements Initializable {
+public class MakeInventorySceneController implements Initializable {
 
+    @FXML
+    private ComboBox<?> selectPartsForInventoryComboBox;
+    @FXML
+    private ImageView inventoryPartImageView;
+    @FXML
+    private ComboBox<?> numberOfPartsAvailableComboBox;
 
     /**
      * Initializes the controller class.
@@ -38,12 +35,7 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
     }    
 
     @FXML
-    private void homeButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    private void homeButtonOnMuseClicked(ActionEvent event) {
     }
 
     @FXML
@@ -51,12 +43,7 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
     }
 
     @FXML
-    private void inventoryButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("MakeInventoryScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    private void inventoryButtonOnMuseClicked(ActionEvent event) {
     }
 
     @FXML
@@ -79,5 +66,8 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
     private void checkScheduleButtonOnMuseClicked(ActionEvent event) {
     }
 
+    @FXML
+    private void selectPartOfInventoryOnMouseClicked(ActionEvent event) {
+    }
     
 }
