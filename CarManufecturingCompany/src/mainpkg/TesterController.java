@@ -4,6 +4,7 @@
  */
 package mainpkg;
 
+import srbshakib.AssemblyLineWorkerDashboardSceneController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -55,7 +56,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void pmDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("ProductionManagerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Production Manager Dashboard");
@@ -75,7 +76,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void aLineWorkerDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/srbshakib/AssemblyLineWorkerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Assembly Line Worker Dashboard");
