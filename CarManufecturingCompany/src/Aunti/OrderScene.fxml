@@ -26,7 +26,9 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
+
                         <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#orderListButtonOnMuseClicked" text="Order List" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -35,12 +37,16 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
+
                         <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#ordersButtonOnMuseClicked" text="Orders" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
+
                         <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#inventoryListButtonOnMuseClicked" text="Inventory List" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -49,12 +55,16 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
+
                         <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#dueBillsButtonOnMuseClicked" text="Due Bills" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
+
                         <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackOrdersButtonOnMuseClicked" prefHeight="31.0" prefWidth="138.0" text="Track Orders" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -63,12 +73,16 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
+
                         <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#paymentsButtonOnMuseClicked" text="Payments" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="49.0" prefWidth="158.0">
                      <children>
+
                         <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#reviewButtonOnMuseClicked" text="Review" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -85,7 +99,9 @@
                                        <children>
                                         <AnchorPane layoutX="2.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="56.0" prefWidth="160.0">
                                              <children>
+
                                                 <Button layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#upcomingEventsButtonOnMuseClicked" prefHeight="31.0" prefWidth="138.0" text="Upcoming Events" />
+
                                              </children>
                                           </AnchorPane>
                                        </children>
@@ -126,10 +142,12 @@
                               <ComboBox layoutX="25.0" layoutY="30.0" onAction="#selectProductTypeComboBox" prefWidth="150.0" />
                               <Label layoutX="234.0" layoutY="35.0" text="Product Description" />
                               <TextField fx:id="productDescriptionTextField" layoutX="382.0" layoutY="30.0" />
+
                               <ComboBox fx:id="quantityComboBox" layoutX="25.0" layoutY="237.0" prefWidth="150.0" />
                               <Label layoutX="208.0" layoutY="242.0" text="Estimated Delivery Date" />
                               <DatePicker fx:id="estimatedDeliveryDateDatePicker" layoutX="393.0" layoutY="237.0" />
                               <Button layoutX="451.0" layoutY="417.0" mnemonicParsing="false" onAction="#deliveryButtonOnMouseClicked" text="Delivery " />
+
                            </children>
                         </AnchorPane>
                   </content>
