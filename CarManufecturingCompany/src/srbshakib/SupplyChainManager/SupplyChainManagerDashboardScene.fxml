@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.MakeInventorySceneController">
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
@@ -21,7 +20,7 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#assignedTaskButtonOnMuseClicked" text="Assigned Tasks" />
+                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackLogisticsButtonOnMuseClicked" text="Track Logistics" />
                      </children>
                   </AnchorPane>
                </items>
@@ -30,12 +29,12 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#inventoryButtonOnMuseClicked" text="Inventory" />
+                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#orderButtonOnMuseClicked" text="Order" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="40.0" layoutY="16.0" mnemonicParsing="false" onAction="#instructionsButtonOnMuseClicked" text="Instructions" />
+                        <Button layoutX="40.0" layoutY="16.0" mnemonicParsing="false" onAction="#distribruteButtonOnMuseClicked" text="Distribute" />
                      </children>
                   </AnchorPane>
                </items>
@@ -44,12 +43,12 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#leaveApplicationButtonOnMuseClicked" text="Leave Application" />
+                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#orderHistoryButtonOnMuseClicked" text="Order History" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="53.0" layoutY="16.0" mnemonicParsing="false" onAction="#traingButtonOnMuseClicked" text="Traing" />
+                        <Button layoutX="25.0" layoutY="16.0" mnemonicParsing="false" onAction="#updateInventoryButtonOnMuseClicked" text="Update Inventory" />
                      </children>
                   </AnchorPane>
                </items>
@@ -58,30 +57,31 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#flagReportButtonOnMuseClicked" text="Flag Report" />
+                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#customerOrderButtonOnMuseClicked" text="Customer Order" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#checkScheduleButtonOnMuseClicked" text="Check Schedule" />
+                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#supplierListButtonOnMuseClicked" text="Supplier List" />
                      </children>
                   </AnchorPane>
                </items>
             </SplitPane>
+            <AnchorPane layoutX="21.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0" style="-fx-border-color: black;">
+               <children>
+                  <Button layoutX="30.0" layoutY="11.0" mnemonicParsing="false" onAction="#supplyHistoryButtonOnMuseClicked" text="Supply History" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <ComboBox fx:id="selectPartsForInventoryComboBox" layoutX="14.0" layoutY="88.0" onAction="#selectPartOfInventoryOnMouseClicked" prefWidth="150.0" promptText="Select Part" />
-            <ImageView fx:id="inventoryPartImageView" fitHeight="150.0" fitWidth="200.0" layoutX="203.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
-            <ComboBox fx:id="numberOfPartsAvailableComboBox" layoutX="437.0" layoutY="88.0" prefWidth="150.0" promptText="Select Numbers" />
-            <Button layoutX="256.0" layoutY="218.0" mnemonicParsing="false" text="Add Part" />
-            <TableView layoutX="20.0" layoutY="299.0" prefHeight="237.0" prefWidth="606.0">
-              <columns>
-                <TableColumn prefWidth="405.0" text="Name of the Parts" />
-                <TableColumn minWidth="0.0" prefWidth="200.0" text="Availability" />
-              </columns>
-            </TableView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user%20image.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="174.0" layoutY="187.0" prefHeight="17.0" prefWidth="239.0" text="Name: " />
          </children>
       </AnchorPane>
    </children>
