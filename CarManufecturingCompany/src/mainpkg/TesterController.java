@@ -5,6 +5,7 @@
 package mainpkg;
 
 import srbshakib.AssemblyLineWorkerDashboardSceneController;
+import srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -108,14 +109,14 @@ public class TesterController implements Initializable {
 
 
     @FXML
-    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
+    private void supplyChainManagerDashboardOnClick(ActionEvent event) throws IOException {
 
-//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
-//        Scene scene1 = new Scene(parent);
-//        Stage newWindow  = new Stage();
-//        newWindow.setTitle("MD Dashboard");
-//        newWindow.setScene(scene1);
-//        newWindow.show();
+       Parent parent = FXMLLoader.load(getClass().getResource("/srbshakib/SupplyChainManager/SupplyChainManagerDashboardScene.fxml"));
+       Scene scene1 = new Scene(parent);
+       Stage newWindow  = new Stage();
+       newWindow.setTitle("Supply Chain Manager Dashboard");
+       newWindow.setScene(scene1);
+       newWindow.show();
     }
   
 

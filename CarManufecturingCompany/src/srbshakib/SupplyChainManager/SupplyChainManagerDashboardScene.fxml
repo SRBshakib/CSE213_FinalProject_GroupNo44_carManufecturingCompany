@@ -3,10 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Aunti.SupplierDashboardSceneController">
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
@@ -14,12 +15,12 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="53.0" layoutY="17.0" mnemonicParsing="false" onAction="#homeButtonOnMouseClicked" text="Home" />
+                        <Button layoutX="53.0" layoutY="17.0" mnemonicParsing="false" onAction="#homeButtonOnMuseClicked" text="Home" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#orderListButtonOnMouseClicked" text="Order List" />
+                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackLogisticsButtonOnMuseClicked" text="Track Logistics" />
                      </children>
                   </AnchorPane>
                </items>
@@ -28,12 +29,12 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#ordersButtonOnMouseClicked" text="Orders" />
+                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#orderButtonOnMuseClicked" text="Order" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#inventoryListButtonOnMouseClicked" text="Inventory List" />
+                        <Button layoutX="40.0" layoutY="16.0" mnemonicParsing="false" onAction="#distribruteButtonOnMuseClicked" text="Distribute" />
                      </children>
                   </AnchorPane>
                </items>
@@ -42,12 +43,12 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#dueBillsButtonOnMouseClicked" text="Due Bills" />
+                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#orderHistoryButtonOnMuseClicked" text="Order History" />
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackOrdersButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Track Orders" />
+                        <Button layoutX="25.0" layoutY="16.0" mnemonicParsing="false" onAction="#updateInventoryButtonOnMuseClicked" text="Update Inventory" />
                      </children>
                   </AnchorPane>
                </items>
@@ -56,45 +57,30 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#paymentsButtonOnMouseClicked" text="Payments" />
+                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#customerOrderButtonOnMuseClicked" text="Customer Order" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="49.0" prefWidth="158.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#reviewButtonOnMouseClicked" text="Review" />
+                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#supplierListButtonOnMuseClicked" text="Supplier List" />
                      </children>
                   </AnchorPane>
                </items>
             </SplitPane>
-            <AnchorPane layoutX="21.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+            <AnchorPane layoutX="21.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0" style="-fx-border-color: black;">
                <children>
-                  <Pane layoutX="-3.0" layoutY="-5.0" prefHeight="65.0" prefWidth="167.0">
-                     <children>
-                        <AnchorPane layoutX="-3.0" layoutY="-2.0" prefHeight="80.0" prefWidth="167.0">
-                           <children>
-                              <SplitPane layoutX="5.0" layoutY="-5.0" orientation="VERTICAL" prefHeight="80.0" prefWidth="160.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="78.0" prefWidth="158.0">
-                                       <children>
-                                        <AnchorPane layoutX="2.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="56.0" prefWidth="160.0">
-                                             <children>
-                                                <Button layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#upcomingEventsButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Upcoming Events" />
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </AnchorPane>
-                                </items>
-                              </SplitPane>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </Pane>
+                  <Button layoutX="30.0" layoutY="11.0" mnemonicParsing="false" onAction="#supplyHistoryButtonOnMuseClicked" text="Supply History" />
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user%20image.png" />
+               </image>
+            </ImageView>
             <Label layoutX="174.0" layoutY="187.0" prefHeight="17.0" prefWidth="239.0" text="Name: " />
          </children>
       </AnchorPane>

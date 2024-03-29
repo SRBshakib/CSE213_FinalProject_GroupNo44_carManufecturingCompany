@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package srbshakib;
+package srbshakib.SupplyChainManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,21 +15,22 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 
 /**
  * FXML Controller class
  *
  * @author SRB Shakib
  */
-public class AssemblyLineWorkerDashboardSceneController implements Initializable {
+public class MakeInventorySceneController implements Initializable {
 
-
+    @FXML
+    private ComboBox<?> selectPartsForInventoryComboBox;
+    @FXML
+    private ImageView inventoryPartImageView;
+    @FXML
+    private ComboBox<?> numberOfPartsAvailableComboBox;
 
     /**
      * Initializes the controller class.
@@ -48,11 +49,7 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
         window.show();
     }
 
-    @FXML
-    private void assignedTaskButtonOnMuseClicked(ActionEvent event) {
-    }
 
-    @FXML
     private void inventoryButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("ShowInventoryScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -60,26 +57,40 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
         window.setScene(scene1);
         window.show();
     }
-
     @FXML
-    private void instructionsButtonOnMuseClicked(ActionEvent event) {
+    private void selectPartOfInventoryOnMouseClicked(ActionEvent event) {
     }
 
     @FXML
-    private void leaveApplicationButtonOnMuseClicked(ActionEvent event) {
+    private void trackLogisticsButtonOnMuseClicked(ActionEvent event) {
     }
 
     @FXML
-    private void traingButtonOnMuseClicked(ActionEvent event) {
+    private void orderButtonOnMuseClicked(ActionEvent event) {
     }
 
     @FXML
-    private void flagReportButtonOnMuseClicked(ActionEvent event) {
+    private void distributeButtonOnMuseClicked(ActionEvent event) {
     }
 
     @FXML
-    private void checkScheduleButtonOnMuseClicked(ActionEvent event) {
+    private void orderHistoryButtonOnMuseClicked(ActionEvent event) {
     }
 
+    @FXML
+    private void updateInventoryButtonOnMuseClicked(ActionEvent event) {
+    }
 
+    @FXML
+    private void customerOrderButtonOnMuseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void supplierListButtonOnMuseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void supplyHistoryButtonOnMuseClicked(ActionEvent event) {
+    }
+    
 }
