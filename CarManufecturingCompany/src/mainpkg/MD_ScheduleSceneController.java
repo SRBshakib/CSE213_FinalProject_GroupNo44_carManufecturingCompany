@@ -1,15 +1,17 @@
 package mainpkg;
 
-//import MD_Schedule_Scene_Model;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -37,87 +39,54 @@ import javafx.stage.Stage;
 public class MD_ScheduleSceneController implements Initializable {
 
     @FXML
-    private ComboBox<String> select_Employee_ComboBox;
-    @FXML
     private TextField time_Text_Field;
     @FXML
     private DatePicker date_Picker;
     @FXML
-    private TableView<MeetingSchedule> TableView;
+    private TableView<MeetingSchedule> tableView;
+//    private TableColumn<MeetingSchedule, String> name_Table_Colm;
     @FXML
-    private TableColumn<MeetingSchedule, String> name_Table_Colm;
-
-    @FXML
-    private TableColumn<MeetingSchedule, String> time_Table_Colm;
+    private TableColumn<MeetingSchedule,String> time_Table_Colm;
     @FXML
     private TableColumn<MeetingSchedule, LocalDate> date_Table_Colm;
+//    private ArrayList<MeetingSchedule> studArr;
+    @FXML
+    private ComboBox<String> dept_ComboBox;
+    @FXML
+    private TableColumn<MeetingSchedule, String> name_TableColm;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        select_Employee_ComboBox.getItems().addAll("All Employee", "HR",
+//        studArr = new ArrayList<MeetingSchedule>();
+
+        dept_ComboBox.getItems().addAll("All Employee", "HR",
                 "Finance", "Supply Chain Manager",
                 "Supply", "Assambly Line Worker");
-        // TODO
     }
 
     @FXML
-    private void notify_Button_On_Click(ActionEvent event) {
-        MeetingSchedule i = new MeetingSchedule(
-                time_Text_Field.getText(),
-                select_Employee_ComboBox.getValue(),
-                date_Picker.getValue());
-        FileOutputStream fos = null;
-        ObjectOutputStream oss = null;
-        File f = null;
-        try {
-            f = new File("Set Schedule.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oss = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oss = new ObjectOutputStream(fos);
-            }
-            oss.writeObject(f);
-
-        } catch (IOException ex) {
-            Logger.getLogger(MeetingSchedule.class
-                    .getName()).log(Level.SEVERE, null, ex);
-
-        } finally {
-            try {
-                if (oss != null) {
-                    oss.close();
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(MeetingSchedule.class
-                        .getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        select_Employee_ComboBox.setValue(null);
-        time_Text_Field.clear();
-        date_Picker.setValue(null);
-
+    private void back_Button_On_Click(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
-
     @FXML
-    private void show_Button_On_Click(ActionEvent event) {
+    private void showButtonOnClick(ActionEvent event) {
+
         ObservableList<MeetingSchedule> scheduleList = FXCollections.observableArrayList();
 
-        name_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, String>("Name"));
-        time_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, String>("Time"));
-        date_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, LocalDate>("Date"));
+        name_TableColm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, String>("name"));
+        time_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule,String>("time"));
+        date_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, LocalDate>("date"));
 
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
         try {
-            f = new File("Set Schedule.bin");
+            f = new File("Schedule.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             MeetingSchedule p;
@@ -139,23 +108,59 @@ public class MD_ScheduleSceneController implements Initializable {
             }
 
         }
-        TableView.setItems(scheduleList);
+        tableView.setItems(scheduleList);
+        System.out.println(scheduleList.toString());
     }
 
     @FXML
-    private void CancelMeeting_Button_On_Click(ActionEvent event) {
+    private void cancelMeetingButtonOnClick(ActionEvent event) {
         ObservableList<MeetingSchedule> a, b;
-        b = TableView.getItems();
-        a = TableView.getSelectionModel().getSelectedItems();
+        b = tableView.getItems();
+        a = tableView.getSelectionModel().getSelectedItems();
         a.forEach(b::remove);
     }
 
     @FXML
-    private void back_Button_On_Click(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("MD_Dashboard_Scene.fxml"));
-        Scene scene1 = new Scene(mainSceneParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    private void notifyButtonOnClick(ActionEvent event) {
+
+        MeetingSchedule i = new MeetingSchedule(
+                
+                dept_ComboBox.getValue(),
+                time_Text_Field.getText(),
+                date_Picker.getValue());
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        File f = null;
+        try {
+            f = new File("Schedule.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(i);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MD_ScheduleSceneController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(MD_ScheduleSceneController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        dept_ComboBox.setValue(null);
+        time_Text_Field.clear();
+        date_Picker.setValue(null);
+        System.out.println(tableView);
     }
 }

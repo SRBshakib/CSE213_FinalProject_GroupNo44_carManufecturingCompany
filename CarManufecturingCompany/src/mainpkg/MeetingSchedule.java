@@ -1,19 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mainpkg;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author DIPAYON
  */
-public class MeetingSchedule {
-    String name;
-    String time;
-    LocalDate date;
+public class MeetingSchedule implements Serializable{
+    public String name;
+    public String time;
+    public LocalDate date;
 
     public MeetingSchedule(String name, String time, LocalDate date) {
         this.name = name;
@@ -47,8 +44,7 @@ public class MeetingSchedule {
 
     @Override
     public String toString() {
-        return "MeetingSchedule{" + "name=" + name + ", time=" + time + ", date=" + date + '}';
+        return "MeetingSchedule{" + "Name=" + name + ", Time=" + time + ", Date=" + date + '}';
     }
-    
     
 }

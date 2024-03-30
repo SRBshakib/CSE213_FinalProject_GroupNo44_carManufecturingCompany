@@ -27,7 +27,12 @@ public class HR_DashboardSceneController implements Initializable {
     }    
 
     @FXML
-    private void noticeMgtButtonOnClick(ActionEvent event) {
+    private void noticeMgtButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_NoticeBoardManagmentScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
@@ -41,27 +46,57 @@ public class HR_DashboardSceneController implements Initializable {
 
 
     @FXML
-    private void leaveRequestButtonOnClick(ActionEvent event) {
+    private void leaveRequestButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_LeaveRequestReadScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void hireAndDismissButtonOnClick(ActionEvent event) {
+    private void hireAndDismissButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_HireAndDismissScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void trainEmployeeButtonOnClick(ActionEvent event) {
+    private void trainEmployeeButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_TrainingToEmployeeScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void createUserButtonOnClick(ActionEvent event) {
+    private void createUserButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_CreateUserScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void jobApplicationButtonOnClick(ActionEvent event) {
+    private void jobApplicationButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_JobApplicationCheckScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void salaryMgtButtonOnClick(ActionEvent event) {
+    private void salaryMgtButtonOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_SalaryManagmentScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML

@@ -4,6 +4,8 @@
  */
 package mainpkg;
 
+import srbshakib.AssemblyLineWorkerDashboardSceneController;
+import srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +27,8 @@ public class TesterController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,7 +57,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void pmDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("ProductionManagerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Production Manager Dashboard");
@@ -73,13 +77,14 @@ public class TesterController implements Initializable {
 
     @FXML
     private void aLineWorkerDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/srbshakib/AssemblyLineWorkerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Assembly Line Worker Dashboard");
         newWindow.setScene(scene1);
         newWindow.show();
-    }
+
+    }    
 
     @FXML
     private void customerDashboardOnClick(ActionEvent event) {
@@ -89,6 +94,7 @@ public class TesterController implements Initializable {
 //        newWindow.setTitle("MD Dashboard");
 //        newWindow.setScene(scene1);
 //        newWindow.show();
+
     }
 
     @FXML
@@ -101,14 +107,17 @@ public class TesterController implements Initializable {
 //        newWindow.show();
     }
 
+
     @FXML
-    private void supplyChainManagerDashboardOnClick(ActionEvent event) {
-//        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
-//        Scene scene1 = new Scene(parent);
-//        Stage newWindow  = new Stage();
-//        newWindow.setTitle("MD Dashboard");
-//        newWindow.setScene(scene1);
-//        newWindow.show();
+    private void supplyChainManagerDashboardOnClick(ActionEvent event) throws IOException {
+
+       Parent parent = FXMLLoader.load(getClass().getResource("/srbshakib/SupplyChainManager/SupplyChainManagerDashboardScene.fxml"));
+       Scene scene1 = new Scene(parent);
+       Stage newWindow  = new Stage();
+       newWindow.setTitle("Supply Chain Manager Dashboard");
+       newWindow.setScene(scene1);
+       newWindow.show();
     }
+  
 
 }
