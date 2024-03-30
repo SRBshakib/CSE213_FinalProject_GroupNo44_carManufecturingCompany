@@ -4,6 +4,7 @@
  */
 package mainpkg;
 
+import Rifat.FinanceManagerDashboardSceneController;
 import srbshakib.AssemblyLineWorkerDashboardSceneController;
 import srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController;
 import java.io.IOException;
@@ -67,7 +68,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void fmDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("FinanceManagerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Finance Manager Dashboard");
