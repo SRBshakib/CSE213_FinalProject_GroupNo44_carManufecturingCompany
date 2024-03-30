@@ -1,38 +1,14 @@
 
 
-/CarManufecturingCompany/nbproject/private/
-/CarManufecturingCompany/build/
-/CarManufecturingCompany/dist/
-
 
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
 
-CarManufecturingCompany/build/built-jar.properties
-=======
-
-/CarManufecturingCompany/nbproject/private/
-/CarManufecturingCompany/build/
-/CarManufecturingCompany/dist/
-=======
 /CarManufecturingCompany/nbproject/private/
 /CarManufecturingCompany/build/
 /CarManufecturingCompany/dist/
 
 *.properties
 *.properties
-*.properties
-
-*.html
-*.jar
-*.jnlp
-*.properties
-*.html
-*.jar
-*.jnlp
-
-*.html
-*.jar
-*.jnlp
-
+/test101/nbproject/private/
