@@ -2,15 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-<<<<<<< HEAD:CarManufecturingCompany/src/Rifat/FinanceManagerDashboardSceneController.java
-package Rifat;
-=======
- Rifat
-package Rifat.FinanceManager;
->>>>>>> cfbe5e0410201758745e399549c3b0ae95f638fc:CarManufecturingCompany/src/Rifat/FinanceManager/FinanceManagerDashboardSceneController.java
 
-package mainpkg;
- main
+package Rifat;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
