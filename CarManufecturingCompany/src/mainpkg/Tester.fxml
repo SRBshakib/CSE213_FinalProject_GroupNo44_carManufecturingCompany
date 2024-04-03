@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
@@ -15,4 +16,5 @@
       <Button layoutX="50.0" layoutY="337.0" mnemonicParsing="false" onAction="#supplyChainManagerDashboardOnClick" text="Supply Chain Manager" />
    </children>
 </AnchorPane>
+
 
