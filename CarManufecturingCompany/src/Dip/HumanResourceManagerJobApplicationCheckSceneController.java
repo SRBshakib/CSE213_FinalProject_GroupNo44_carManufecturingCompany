@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg;
+package Dip;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author DIPAYON
  */
-public class HumanResourceManagerNoticeBoardManagmentSceneController implements Initializable {
+public class HumanResourceManagerJobApplicationCheckSceneController implements Initializable {
 
     /**
      * Initializes the controller class.

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package mainpkg;
+package Dip;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author DIPAYON
  */
-public class HumanResourceManagerJobApplicationCheckSceneController implements Initializable {
+public class HumanResourceManagerCreateUserSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -29,7 +29,7 @@ public class HumanResourceManagerJobApplicationCheckSceneController implements I
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -38,6 +38,6 @@ public class HumanResourceManagerJobApplicationCheckSceneController implements I
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+
     }
-    
 }

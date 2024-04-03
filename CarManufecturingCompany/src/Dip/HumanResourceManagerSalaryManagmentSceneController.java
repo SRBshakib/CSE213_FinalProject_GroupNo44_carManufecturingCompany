@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author DIPAYON
  */
-public class HR_CreateUserSceneController implements Initializable {
+public class HumanResourceManagerSalaryManagmentSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -29,15 +29,15 @@ public class HR_CreateUserSceneController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
+    }    
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("HR_DashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
-
     }
+    
 }
