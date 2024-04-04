@@ -38,7 +38,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void mdDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("ManagingDirectorDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Dip/ManagingDirectorDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("MD Dashboard");
@@ -48,7 +48,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void hrDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("HumanResourceManagerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Dip/HumanResourceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("HR Dashboard");
