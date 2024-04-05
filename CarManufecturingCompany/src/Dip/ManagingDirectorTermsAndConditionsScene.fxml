@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="663.0" prefWidth="820.0" style="-fx-background-color: FLORALWHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainpkg.MD_TermsAndConditionsSceneController">
+<AnchorPane id="AnchorPane" prefHeight="663.0" prefWidth="820.0" style="-fx-background-color: FLORALWHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.ManagingDirectorTermsAndConditionsSceneController">
    <children>
       <Button layoutX="32.0" layoutY="35.0" mnemonicParsing="false" onAction="#returnButtonOnClick" text="&lt;&lt; Return &lt;&lt;" />
       <Label contentDisplay="TOP" layoutX="281.0" layoutY="34.0" text="Terms And Conditions" textAlignment="CENTER">

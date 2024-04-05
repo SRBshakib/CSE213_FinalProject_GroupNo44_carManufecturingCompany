@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="562.0" prefWidth="476.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="mainpkg.MD_TermsAndConditionsReadSceneController">
+<AnchorPane id="AnchorPane" prefHeight="562.0" prefWidth="476.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Dip.ManagingDirectorTermsAndConditionsReadSceneController">
    <children>
       <Label layoutX="169.0" layoutY="38.0" text="Terms And Conditions" />
       <Line endX="243.0" layoutX="223.0" layoutY="83.0" startX="-213.0" />
