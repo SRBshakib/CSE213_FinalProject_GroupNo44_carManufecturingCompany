@@ -198,7 +198,7 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
                     addressTA.getText(),
                     educationTA.getText(),
                     Integer.parseInt(idTF.getText())
-            );
+             );
             FileOutputStream fos = null;
             ObjectOutputStream oos = null;
             File f = null;
