@@ -1,4 +1,4 @@
-package mainpkg;
+package Dip;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -3,31 +3,20 @@ package Dip;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class EmployeeList implements Serializable{
+/**
+ *
+ * @author Dip
+ */
+public class HumanResourceManagerDirectorySceneDummy extends EmployeeList implements Serializable{
 
-    public String name;
-    public String gender;
-    public String designation;
-    public LocalDate dob;
-    public LocalDate doj;
-    public String email;
-    public int phone;
-    public String address;
-    public String education;
-    public int id;
-
-    public EmployeeList(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
-        this.name = name;
-        this.gender = gender;
-        this.designation = designation;
-        this.dob = dob;
-        this.doj = doj;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.education = education;
-        this.id = id;
+    public HumanResourceManagerDirectorySceneDummy(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
+        super(name, gender, designation, dob, doj, email, phone, address, education, id);
     }
+//    private String name;
+//    private int id;
+//    private String gender;
+//    private String designation;
+//    private String phone;
 
     public String getName() {
         return name;
@@ -111,9 +100,15 @@ public class EmployeeList implements Serializable{
 
     @Override
     public String toString() {
-        return "EmployeeList{" + "name=" + name + ", gender=" + gender + ", designation=" + designation + ", dob=" + dob + ", doj=" + doj + ", email=" + email + ", phone=" + phone + ", address=" + address + ", education=" + education + ", id=" + id + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("HumanResourceManagerDirectorySceneDummy{");
+        sb.append('}');
+        return sb.toString();
     }
-    
-    
 
+  
+    
+    
+    
+    
 }
