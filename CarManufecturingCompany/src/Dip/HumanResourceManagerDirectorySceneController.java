@@ -167,7 +167,7 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
         }
        
     
-
+ 
     @FXML
     private void viewDetailsOnClick(ActionEvent event) {
     }
@@ -175,7 +175,7 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
     @FXML
     private void addButtonOnMouseClick(ActionEvent event) {
         String gender = "";
-        if (maleRBtn.isSelected()) {
+        if (maleRBtn.isSelected()) { 
             gender = "Male";
         } else if (femaleRBtn.isSelected()) {
             gender = "Female";
