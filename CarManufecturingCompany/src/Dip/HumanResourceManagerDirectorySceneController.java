@@ -32,8 +32,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import mainpkg.AppendableObjectOutputStream;
-import mainpkg.MeetingSchedule;
 
 /**
  * FXML Controller class
