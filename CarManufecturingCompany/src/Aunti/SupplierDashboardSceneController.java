@@ -27,6 +27,7 @@ public class SupplierDashboardSceneController implements Initializable {
 
     @FXML
     private void homeButtonOnMouseClicked(ActionEvent event) {
+       
     }
 
     @FXML
