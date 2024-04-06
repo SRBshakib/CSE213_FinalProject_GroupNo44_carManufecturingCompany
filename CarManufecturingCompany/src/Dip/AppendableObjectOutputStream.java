@@ -1,4 +1,4 @@
-package mainpkg;
+package Dip;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
