@@ -137,6 +137,7 @@ public class FlagAReportSecneController implements Initializable {
     }
     @FXML
     private void flagReportSubmitButtonOnMouseClicked(ActionEvent event) {
+        
     }
 
     

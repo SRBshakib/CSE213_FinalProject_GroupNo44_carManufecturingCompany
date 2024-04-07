@@ -79,27 +79,29 @@
       </AnchorPane>
       <AnchorPane fx:id="askLeaveFromDatePIcker" layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <ComboBox fx:id="askLeaveHowManyWorkingDaysComboBox" layoutX="34.0" layoutY="37.0" prefHeight="25.0" prefWidth="212.0" promptText="For how many working days?" />
+            <ComboBox fx:id="askLeaveHowManyWorkingDaysComboBox" layoutX="34.0" layoutY="37.0" onAction="#howManyWorkingDaysOnMouseClicked" prefHeight="25.0" prefWidth="212.0" promptText="For how many working days?" />
             <Label layoutX="312.0" layoutY="41.0" text="For: " />
-            <DatePicker fx:id="askLeaveForDatePIcker" layoutX="352.0" layoutY="37.0" />
+            <DatePicker fx:id="askLeaveForSingleDatePIcker" layoutX="352.0" layoutY="37.0" />
             <Label layoutX="34.0" layoutY="91.0" text="From: " />
-            <DatePicker layoutX="79.0" layoutY="87.0" />
+            <DatePicker fx:id="askLeaveForDatePIcker" layoutX="79.0" layoutY="87.0" />
             <Label layoutX="317.0" layoutY="91.0" text="To" />
             <DatePicker fx:id="askLeaveToDatePIcker" layoutX="362.0" layoutY="87.0" />
             <Label layoutX="34.0" layoutY="188.0" text="Comment" />
             <TextArea fx:id="askLeaveTextArea" layoutX="95.0" layoutY="188.0" prefHeight="132.0" prefWidth="534.0" />
-            <TableView fx:id="pastLeaveInformationTableView" layoutX="14.0" layoutY="384.0" prefHeight="200.0" prefWidth="622.0">
+            <TableView fx:id="pastLeaveInformationTableView" layoutX="1.0" layoutY="384.0" prefHeight="200.0" prefWidth="647.0">
               <columns>
-                <TableColumn fx:id="daysTableColumn" prefWidth="75.0" text="Days" />
-                <TableColumn fx:id="fromTableColumn" prefWidth="115.0" text="From" />
-                  <TableColumn fx:id="toTableColumn" prefWidth="120.0" text="To" />
-                  <TableColumn fx:id="reasonTableColumn" prefWidth="111.0" text="Reason" />
-                  <TableColumn fx:id="commentTableColumn" prefWidth="200.0" text="Comment" />
+                <TableColumn fx:id="daysTableColumn" prefWidth="58.0" text="Days" />
+                  <TableColumn fx:id="forTableColumn" prefWidth="93.0" text="For" />
+                <TableColumn fx:id="fromTableColumn" prefWidth="83.0" text="From" />
+                  <TableColumn fx:id="toTableColumn" prefWidth="81.0" text="To" />
+                  <TableColumn fx:id="reasonTableColumn" prefWidth="99.0" text="Reason" />
+                  <TableColumn fx:id="commentTableColumn" prefWidth="169.0" text="Comment" />
+                  <TableColumn fx:id="pastLeaveInformationStatusTableColumn" prefWidth="60.0" text="Satatus" />
               </columns>
             </TableView>
             <Button layoutX="298.0" layoutY="337.0" mnemonicParsing="false" onAction="#askLeaveSubmitButtonOnMouseClicked" text="Submit" />
             <ComboBox fx:id="askLeaveReasonComboBox" layoutX="206.0" layoutY="131.0" prefHeight="25.0" prefWidth="212.0" promptText="Reason" />
-            <Label layoutX="19.0" layoutY="367.0" text="Past Leave Information" />
+            <Button layoutX="11.0" layoutY="350.0" mnemonicParsing="false" onAction="#showPastLeaveInformationOnMouseClicked" text="Show Past Leave Information" />
          </children>
       </AnchorPane>
    </children>
