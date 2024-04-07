@@ -4,7 +4,10 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.FlagAReportSecneController">
@@ -71,13 +74,26 @@
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <Label fx:id="flagReportWorkerNameLabel" layoutX="30.0" layoutY="54.0" text="worker name" />
-            <Label fx:id="flagReportWorkarIdLabel" layoutX="131.0" layoutY="54.0" text="worker id" />
-            <Label fx:id="flagReportAssigendCarModelNoLabel" layoutX="229.0" layoutY="54.0" text="assembling car model no" />
+            <Label layoutX="124.0" layoutY="29.0" text="ID:" />
+            <Label layoutX="253.0" layoutY="29.0" text="Assembling Car Model No:" />
             <Label layoutX="37.0" layoutY="137.0" text="comments" />
-            <ComboBox fx:id="flagReportProblemTypeComboBox" layoutX="417.0" layoutY="50.0" prefWidth="150.0" promptText="problem type" />
-            <TextArea fx:id="flagReportTextArea" layoutX="131.0" layoutY="145.0" prefHeight="200.0" prefWidth="490.0" />
-            <Button layoutX="270.0" layoutY="405.0" mnemonicParsing="false" onAction="#flagReportSubmitButtonOnMouseClicked" text="Submit" />
+            <ComboBox fx:id="flagReportProblemTypeComboBox" layoutX="343.0" layoutY="63.0" prefWidth="150.0" promptText="problem type" />
+            <TextArea fx:id="flagReportTextArea" layoutX="131.0" layoutY="145.0" prefHeight="74.0" prefWidth="490.0" />
+            <Button layoutX="297.0" layoutY="229.0" mnemonicParsing="false" onAction="#flagReportSubmitButtonOnMouseClicked" text="Submit" />
+            <TextField fx:id="flagReportWorkarIdTextField" layoutX="145.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
+            <TextField fx:id="flagReportAssigendCarModelNoTextField" layoutX="406.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
+            <ComboBox fx:id="flagReportCarTypeComboBox" layoutX="131.0" layoutY="63.0" prefWidth="150.0" promptText="Car Type" />
+            <TableView fx:id="flagReportTableView" layoutX="8.0" layoutY="370.0" prefHeight="213.0" prefWidth="628.0">
+              <columns>
+                <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="carModelNoTableColumn" prefWidth="89.0" text="Car Model No" />
+                  <TableColumn fx:id="carTypeTableColumn" prefWidth="89.0" text="Car Type" />
+                  <TableColumn fx:id="problemTypeTableColumn" prefWidth="89.0" text="Problem Type" />
+                  <TableColumn fx:id="commentsTableColumn" prefWidth="210.0" text="Comments" />
+                  <TableColumn fx:id="statusTableColumn" prefWidth="75.0" text="Status" />
+              </columns>
+            </TableView>
+            <Button layoutX="11.0" layoutY="333.0" mnemonicParsing="false" onAction="#loadReportsOnMouseClicked" text="Load Reports" />
          </children>
       </AnchorPane>
    </children>
