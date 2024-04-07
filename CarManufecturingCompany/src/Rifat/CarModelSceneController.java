@@ -4,40 +4,65 @@
  */
 package Rifat;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
 public class CarModelSceneController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private ComboBox<String> carModelSelectCarTypeComboBox;
+    
+    @FXML
+    private ComboBox<String> carModelComboBox;
+    
+    @FXML
+    private ImageView carModelImageview;
+    
+    @FXML
+    private Label carModelFeaturesLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Initialize car type ComboBox
+        carModelSelectCarTypeComboBox.getItems().addAll("Toyota Camry", "Toyota SUV");
+        carModelSelectCarTypeComboBox.setPromptText("Car Type");
+        
+        // Set prompt text for car model ComboBox
+        carModelComboBox.setPromptText("Car Model");
     }    
 
     @FXML
-    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    private void carTypeSelectOnAction(ActionEvent event) {
+        String selectedCarType = carModelSelectCarTypeComboBox.getValue();
+        if (selectedCarType != null) {
+            // Implement logic based on the selected car type
+            System.out.println("Selected car type: " + selectedCarType);
+            
+            // Clear existing items in car model ComboBox
+            carModelComboBox.getItems().clear();
+            
+            // Populate car model ComboBox based on the selected car type
+            if (selectedCarType.equals("Toyota Camry")) {
+                carModelComboBox.getItems().addAll("Camry XLE", "Camry SE", "Camry LE", "Camry XSE");
+            } else if (selectedCarType.equals("Toyota SUV")) {
+                carModelComboBox.getItems().addAll("RAV4", "4Runner", "Sequoia", "Highlander");
+            }
+        }
     }
-    
+
+    @FXML
+    private void carModelSelectOnAction(ActionEvent event) {
+        String selectedModel = carModelComboBox.getValue();
+        if (selectedModel != null) {
+            // Implement logic based on the selected car model
+            System.out.println("Selected car model: " + selectedModel);
+        }
+    }
 }
+
