@@ -1,18 +1,21 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Dip;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class HumanResourceManagerDirectorySceneDummy extends EmployeeList implements Serializable{
-
-    public HumanResourceManagerDirectorySceneDummy(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
+/**
+ *
+ * @author DIPAYON
+ */
+public class HumanResourceManagerDirectorySceneDummy2 extends WorkerList implements Serializable{
+   
+    public HumanResourceManagerDirectorySceneDummy2(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
         super(name, gender, designation, dob, doj, email, phone, address, education, id);
     }
-//    private String name;
-//    private int id;
-//    private String gender;
-//    private String designation;
-//    private String phone;
 
     public String getName() {
         return name;
@@ -96,15 +99,8 @@ public class HumanResourceManagerDirectorySceneDummy extends EmployeeList implem
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("HumanResourceManagerDirectorySceneDummy{");
-        sb.append('}');
-        return sb.toString();
+        return "HumanResourceManagerDirectorySceneDummy2{" + '}';
     }
+   
 
-  
-    
-    
-    
-    
 }

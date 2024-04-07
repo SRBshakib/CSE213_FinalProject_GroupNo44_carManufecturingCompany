@@ -1,18 +1,40 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Dip;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class HumanResourceManagerDirectorySceneDummy extends EmployeeList implements Serializable{
+/**
+ *
+ * @author DIPAYON
+ */
+public class WorkerList implements Serializable{
+    public String name;
+    public String gender;
+    public String designation;
+    public LocalDate dob;
+    public LocalDate doj;
+    public String email;
+    public int phone;
+    public String address;
+    public String education;
+    public int id;
 
-    public HumanResourceManagerDirectorySceneDummy(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
-        super(name, gender, designation, dob, doj, email, phone, address, education, id);
+    public WorkerList(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
+        this.name = name;
+        this.gender = gender;
+        this.designation = designation;
+        this.dob = dob;
+        this.doj = doj;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.education = education;
+        this.id = id;
     }
-//    private String name;
-//    private int id;
-//    private String gender;
-//    private String designation;
-//    private String phone;
 
     public String getName() {
         return name;
@@ -96,15 +118,9 @@ public class HumanResourceManagerDirectorySceneDummy extends EmployeeList implem
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("HumanResourceManagerDirectorySceneDummy{");
-        sb.append('}');
-        return sb.toString();
+        return "WorkerList{" + "name=" + name + ", gender=" + gender + ", designation=" + designation + ", dob=" + dob + ", doj=" + doj + ", email=" + email + ", phone=" + phone + ", address=" + address + ", education=" + education + ", id=" + id + '}';
     }
 
-  
-    
-    
-    
+
     
 }

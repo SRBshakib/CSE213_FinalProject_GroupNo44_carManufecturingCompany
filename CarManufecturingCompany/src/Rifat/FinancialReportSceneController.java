@@ -14,7 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.TextArea;
+=======
+
 import javafx.stage.Stage;
 
 /**
@@ -33,6 +36,8 @@ public class FinancialReportSceneController implements Initializable {
     @FXML
     private TextArea recommendationsTextArea;
 
+
+
     /**
      * Initializes the controller class.
      */
@@ -40,6 +45,9 @@ public class FinancialReportSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+
+    @FXML
 
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));

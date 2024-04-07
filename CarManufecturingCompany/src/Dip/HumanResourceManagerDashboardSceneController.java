@@ -28,7 +28,7 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
 
     @FXML
     private void noticeMgtButtonOnClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerNoticeBoardManagmentScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Dip/HumanResourceManagerNoticeBoardManagmentScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
