@@ -42,15 +42,15 @@ import javafx.stage.Stage;
 public class HumanResourceManagerDirectorySceneController implements Initializable {
    
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy, String> nameTC;
+    private TableColumn<EmployeeList, String> nameTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy, Integer> idTC;
+    private TableColumn<EmployeeList, Integer> idTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy, String> genderTC;
+    private TableColumn<EmployeeList, String> genderTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy, String> designationTC;
+    private TableColumn<EmployeeList, String> designationTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy, Integer> phoneTC;
+    private TableColumn<EmployeeList, Integer> phoneTC;
     @FXML
     private RadioButton maleRBtn;
     @FXML
@@ -87,15 +87,15 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
     @FXML
     private TableView<WorkerList> wrkTV;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy2, String> nameWrkTC;
+    private TableColumn<WorkerList, String> nameWrkTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy2, Integer> idWrkTC;
+    private TableColumn<WorkerList, Integer> idWrkTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy2, String> genderWrkTC;
+    private TableColumn<WorkerList, String> genderWrkTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy2, String> designationWrkTC;
+    private TableColumn<WorkerList, String> designationWrkTC;
     @FXML
-    private TableColumn<HumanResourceManagerDirectorySceneDummy2, Integer> phoneWrkTC;
+    private TableColumn<WorkerList, Integer> phoneWrkTC;
 
     /**
      * Initializes the controller class.
@@ -129,11 +129,11 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
 
             ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
 
-            nameTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy, String>("name"));
-            idTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy, Integer>("id"));
-            genderTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy, String>("gender"));
-            designationTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy, String>("designation"));
-            phoneTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy, Integer>("phone"));
+            nameTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("name"));
+            idTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("id"));
+            genderTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("gender"));
+            designationTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("designation"));
+            phoneTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("phone"));
 
             File f = null;
             FileInputStream fis = null;
@@ -305,11 +305,11 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
     private void loadButtonOnClickWorker(ActionEvent event) {
             ObservableList<WorkerList> workerArr = FXCollections.observableArrayList();
 
-            nameWrkTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy2, String>("name"));
-            idWrkTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy2, Integer>("id"));
-            genderWrkTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy2, String>("gender"));
-            designationWrkTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy2, String>("designation"));
-            phoneWrkTC.setCellValueFactory(new PropertyValueFactory<HumanResourceManagerDirectorySceneDummy2, Integer>("phone"));
+            nameWrkTC.setCellValueFactory(new PropertyValueFactory<WorkerList, String>("name"));
+            idWrkTC.setCellValueFactory(new PropertyValueFactory<WorkerList, Integer>("id"));
+            genderWrkTC.setCellValueFactory(new PropertyValueFactory<WorkerList, String>("gender"));
+            designationWrkTC.setCellValueFactory(new PropertyValueFactory<WorkerList, String>("designation"));
+            phoneWrkTC.setCellValueFactory(new PropertyValueFactory<WorkerList, Integer>("phone"));
 
             File f = null;
             FileInputStream fis = null;
