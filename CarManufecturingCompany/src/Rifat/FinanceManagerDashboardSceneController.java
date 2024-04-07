@@ -34,7 +34,11 @@ public class FinanceManagerDashboardSceneController implements Initializable {
     }    
 
     @FXML
-    private void paymentButtonOnClicked(ActionEvent event) throws IOException {
+    private void homeButtonOnMuseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void paymentButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("PaymentScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -43,25 +47,7 @@ public class FinanceManagerDashboardSceneController implements Initializable {
     }
 
     @FXML
-    private void budgetButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("BudgetScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
-    }
-
-    @FXML
-    private void auditButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("AuditScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
-    }
-
-    @FXML
-    private void transactionButtonOnClicked(ActionEvent event) throws IOException {
+    private void transactionButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("TransactionScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -70,7 +56,16 @@ public class FinanceManagerDashboardSceneController implements Initializable {
     }
 
     @FXML
-    private void financialReportButtonOnClicked(ActionEvent event) throws IOException {
+    private void budgetButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("BudgetScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void financialReportButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("FinancialReportScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -79,8 +74,8 @@ public class FinanceManagerDashboardSceneController implements Initializable {
     }
 
     @FXML
-    private void dealerInfoButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("DealerInfoScene.fxml"));
+    private void salaryDistrubutionButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("SalaryDistributionScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -88,8 +83,8 @@ public class FinanceManagerDashboardSceneController implements Initializable {
     }
 
     @FXML
-    private void salaryDistributionButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("SalaryDistributionScene.fxml"));
+    private void dealerInfoButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("DealerInfoScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
