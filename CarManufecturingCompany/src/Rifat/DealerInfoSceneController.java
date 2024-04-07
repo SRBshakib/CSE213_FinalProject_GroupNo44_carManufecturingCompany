@@ -14,7 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.TextField;
+
 import javafx.stage.Stage;
 
 /**
@@ -31,15 +33,18 @@ public class DealerInfoSceneController implements Initializable {
     @FXML
     private TextField dealerLocationTextField;
 
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         // Set prompt text for the text fields
     dealerNameTextField.setPromptText("Enter dealer name");
     contactNumberTextField.setPromptText("Enter contact number");
     dealerLocationTextField.setPromptText("Enter dealer location");
+
         // TODO
     }    
 
@@ -51,6 +56,7 @@ public class DealerInfoSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
 
     @FXML
 private void saveButtonOnMouseClick(ActionEvent event) {
@@ -82,4 +88,5 @@ private boolean saveDealerInfoToDatabase(String dealerName, String contactNumber
     // Replace this example implementation with your actual database logic
     return true; // For demonstration purposes, always return true
    }
+
 }
