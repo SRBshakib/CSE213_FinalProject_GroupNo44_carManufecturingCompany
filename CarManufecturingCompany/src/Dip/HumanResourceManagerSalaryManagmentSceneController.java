@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package Dip;
 
 import java.io.IOException;
@@ -14,6 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -22,6 +21,19 @@ import javafx.stage.Stage;
  * @author DIPAYON
  */
 public class HumanResourceManagerSalaryManagmentSceneController implements Initializable {
+
+    @FXML
+    private TableView<?> salaryTV;
+    @FXML
+    private TableColumn<?, ?> nameTC;
+    @FXML
+    private TableColumn<?, ?> idTC;
+    @FXML
+    private TableColumn<?, ?> dOJTC;
+    @FXML
+    private TableColumn<?, ?> amountTC;
+    @FXML
+    private TextField amountTF;
 
     /**
      * Initializes the controller class.
@@ -38,6 +50,18 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void saveButtonOnMouseClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void saveToBinButtonOnMouseClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void showButtonOnMouseClick(ActionEvent event) {
     }
     
 }
