@@ -25,7 +25,7 @@ public class CarModelSceneController implements Initializable {
     private ImageView carModelImageview;
     
     @FXML
-    private Label carModelFeaturesLabel;
+    private Label carModelFeaturesLabe;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
