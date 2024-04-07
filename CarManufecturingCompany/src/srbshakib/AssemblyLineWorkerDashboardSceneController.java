@@ -87,6 +87,9 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
         window.setScene(scene1);
         window.setTitle("Ask Leave");
         window.show();
+        
+        
+      
     }
 
     @FXML
