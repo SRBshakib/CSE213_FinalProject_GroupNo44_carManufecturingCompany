@@ -90,5 +90,15 @@ public class FinanceManagerDashboardSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
+    @FXML
+    private void auditButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("AuditScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+        
+    }
     
 }
