@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Aunti.OrderListSceneController">
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Aunti.UpcomingEventSceneController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
@@ -21,7 +21,9 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#orderListButtonOnMouseClicked" text="Order List" />
+
+                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#myCarButtonOnMouseClicked" text="My Car" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -30,12 +32,16 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#ordersButtonOnMouseClicked" text="Orders" />
+
+                        <Button layoutX="19.0" layoutY="13.0" mnemonicParsing="false" onAction="#countryDealerButtonOnMouseClicked" text="Country Dealer" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#inventoryListButtonOnMouseClicked" text="Inventory List" />
+
+                        <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#updateButtonOnMouseClicked" text="Update" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -44,12 +50,16 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#dueBillsButtonOnMouseClicked" text="Due Bills" />
+
+                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#orderButtonOnMouseClicked" text="Order" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackOrdersButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Track Orders" />
+
+                        <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#orderHistoryButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Order History" />
+
                      </children>
                   </AnchorPane>
                </items>
@@ -58,12 +68,15 @@
                <items>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#paymentsButtonOnMouseClicked" text="Payments" />
+
+                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#viewCarsButtonOnMouseClicked" text="View Cars" />
+
                      </children>
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="49.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#reviewButtonOnMouseClicked" text="Review" />
+
+                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#preOrderButtonOnMouseClicked" text="Pre Order" />
                      </children>
                   </AnchorPane>
                </items>
@@ -80,7 +93,9 @@
                                        <children>
                                         <AnchorPane layoutX="2.0" layoutY="14.0" minHeight="0.0" minWidth="0.0" prefHeight="56.0" prefWidth="160.0">
                                              <children>
+
                                                 <Button layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#upcomingEventsButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Upcoming Events" />
+
                                              </children>
                                           </AnchorPane>
                                        </children>
@@ -97,15 +112,17 @@
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <TableView fx:id="orderListTableView" layoutX="14.0" layoutY="131.0" prefHeight="200.0" prefWidth="619.0">
+            <Label layoutX="174.0" layoutY="187.0" prefHeight="17.0" prefWidth="239.0" />
+            <TableView fx:id="carDetailsTableView" layoutX="31.0" layoutY="174.0" prefHeight="200.0" prefWidth="576.0">
               <columns>
-                <TableColumn prefWidth="106.0" text="Order Id" />
-                <TableColumn prefWidth="121.0" text="Product Type" />
-                  <TableColumn prefWidth="150.0" text="Product Quantity" />
-                  <TableColumn prefWidth="241.0" text="Estimated Delivery Time" />
+                <TableColumn fx:id="carModelTableColumn" prefWidth="117.0" text="Car Model" />
+                <TableColumn fx:id="keyFeaturesTableColumn" prefWidth="177.0" text="Key Features" />
+                  <TableColumn fx:id="yearOfLaunchingTableColumn" prefWidth="281.0" text="Year Of Launching" />
+                  <TableColumn fx:id="dealerTableColumn" minWidth="0.0" prefWidth="0.0" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="76.0" prefHeight="21.0" prefWidth="84.0" text="Order List" />
+            <Label layoutX="51.0" layoutY="102.0" prefHeight="21.0" prefWidth="103.0" text="Car Details" />
          </children>
       </AnchorPane>
    </children>
