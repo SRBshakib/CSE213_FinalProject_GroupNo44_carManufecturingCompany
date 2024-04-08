@@ -9,44 +9,45 @@ package Rifat;
  * @author Lenovo
  */
 public class CarModel {
-    private String Model;
-    private String manufacturer;
-    private double price;
+    private String carType;
+    private String modelName;
+    private String features;
 
-    public CarModel(String Model, String manufacturer, double price) {
-        this.Model = Model;
-        this.manufacturer = manufacturer;
-        this.price = price;
+    public CarModel(String carType, String modelName, String features) {
+        this.carType = carType;
+        this.modelName = modelName;
+        this.features = features;
     }
 
-    public String getModel() {
-        return Model;
+    public String getCarType() {
+        return carType;
     }
 
-    public void setModel(String Model) {
-        this.Model = Model;
+    public void setCarType(String carType) {
+        this.carType = carType;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    public String getModelName() {
+        return modelName;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
-    public double getPrice() {
-        return price;
+    public String getFeatures() {
+        return features;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setFeatures(String features) {
+        this.features = features;
     }
 
     @Override
     public String toString() {
-        return "CarModel{" + "Model=" + Model + ", manufacturer=" + manufacturer + ", price=" + price + '}';
+        return "CarModel{" + "carType=" + carType + ", modelName=" + modelName + ", features=" + features + '}';
     }
+    
     
     
 }
