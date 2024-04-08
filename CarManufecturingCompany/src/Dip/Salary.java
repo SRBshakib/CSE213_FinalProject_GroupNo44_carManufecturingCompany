@@ -4,101 +4,62 @@
  */
 package Dip;
 
-import java.time.LocalDate;
+import java.io.Serializable;
 
 /**
  *
  * @author DIPAYON
  */
-public class Salary extends EmployeeList{
-    
-    public Salary(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
-        super(name, gender, designation, dob, doj, email, phone, address, education, id);
+public class Salary implements Serializable{
+
+    private String empName;
+    private int empId;
+    private String empDoj;
+    private Float empSalary;
+
+    public Salary(String empName, int empId, String empDoj, Float empSalary) {
+        this.empName = empName;
+        this.empId = empId;
+        this.empDoj = empDoj;
+        this.empSalary = empSalary;
     }
 
-    public String getName() {
-        return name;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 
-    public String getGender() {
-        return gender;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
-    public String getDesignation() {
-        return designation;
+    public String getEmpDoj() {
+        return empDoj;
     }
 
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setEmpDoj(String empDoj) {
+        this.empDoj = empDoj;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public Float getEmpSalary() {
+        return empSalary;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
-
-    public LocalDate getDoj() {
-        return doj;
-    }
-
-    public void setDoj(LocalDate doj) {
-        this.doj = doj;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setEmpSalary(Float empSalary) {
+        this.empSalary = empSalary;
     }
 
     @Override
     public String toString() {
-        return "Salary{" + '}';
+        return "Salary{" + "empName=" + empName + ", empId=" + empId + ", empDoj=" + empDoj + ", empSalary=" + empSalary + '}';
     }
+
     
 }
