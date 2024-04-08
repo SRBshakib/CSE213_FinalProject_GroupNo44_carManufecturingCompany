@@ -67,16 +67,11 @@
                   </AnchorPane>
                </items>
             </SplitPane>
-            <AnchorPane layoutX="20.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="160.0" style="-fx-border-color: silver;">
-               <children>
-                  <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewCarsButtonOnMuseClicked" text="View Cars" />
-               </children>
-            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <TableView fx:id="pastTraingInformationTableView" layoutX="14.0" layoutY="283.0" prefHeight="255.0" prefWidth="626.0">
+            <TableView layoutX="14.0" layoutY="283.0" prefHeight="255.0" prefWidth="626.0">
               <columns>
                   <TableColumn fx:id="pastTrainigInformationStartingDateTableColumn" prefWidth="121.0" text="Starting Date" />
                   <TableColumn fx:id="pastTrainigInformationEndingDateTableColumn" prefWidth="110.0" text="Ending Date" />
@@ -87,7 +82,7 @@
             </TableView>
             <Label layoutX="14.0" layoutY="266.0" text="Past Traing Information" />
             <Label fx:id="noTrainingForYoulLabel" layoutX="275.0" layoutY="14.0" text="No Training for you" />
-            <TableView fx:id="currentTraingInformationTableView" layoutX="14.0" layoutY="57.0" prefHeight="200.0" prefWidth="626.0">
+            <TableView layoutX="14.0" layoutY="57.0" prefHeight="200.0" prefWidth="626.0">
               <columns>
                 <TableColumn fx:id="trainigStartingDateTableColumn" prefWidth="121.0" text="Starting Date" />
                 <TableColumn fx:id="trainigEndingDateTableColumn" prefWidth="110.0" text="Ending Date" />
