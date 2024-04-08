@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Dip.HumanResourceManagerSalaryManagmentSceneController">
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerSalaryManagmentSceneController">
    <children>
       <Button layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
+      <Line endX="448.0" layoutX="101.0" layoutY="69.0" startX="-100.0" />
+      <TableView fx:id="salaryTV" layoutX="24.0" layoutY="90.0" prefHeight="269.0" prefWidth="506.0">
+        <columns>
+          <TableColumn fx:id="nameTC" prefWidth="144.0" text="Name" />
+          <TableColumn fx:id="idTC" prefWidth="107.0" text="ID" />
+            <TableColumn fx:id="dOJTC" prefWidth="126.0" text="Joining Date" />
+            <TableColumn fx:id="amountTC" prefWidth="126.0" text="Amount" />
+        </columns>
+      </TableView>
+      <TextField fx:id="amountTF" layoutX="116.0" layoutY="380.0" prefHeight="25.0" prefWidth="198.0" />
+      <Button layoutX="328.0" layoutY="379.0" mnemonicParsing="false" onAction="#saveButtonOnMouseClick" text="Save" />
+      <Label layoutX="24.0" layoutY="384.0" text="Enter Amount:" />
+      <Button layoutX="446.0" layoutY="379.0" mnemonicParsing="false" onAction="#saveToBinButtonOnMouseClick" text="Save to BIN" />
+      <Button layoutX="385.0" layoutY="379.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
+      <Button layoutX="47.0" layoutY="426.0" mnemonicParsing="false" onAction="#loadButtonOnClick" text="Load" />
    </children>
 </AnchorPane>
