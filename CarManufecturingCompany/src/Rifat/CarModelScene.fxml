@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.CarModelSceneController">
+   <children>
+      <ComboBox fx:id="carModelSelectCarTypeComboBox" layoutX="62.0" layoutY="75.0" onAction="#carTypeSelectOnAction" prefWidth="150.0" promptText="Car Type" />
+      <ComboBox fx:id="carModelComboBox" layoutX="300.0" layoutY="75.0" onAction="#carModelSelectOnAction" prefWidth="150.0" promptText="Car Model" />
+      <ImageView fx:id="carModelImageview" fitHeight="150.0" fitWidth="200.0" layoutX="167.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="carModelFeaturesLabe" layoutX="148.0" layoutY="364.0" prefHeight="114.0" prefWidth="273.0" text="Features:" />
+      <Label layoutX="192.0" layoutY="24.0" text="Car Model Information" />
+   </children>
+</AnchorPane>
