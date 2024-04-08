@@ -37,23 +37,51 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
+        window.setTitle("Assigned Task");
+        window.show();
+    }
+
+
+//    private void inventoryButtonOnMuseClicked(ActionEvent event) throws IOException {
+//        Parent mainParent = FXMLLoader.load(getClass().getResource("MakeInventoryScene.fxml"));
+//        Scene scene1 = new Scene(mainParent);
+//        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        window.setScene(scene1);
+//        window.setTitle("Update Inventory");
+//        window.show();
+//    }
+   
+
+    @FXML
+    private void trackLogisticsButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("TrackLogisticsScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Track Logistics");
         window.show();
     }
 
     @FXML
-    private void trackLogisticsButtonOnMuseClicked(ActionEvent event) {
+    private void orderButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("SupplierOrderScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Order");
+        window.show();
     }
 
-    @FXML
-    private void orderButtonOnMuseClicked(ActionEvent event) {
-    }
+   
 
     @FXML
-    private void distribruteButtonOnMuseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void orderHistoryButtonOnMuseClicked(ActionEvent event) {
+    private void orderHistoryButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("OrderHistoryScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Order History");
+        window.show();
     }
 
     @FXML
@@ -62,19 +90,49 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
+        window.setTitle("Update Inventory");
         window.show();
     }
 
     @FXML
-    private void customerOrderButtonOnMuseClicked(ActionEvent event) {
+    private void customerOrderButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("CustomerOrderSecne.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Customer Order");
+        window.show();
     }
 
     @FXML
-    private void supplierListButtonOnMuseClicked(ActionEvent event) {
+    private void supplierListButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("MakeSupplierListScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Supplier List");
+        window.show();
     }
 
     @FXML
-    private void supplyHistoryButtonOnMuseClicked(ActionEvent event) {
+    private void supplyHistoryButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("SupplyHistoryScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Supply History");
+        window.show();
     }
-    
+
+    @FXML
+    private void distribruteButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Distribute");
+        window.show();
+    }
+
+
 }
