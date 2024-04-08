@@ -74,7 +74,7 @@
             </SplitPane>
             <AnchorPane layoutX="20.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="160.0" style="-fx-border-color: silver;">
                <children>
-                  <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#checkScheduleButtonOnMuseClicked" text="View Cars" />
+                  <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewCarsButtonOnMuseClicked" text="View Cars" />
                </children>
             </AnchorPane>
          </children>

@@ -1,4 +1,5 @@
 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
@@ -29,6 +30,8 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -37,15 +40,23 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
 
     @FXML
     private void homeButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
+    Scene scene1 = new Scene(mainParent);
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.setScene(scene1);
+    window.setTitle("Assembly Line Worker Dashboard");
+    window.show();
+        
     }
 
     @FXML
-    private void assignedTaskButtonOnMuseClicked(ActionEvent event) {
+    private void assignedTaskButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("AssignedTaskSecne.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Assigned Task");
+        window.show();
     }
 
     @FXML
@@ -54,29 +65,74 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
+        window.setTitle("Inventory");
         window.show();
     }
 
     @FXML
-    private void instructionsButtonOnMuseClicked(ActionEvent event) {
+    private void instructionsButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblingInsturctionScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Instructions");
+        window.show();
     }
 
     @FXML
-    private void leaveApplicationButtonOnMuseClicked(ActionEvent event) {
+    private void leaveApplicationButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("AskLeaveScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Ask Leave");
+        window.show();
+        
+        
+      
     }
 
     @FXML
-    private void traingButtonOnMuseClicked(ActionEvent event) {
+    private void traingButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("CheckTrainingScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Training");
+        window.show();
     }
 
     @FXML
-    private void flagReportButtonOnMuseClicked(ActionEvent event) {
+    private void flagReportButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("FlagAReportSecne.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Flag Report");
+        window.show();
     }
 
     @FXML
-    private void checkScheduleButtonOnMuseClicked(ActionEvent event) {
+    private void checkScheduleButtonOnMuseClicked(ActionEvent event) throws IOException {
+       Parent mainParent = FXMLLoader.load(getClass().getResource("CheckScheduleScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Schedule");
+        window.show();
     }
 
-}
+    @FXML
+    private void viewCarsButtonOnMouseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ViewCarsScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Cars");
+        window.show();
+    }
+
+
     
+}
 
