@@ -25,5 +25,6 @@
       <Label layoutX="24.0" layoutY="384.0" text="Enter Amount:" />
       <Button layoutX="446.0" layoutY="379.0" mnemonicParsing="false" onAction="#saveToBinButtonOnMouseClick" text="Save to BIN" />
       <Button layoutX="385.0" layoutY="379.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
+      <Button layoutX="47.0" layoutY="426.0" mnemonicParsing="false" onAction="#loadButtonOnClick" text="Load" />
    </children>
 </AnchorPane>

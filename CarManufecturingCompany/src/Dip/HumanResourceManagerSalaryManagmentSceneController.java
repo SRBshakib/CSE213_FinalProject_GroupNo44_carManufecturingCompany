@@ -2,7 +2,9 @@ package Dip;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,15 +25,15 @@ import javafx.stage.Stage;
 public class HumanResourceManagerSalaryManagmentSceneController implements Initializable {
 
     @FXML
-    private TableView<?> salaryTV;
+    private TableView<EmployeeList> salaryTV;
     @FXML
-    private TableColumn<?, ?> nameTC;
+    private TableColumn<EmployeeList, String> nameTC;
     @FXML
-    private TableColumn<?, ?> idTC;
+    private TableColumn<EmployeeList, Integer> idTC;
     @FXML
-    private TableColumn<?, ?> dOJTC;
+    private TableColumn<EmployeeList, LocalDate> dOJTC;
     @FXML
-    private TableColumn<?, ?> amountTC;
+    private TableColumn<Salary, Float> amountTC;
     @FXML
     private TextField amountTF;
 
@@ -40,8 +42,8 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+    }
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -63,5 +65,9 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
     @FXML
     private void showButtonOnMouseClick(ActionEvent event) {
     }
-    
+
+    @FXML
+    private void loadButtonOnClick(ActionEvent event) {
+    }
+
 }
