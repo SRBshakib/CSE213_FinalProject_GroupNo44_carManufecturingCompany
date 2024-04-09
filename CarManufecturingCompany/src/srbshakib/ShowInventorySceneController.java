@@ -4,10 +4,17 @@
  */
 package srbshakib;
 
-
+import Dip.AppendableObjectOutputStream;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import srbshakib.SupplyChainManager.Inventory;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +23,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -27,9 +38,17 @@ import javafx.stage.Stage;
 public class ShowInventorySceneController implements Initializable {
 
     @FXML
-    private ComboBox<?> selectPartsForInventoryComboBox;
+    private TableView<Inventory> partsTableView;
     @FXML
-    private ImageView inventoryPartImageView;
+    private TableColumn<Inventory, String> carTypeTableColumn;
+    @FXML
+    private TableColumn<Inventory, String> carModelTableColumn;
+    @FXML
+    private TableColumn<Inventory, String> nameOfPartsTableColumn;
+    @FXML
+    private TableColumn<Inventory, Integer> availabilityTableColumn;
+    @FXML
+    private TextField searchCarModelTextField;
 
     /**
      * Initializes the controller class.
@@ -120,9 +139,6 @@ public class ShowInventorySceneController implements Initializable {
         window.show();
     }
 
-    @FXML
-    private void selectPartOfInventoryOnMouseClicked(ActionEvent event) {
-    }
 
     @FXML
     private void viewCarsButtonOnMuseClicked(ActionEvent event) throws IOException {
@@ -133,5 +149,79 @@ public class ShowInventorySceneController implements Initializable {
         window.setTitle("Cars");
         window.show();
     }
+
+    @FXML
+    private void loadPartsButtonOnMouseClicked(ActionEvent event) {
+        ObservableList<Inventory> inventoryInfo = FXCollections.observableArrayList();
+
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<Inventory,String>("carType"));
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<Inventory,String>("carModel"));
+        nameOfPartsTableColumn.setCellValueFactory(new PropertyValueFactory<Inventory, String>("nameOfParts"));
+        availabilityTableColumn.setCellValueFactory(new PropertyValueFactory<Inventory, Integer>("numbersOfParts"));
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("Inventory.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Inventory p;
+            try {
+                while (true) {
+                    p = (Inventory) ois.readObject();
+                    inventoryInfo.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+        partsTableView.setItems(inventoryInfo);
+        System.out.println(inventoryInfo.toString());
+    }
+
+    @FXML
+    private void searchPartsOnMouseClicked(ActionEvent event) {
+        String carModel = searchCarModelTextField.getText();
+        ObservableList<Inventory> matchingInventory = searchInventoryByCarModel(carModel);
+        // Clear existing items in the table
+        partsTableView.getItems().clear();
+        if (!matchingInventory.isEmpty()) {
+            partsTableView.setItems(matchingInventory);
+        } else {
+            // If no matching inventory found, display a message
+            System.out.println("No inventory found for car model: " + carModel);
+        }
+    }
+
+    // Method to search for inventory items by car model
+    private ObservableList<Inventory> searchInventoryByCarModel(String carModel) {
+        ObservableList<Inventory> matchingInventory = FXCollections.observableArrayList();
+        try (FileInputStream fis = new FileInputStream("Inventory.bin");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            while (true) {
+                Inventory inventory = (Inventory) ois.readObject();
+                if (inventory.getCarModel().equals(carModel)) {
+                    matchingInventory.add(inventory);
+                }
+            }
+        } catch (EOFException e) {
+            // Reached end of file
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return matchingInventory;
+    }
+    }
     
-}
+

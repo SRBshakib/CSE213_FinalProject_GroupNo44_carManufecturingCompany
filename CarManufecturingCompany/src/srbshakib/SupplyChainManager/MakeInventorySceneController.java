@@ -30,6 +30,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -70,6 +71,8 @@ public class MakeInventorySceneController implements Initializable {
     private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
     private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
     private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
+    @FXML
+    private TextField searchCarModelTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -317,5 +320,53 @@ private void addPartsOnMouseClicked(ActionEvent event) {
     numberOfPartsAvailableComboBox.setValue(null);
 }
 
+    @FXML
+    private void deletePartsButtonOnMouseClicked(ActionEvent event) {
+         File file = new File("Inventory.bin");
+    if (file.exists()) {
+        if (file.delete()) {
+            System.out.println("Inventory file deleted successfully.");
+        } else {
+            System.out.println("Failed to delete the Inventory file.");
+        }
+    } else {
+        System.out.println("Inventory file does not exist.");
+    }
+    }
+
+    @FXML
+    private void searchPartsOnMouseClicked(ActionEvent event) {
+        String carModel = searchCarModelTextField.getText();
+        ObservableList<Inventory> matchingInventory = searchInventoryByCarModel(carModel);
+        // Clear existing items in the table
+        partsTableView.getItems().clear();
+        if (!matchingInventory.isEmpty()) {
+            partsTableView.setItems(matchingInventory);
+        } else {
+            // If no matching inventory found, display a message
+            System.out.println("No inventory found for car model: " + carModel);
+        }
+    }
+
+    // Method to search for inventory items by car model
+    private ObservableList<Inventory> searchInventoryByCarModel(String carModel) {
+        ObservableList<Inventory> matchingInventory = FXCollections.observableArrayList();
+        try (FileInputStream fis = new FileInputStream("Inventory.bin");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            while (true) {
+                Inventory inventory = (Inventory) ois.readObject();
+                if (inventory.getCarModel().equals(carModel)) {
+                    matchingInventory.add(inventory);
+                }
+            }
+        } catch (EOFException e) {
+            // Reached end of file
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return matchingInventory;
+    }
+    }
+
     
-}
+
