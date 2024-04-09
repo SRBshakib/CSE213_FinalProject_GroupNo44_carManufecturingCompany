@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.ManagingDirectorScheduleSceneController">
+   <children>
+      <TextField fx:id="time_Text_Field" layoutX="510.0" layoutY="132.0" />
+      <Label layoutX="562.0" layoutY="98.0" text="Set Time" />
+      <ComboBox fx:id="dept_ComboBox" layoutX="73.0" layoutY="132.0" prefWidth="150.0" />
+      <DatePicker fx:id="date_Picker" layoutX="255.0" layoutY="132.0" />
+      <Button layoutX="52.0" layoutY="53.0" mnemonicParsing="false" onAction="#back_Button_On_Click" text="Back" />
+      <Button layoutX="608.0" layoutY="181.0" mnemonicParsing="false" onAction="#notifyButtonOnClick" text="Notify" />
+      <Label layoutX="312.0" layoutY="98.0" text="Select Date" />
+      <Label layoutX="105.0" layoutY="98.0" text="Select Employee" />
+      <Button layoutX="510.0" layoutY="181.0" mnemonicParsing="false" onAction="#showButtonOnClick" text="Show" />
+      <Button layoutX="380.0" layoutY="181.0" mnemonicParsing="false" onAction="#cancelMeetingButtonOnClick" text="Cancel Meeting" />
+      <TableView fx:id="tableView" layoutX="10.0" layoutY="254.0" prefHeight="200.0" prefWidth="690.0">
+        <columns>
+          <TableColumn fx:id="name_TableColm" prefWidth="264.0" text="Depertment Officer" />
+          <TableColumn fx:id="time_Table_Colm" prefWidth="173.0" text="Time" />
+            <TableColumn fx:id="date_Table_Colm" prefWidth="252.0" text="Date" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

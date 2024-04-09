@@ -9,8 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -20,13 +19,7 @@ import javafx.scene.control.TableView;
 public class ReviewSceneController implements Initializable {
 
     @FXML
-    private TableView<?> reviewTypeTableView;
-    @FXML
-    private TableColumn<?, ?> deliveryCodeTableColumn;
-    @FXML
-    private TableColumn<?, ?> productTypeTableColumn;
-    @FXML
-    private TableColumn<?, ?> commentsTableColumn;
+    private TextField seeReviewTextField;
 
     /**
      * Initializes the controller class.
@@ -49,15 +42,7 @@ public class ReviewSceneController implements Initializable {
     }
 
     @FXML
-    private void inventoryListButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
     private void dueBillsButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void trackOrdersButtonOnMouseClicked(ActionEvent event) {
     }
 
     @FXML
@@ -73,11 +58,7 @@ public class ReviewSceneController implements Initializable {
     }
 
     @FXML
-    private void yesRadioButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void noRadioButtonOnMouseClicked(ActionEvent event) {
+    private void seeReviewButtonOnMouseClicked(ActionEvent event) {
     }
     
 }

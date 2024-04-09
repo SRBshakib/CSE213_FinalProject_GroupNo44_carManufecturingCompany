@@ -9,6 +9,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 /**
@@ -26,12 +29,29 @@ public class CountryDealerSceneController implements Initializable {
     private TextField regionTextField;
     @FXML
     private TextField mobileNumberTextField;
+    @FXML
+    private TableView<CountryDealer> countryDealerTableView;
+    @FXML
+    private TableColumn<CountryDealer,String> nameTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> locationTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> regionTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, Integer> mobileNumberTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> countryNameTableColumn;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private ComboBox<String> countryNameComboBox;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        countryNameComboBox.getItems().addAll("Bangladesh", "China","Grece","India","Malaysia");
         // TODO
     }    
 
@@ -71,8 +91,13 @@ public class CountryDealerSceneController implements Initializable {
     private void upcomingEventsButtonOnMouseClicked(ActionEvent event) {
     }
 
+
     @FXML
-    private void countryNameComboBox(ActionEvent event) {
+    private void submitButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void showAllButtonOnMouseClicked(ActionEvent event) {
     }
     
 }

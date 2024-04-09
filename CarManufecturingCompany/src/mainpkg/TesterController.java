@@ -4,6 +4,7 @@
  */
 package mainpkg;
 
+import Rifat.FinanceManagerDashboardSceneController;
 import srbshakib.AssemblyLineWorkerDashboardSceneController;
 import srbshakib.SupplyChainManager.SupplyChainManagerDashboardSceneController;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void mdDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("MD_DashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Dip/ManagingDirectorDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("MD Dashboard");
@@ -47,7 +48,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void hrDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("HR_DashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Dip/HumanResourceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("HR Dashboard");
@@ -67,7 +68,7 @@ public class TesterController implements Initializable {
 
     @FXML
     private void fmDashboardOnClick(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("FinanceManagerDashboardScene.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(parent);
         Stage newWindow  = new Stage();
         newWindow.setTitle("Finance Manager Dashboard");
