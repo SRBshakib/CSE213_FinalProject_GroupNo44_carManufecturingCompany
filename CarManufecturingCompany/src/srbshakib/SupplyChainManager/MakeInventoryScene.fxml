@@ -77,17 +77,17 @@
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
+
             <ComboBox fx:id="selectPartsForInventoryComboBox" layoutX="46.0" layoutY="170.0" prefHeight="25.0" prefWidth="150.0" promptText="Select Part" />
             <ComboBox fx:id="numberOfPartsAvailableComboBox" layoutX="423.0" layoutY="170.0" prefWidth="150.0" promptText="Select Numbers" />
             <Button layoutX="264.0" layoutY="209.0" mnemonicParsing="false" onAction="#addPartsOnMouseClicked" text="Add Part" />
             <TableView fx:id="partsTableView" layoutX="21.0" layoutY="347.0" prefHeight="237.0" prefWidth="606.0">
               <columns>
-                  <TableColumn fx:id="carTypeTableColumn" minWidth="0.0" prefWidth="125.0" text="Car Type" />
-                  <TableColumn fx:id="carModelTableColumn" minWidth="0.0" prefWidth="132.0" text="Car Model" />
-                <TableColumn fx:id="nameOfPartsTableColumn" prefWidth="205.0" text="Name of the Parts" />
-                <TableColumn fx:id="availabilityTableColumn" minWidth="0.0" prefWidth="143.0" text="Availability" />
+                <TableColumn prefWidth="405.0" text="Name of the Parts" />
+                <TableColumn minWidth="0.0" prefWidth="200.0" text="Availability" />
               </columns>
             </TableView>
+
             <ComboBox fx:id="selectCarTypeComboBox" layoutX="121.0" layoutY="52.0" onAction="#selectCarTypeOnMouseClicked" prefHeight="25.0" prefWidth="143.0" promptText="Car Type" />
             <ComboBox fx:id="selectCarModelComboBox" layoutX="367.0" layoutY="52.0" prefHeight="25.0" prefWidth="150.0" promptText="Car Model" />
             <Button layoutX="21.0" layoutY="312.0" mnemonicParsing="false" onAction="#loadPartsButtonOnMouseClicked" text="Load Parts" />
