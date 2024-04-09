@@ -14,6 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -21,14 +25,41 @@ import javafx.stage.Stage;
  *
  * @author SRB Shakib
  */
-public class SupplyChainManagerDashboardSceneController implements Initializable {
+public class MakeSupplierListSceneController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TextField suppilerNameTextField;
+    @FXML
+    private TableView<SupplierInformation> supplierInformationTableView;
+    @FXML
+    private TableColumn<SupplierInformation, String> supplierNameTableColumn;
+    @FXML
+    private TableColumn<SupplierInformation, String> countryTableColumn;
+    @FXML
+    private TableColumn<SupplierInformation, String> deliveryTypeTableColumn;
+    @FXML
+    private TableColumn<SupplierInformation, Integer> mobileNoTableColumn;
+    @FXML
+    private TableColumn<SupplierInformation, String> emailTableColumn;
+    @FXML
+    private TextField mobileNoTextField;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private TextField searchTextField;
+    @FXML
+    private TextField addCountryTextField;
+
+    private static final String FILE_PATH = "SupplierList.bin";
+    private SupplierInformation supplierListData;
+    @FXML
+    private ComboBox<String> selectCountryComboBox;
+    @FXML
+    private ComboBox<String> deliveryTypeComboBox;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        deliveryTypeComboBox.getItems().addAll("Standard", "Express");
     }    
 
     @FXML
@@ -72,6 +103,14 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         window.show();
     }
 
+    private void distributeButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Distribute");
+        window.show();
+    }
 
     @FXML
     private void orderHistoryButtonOnMuseClicked(ActionEvent event) throws IOException {
@@ -124,13 +163,32 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
     }
 
     @FXML
-    private void distribruteButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.setTitle("Distribute");
-        window.show();
+    private void submitButtonOnMouseClicked(ActionEvent event) {
     }
+
+    @FXML
+    private void loadInformationButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void searchButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void addCountryButtonOnMouseClicked(ActionEvent event) {
+        String newCountry = addCountryTextField.getText().trim();
+        if (!newCountry.isEmpty() && !selectCountryComboBox.getItems().contains(newCountry)) {
+            selectCountryComboBox.getItems().add(newCountry);
+            supplierListData.getCountryList().addCountry(newCountry);
+            saveSupplierListData(supplierListData);
+        }
+        newCountryTextField.clear();
+    }
+
+    @FXML
+    private void distribruteButtonOnMuseClicked(ActionEvent event) {
+    }
+
+
     
 }
