@@ -14,12 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -27,24 +23,20 @@ import javafx.stage.Stage;
  *
  * @author SRB Shakib
  */
-public class ViewCarsSceneController implements Initializable {
+public class AssignedTaskSecneController implements Initializable {
 
     @FXML
-    private TableView<?> assemblingCarsTableView;
+    private TableView<?> assignedTaskTableView;
     @FXML
-    private TableColumn<?, ?> viewCarsModelNoTableColumn;
+    private TableColumn<?, ?> destinationTableColumn;
     @FXML
-    private TableColumn<?, ?> viewCarssectionTableColumn;
+    private TableColumn<?, ?> startingDateTableColumn;
     @FXML
-    private PieChart viewCarsAssemblingPieChart;
+    private TableColumn<?, ?> endingDateTableColumn;
     @FXML
-    private ComboBox<?> viewcarsCarModelSelectCarTypeComboBox;
+    private TableColumn<?, ?> carModelTableColumn;
     @FXML
-    private ComboBox<?> viewcarsCarModelSelectCarModelComboBox;
-    @FXML
-    private ImageView carViewCarImageview;
-    @FXML
-    private Label carViewcarFeaturesLabel;
+    private TableColumn<?, ?> carTypeTableColumn;
 
     /**
      * Initializes the controller class.
@@ -55,7 +47,7 @@ public class ViewCarsSceneController implements Initializable {
     }    
 
     @FXML
-    private void homeButtonOnMuseClicked(ActionEvent event) throws IOException {
+        private void homeButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblyLineWorkerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -77,7 +69,7 @@ public class ViewCarsSceneController implements Initializable {
 
     @FXML
     private void inventoryButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("ShowInventoryScene.fxml"));
+       Parent mainParent = FXMLLoader.load(getClass().getResource("ShowInventoryScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -134,7 +126,8 @@ public class ViewCarsSceneController implements Initializable {
         window.setTitle("Schedule");
         window.show();
     }
-     @FXML
+
+    @FXML
     private void viewCarsButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("ViewCarsScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -143,15 +136,5 @@ public class ViewCarsSceneController implements Initializable {
         window.setTitle("Cars");
         window.show();
     }
-
-    @FXML
-    private void viewcarsCarTypeSelectcarTypeOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewcarsCarModelSelectcarTypeOnMouseClicked(ActionEvent event) {
-    }
-
-   
     
 }
