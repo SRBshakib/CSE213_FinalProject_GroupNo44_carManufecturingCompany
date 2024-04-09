@@ -4,11 +4,13 @@
  */
 package srbshakib.SupplyChainManager;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SRB Shakib
  */
-public class Inventory {
+public class Inventory implements Serializable{
     public String carType;
     public String carModel;
     public String nameOfParts;

@@ -5,6 +5,7 @@
 package srbshakib.SupplyChainManager;
 
 import Dip.AppendableObjectOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,6 +13,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,17 +61,21 @@ public class MakeInventorySceneController implements Initializable {
     @FXML
     private ComboBox<String> selectCarModelComboBox;
 
-    /**
-     * Initializes the controller class.
-     */
+   private ObservableList<String> sedanCarModels = FXCollections.observableArrayList("Camry", "Corolla", "Avalon");
+    private ObservableList<String> hatchbackCarModels = FXCollections.observableArrayList("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
+    private ObservableList<String> suvCarModels = FXCollections.observableArrayList("RAV4", "Highlander", "4Runner");
+    private ObservableList<String> crossoverCarModels = FXCollections.observableArrayList("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid", "Venza");
+    private ObservableList<String> coupeCarModels = FXCollections.observableArrayList("GT86", "Supra");
+    private ObservableList<String> convertibleCarModels = FXCollections.observableArrayList("Solara");
+    private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
+    private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
+    private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        selectCarTypeComboBox.getItems().addAll("Sedan","Hatchback","SUV","Crossover","Coupe","Convertible","Minivan","Truck","Electric Vehicle (EV)");
-               
-        numberOfPartsAvailableComboBox.getItems().addAll(10,15,20,50,70,10,150);
-        
-        
-             
+        selectCarTypeComboBox.getItems().addAll("Sedan", "Hatchback", "SUV", "Crossover", "Coupe", "Convertible", "Minivan", "Truck", "Electric Vehicle (EV)");
+        selectPartsForInventoryComboBox.getItems().addAll("Engine", "Transmission", "Body parts", "Suspension system", "Braking system", "Steering system", "Interior components", "Lights", "Body parts", "Rear wiper and defroster", "Roof racks or rails", "All-wheel drive or four-wheel drive components", "Convertible top components", "Performance upgrades", "Sliding doors", "Rear entertainment system", "Towing equipment", "Cargo management systems", "Electric motor", "Battery pack", "Charging system", "Regenerative braking system", "Body parts", "Interior components");
+        numberOfPartsAvailableComboBox.getItems().addAll(10, 15, 20, 50, 70, 10, 150);
          
     }    
 
@@ -175,63 +182,39 @@ public class MakeInventorySceneController implements Initializable {
 
     @FXML
     private void selectCarTypeOnMouseClicked(ActionEvent event) {
-        if (selectCarTypeComboBox.getValue().equals("Sedan")){
-            selectCarModelComboBox.getItems().addAll("Camry", "Corolla", "Avalon"); 
-            selectPartsForInventoryComboBox.getItems().addAll("Engine"
-,"Transmission","Body parts (doors, fenders, hood, trunk)","Suspension system","Braking system"
-,"Steering system"
-,"Interior components (seats, dashboard, carpeting)"
-,"Lights");
+         String selectedCarType = selectCarTypeComboBox.getValue();
+        switch (selectedCarType) {
+            case "Sedan":
+                selectCarModelComboBox.setItems(sedanCarModels);
+                break;
+            case "Hatchback":
+                selectCarModelComboBox.setItems(hatchbackCarModels);
+                break;
+             case "SUV":
+                selectCarModelComboBox.setItems(suvCarModels);
+                break;
+            case "Crossover":
+                selectCarModelComboBox.setItems(crossoverCarModels);
+                break;
+            case "Coupe":
+                selectCarModelComboBox.setItems(coupeCarModels);
+                break;
+            case "Convertible":
+                selectCarModelComboBox.setItems(convertibleCarModels);
+                break;
+            case "Minivan":
+                selectCarModelComboBox.setItems(minivanCarModels);
+                break;
+            case "Truck":
+                selectCarModelComboBox.setItems(truckCarModels);
+                break;
+            case "Electric Vehicle (EV)":
+                selectCarModelComboBox.setItems(evCarModels);
+            default:
+                selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
+                break;
         }
-        else if(selectCarTypeComboBox.getValue().equals("Hatchback")){
-                 selectCarModelComboBox.getItems().addAll("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
-                 selectPartsForInventoryComboBox.getItems().addAll("Engine", "Transmission", "Body parts (doors, hatch)", "Suspension system", "Braking system", "Steering system", "Interior components (seats, cargo space)", "Rear wiper and defroster");
-        }
-        else if(selectCarTypeComboBox.getValue().equals("SUV")){
-                 selectCarModelComboBox.getItems().addAll("RAV4", "Highlander", "4Runner");
-        selectPartsForInventoryComboBox.getItems().addAll("Engine"
-,"Transmission"
-,"Body parts (doors, fenders, hood, tailgate)"
-,"Suspension system (often designed for off-road capabilities)"
-,"Braking system (may have specialized components for towing)"
-,"Steering system"
-,"Interior components (seats, cargo space, dashboard)"
-,"Roof racks or rails"
-,"All-wheel drive or four-wheel drive components");         
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Crossover")){
-                 selectCarModelComboBox.getItems().addAll("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid","Venza");
-                 selectPartsForInventoryComboBox.getItems().addAll( "Engine", "Transmission", "Body parts (doors, convertible top mechanism)", "Suspension system", "Braking system", "Steering system", "Interior components (often weather-resistant materials)", "Convertible top components (fabric, motors)");
-
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Coupe")){
-                 selectCarModelComboBox.getItems().addAll("GT86", "Supra");
-                 selectPartsForInventoryComboBox.getItems().addAll( "Engine", "Transmission", "Body parts (doors, hood, trunk, sometimes a hatchback)", "Suspension system (often tuned for sporty handling)", "Braking system", "Steering system", "Interior components (sport seats, compact dashboard)", "Performance upgrades (sport exhaust, performance brakes)");
-         
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Convertible")){
-                 selectCarModelComboBox.getItems().addAll("Solara");
-                 selectPartsForInventoryComboBox.getItems().addAll( "Engine", "Transmission", "Body parts (doors, convertible top mechanism)", "Suspension system", "Braking system", "Steering system", "Interior components (often weather-resistant materials)", "Convertible top components (fabric, motors)");
-         
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Minivan")){
-                 selectCarModelComboBox.getItems().addAll("Sienna");
-                 selectPartsForInventoryComboBox.getItems().addAll("Engine", "Transmission", "Body parts (doors, fenders, hood, tailgate)", "Suspension system", "Braking system", "Steering system", "Interior components (seats, cargo space, dashboard)", "Sliding doors", "Rear entertainment system");
-             
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Truck")){
-                 selectCarModelComboBox.getItems().addAll("Tundra", "Tacoma");
-                 selectPartsForInventoryComboBox.getItems().addAll("Engine (often larger and more powerful for towing and hauling)", "Transmission (may include heavy-duty options)", "Body parts (doors, fenders, bed)", "Suspension system (designed for heavy loads)", "Braking system (may include trailer brake controllers)", "Steering system", "Towing equipment (hitch, trailer wiring)", "Cargo management systems (bed liners, tie-downs)");
-              
-        }
-        else if(selectCarTypeComboBox.getValue().equals("Electric Vehicle (EV)")){
-                 selectCarModelComboBox.getItems().addAll("Toyota Prius Prime");
-                 selectPartsForInventoryComboBox.getItems().addAll("Electric motor", "Battery pack", "Charging system (charger, charging port)", "Regenerative braking system", "Body parts (doors, fenders, hood, trunk)", "Suspension system", "Braking system (may have different characteristics due to regenerative braking)", "Steering system", "Interior components (similar to conventional cars but may include energy monitoring displays)");
-              
-        }
-        
     }
-
 
     @FXML
     private void loadPartsButtonOnMouseClicked(ActionEvent event) {
@@ -275,50 +258,64 @@ public class MakeInventorySceneController implements Initializable {
     }
 
     @FXML
-    private void addPartsOnMouseClicked(ActionEvent event) {
-        Inventory i= new Inventory(
-                selectCarTypeComboBox.getValue(),
-                selectCarModelComboBox.getValue(),
-                selectPartsForInventoryComboBox.getValue(),
-                numberOfPartsAvailableComboBox.getValue()
-    
-                
-        );
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        File f = null;
-        try {
-            f = new File("Inventory.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
+private void addPartsOnMouseClicked(ActionEvent event) {
+    Inventory newInventory = new Inventory(
+            selectCarTypeComboBox.getValue(),
+            selectCarModelComboBox.getValue(),
+            selectPartsForInventoryComboBox.getValue(),
+            numberOfPartsAvailableComboBox.getValue()
+    );
+
+    File f = new File("Inventory.bin");
+    List<Inventory> existingInventory = new ArrayList<>();
+
+    // Read existing Inventory objects from the file
+    if (f.exists()) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
+            while (true) {
+                Inventory inventory = (Inventory) ois.readObject();
+                existingInventory.add(inventory);
             }
-
-            oos.writeObject(i);
-
-        } catch (IOException ex) {
-            Logger.getLogger(MakeInventorySceneController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(MakeInventorySceneController.class
-                        .getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (EOFException e) {
+            // End of file reached
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(MakeInventorySceneController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        selectCarModelComboBox.setValue(null);
-        selectCarTypeComboBox.setValue(null);
-        selectPartsForInventoryComboBox.setValue(null);
-        numberOfPartsAvailableComboBox.setValue(null);
-        
-        
     }
+
+    // Check if an entry with the same car type, car model, and name of parts exists
+    boolean entryExists = false;
+    for (Inventory inventory : existingInventory) {
+        if (inventory.getCarType().equals(newInventory.getCarType()) &&
+                inventory.getCarModel().equals(newInventory.getCarModel()) &&
+                inventory.getNameOfParts().equals(newInventory.getNameOfParts())) {
+            // Update the quantity
+            inventory.setNumbersOfParts(inventory.getNumbersOfParts() + newInventory.getNumbersOfParts());
+            entryExists = true;
+            break;
+        }
+    }
+
+    // If no entry exists, add the new Inventory object
+    if (!entryExists) {
+        existingInventory.add(newInventory);
+    }
+
+    // Write the updated or new Inventory objects back to the file
+    try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))) {
+        for (Inventory inventory : existingInventory) {
+            oos.writeObject(inventory);
+        }
+    } catch (IOException ex) {
+        Logger.getLogger(MakeInventorySceneController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    // Clear the input fields
+    selectCarModelComboBox.setValue(null);
+    selectCarTypeComboBox.setValue(null);
+    selectPartsForInventoryComboBox.setValue(null);
+    numberOfPartsAvailableComboBox.setValue(null);
+}
+
     
 }
