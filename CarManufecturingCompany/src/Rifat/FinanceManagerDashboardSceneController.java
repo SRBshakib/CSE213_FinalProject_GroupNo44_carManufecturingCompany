@@ -74,8 +74,6 @@ public class FinanceManagerDashboardSceneController implements Initializable {
         window.show();
     }
 
-    @FXML
-
 
 
     private void salaryDistrubutionButtonOnMuseClicked(ActionEvent event) throws IOException {
