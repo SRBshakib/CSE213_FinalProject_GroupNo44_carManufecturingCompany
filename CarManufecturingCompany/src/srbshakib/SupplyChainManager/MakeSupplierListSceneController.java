@@ -4,6 +4,7 @@
  */
 package srbshakib.SupplyChainManager;
 
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 import Dip.AppendableObjectOutputStream;
@@ -36,8 +37,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
-
 /**
  * FXML Controller class
  *
@@ -65,6 +64,8 @@ public class MakeSupplierListSceneController implements Initializable {
     private TextField searchTextField;
     @FXML
     private TextField addCountryTextField;
+
+
 
     @FXML
     private ComboBox<String> selectCountryComboBox;
@@ -128,8 +129,10 @@ public class MakeSupplierListSceneController implements Initializable {
         window.show();
     }
 
+
     @FXML
     private void distribruteButtonOnMuseClicked(ActionEvent event) throws IOException {
+
         Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -190,6 +193,7 @@ public class MakeSupplierListSceneController implements Initializable {
 
     @FXML
     private void submitButtonOnMouseClicked(ActionEvent event) {
+
         SupplierInformation i = new SupplierInformation(
                 
                 generateUniqueId(),
@@ -248,6 +252,7 @@ public class MakeSupplierListSceneController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
 
     @FXML
@@ -336,6 +341,7 @@ public class MakeSupplierListSceneController implements Initializable {
         addCountryTextField.clear();
 
      }
+
 
     
 }

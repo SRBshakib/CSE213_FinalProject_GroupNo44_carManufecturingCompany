@@ -6,6 +6,7 @@ package srbshakib.SupplyChainManager;
 
 import java.io.Serializable;
 
+
 public class SupplierInformation implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -28,6 +29,7 @@ public class SupplierInformation implements Serializable {
         this.mobileNo = mobileNo;
     }
 
+
     public int getId() {
         return id;
     }
@@ -35,6 +37,7 @@ public class SupplierInformation implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+
 
     public String getSupplierName() {
         return supplierName;
@@ -87,4 +90,5 @@ public class SupplierInformation implements Serializable {
                 ", mobileNo=" + mobileNo +
                 '}';
     }
+
 }

@@ -90,6 +90,7 @@
                   <TableColumn fx:id="deliveryTypeTableColumn" prefWidth="116.0" text="Delivery Type" />
                   <TableColumn fx:id="mobileNoTableColumn" minWidth="0.0" prefWidth="91.0" text="Mobile No" />
                   <TableColumn fx:id="emailTableColumn" prefWidth="111.0" text="Email" />
+
               </columns>
             </TableView>
             <Label layoutX="397.0" layoutY="84.0" text="Email" />
