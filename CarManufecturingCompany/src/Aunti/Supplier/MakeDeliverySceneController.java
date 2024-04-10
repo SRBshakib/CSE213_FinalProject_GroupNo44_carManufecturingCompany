@@ -4,7 +4,8 @@
  */
 package Aunti.Supplier;
 
-import srbshakib.SupplyChainManager.
+import java.io.EOFException;
+import srbshakib.SupplyChainManager.OrderForSuppiler;
      
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,6 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import srbshakib.SupplyChainManager.SupplierInformation;
 
 /**
  * FXML Controller class
@@ -169,17 +171,20 @@ public class MakeDeliverySceneController implements Initializable {
         String filePath = "OrderForSupplier.bin";
 
     // Initialize an observable list to store supplier names
-    ObservableList<String> orderCodes = FXCollections.observableArrayList();
-    ObservableList<String> productName = FXCollections.observableArrayList();
-    ObservableList<String> quantity = FXCollections.observableArrayList();
+    ObservableList<Integer> orderCodes = FXCollections.observableArrayList();
+    ObservableList<String> productNames = FXCollections.observableArrayList();
+    ObservableList<Integer> quantitys = FXCollections.observableArrayList();
 
     try (FileInputStream fis = new FileInputStream(filePath);
          ObjectInputStream ois = new ObjectInputStream(fis)) {
         // Read SupplierInformation objects from the binary file until EOF
         while (true) {
-            OrderForSupplier supplier = (SupplierInformation) ois.readObject();
+            OrderForSuppiler supplierOrder = (OrderForSuppiler) ois.readObject();
             // Add the supplier name to the observable list
-            supplierNames.add(supplier.getSupplierName());
+            orderCodes.add(supplierOrder.getOrderCode());
+            productNames.add(supplierOrder.getProductName());
+            quantitys.add(supplierOrder.getQuantity());
+            
         }
     } catch (EOFException e) {
         // Reached end of file
@@ -188,7 +193,9 @@ public class MakeDeliverySceneController implements Initializable {
     }
 
     // Now you can use 'supplierNames' to set the items of your ComboBox
-    suppilerComboBox.setItems(supplierNames);
+    orderCodeComboBox.setItems(orderCodes);
+    selectProductTypeComboBox.setItems(productNames);
+    quantityComboBox.setItems(quantitys);
     }
     
     

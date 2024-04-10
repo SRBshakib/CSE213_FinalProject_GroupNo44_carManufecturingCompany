@@ -22,7 +22,7 @@ public class MyCarSceneController implements Initializable {
     @FXML
     private TableView<String> carDetailsTableView;
     @FXML
-    private TableColumn<, String> carModelTableColumn;
+    private TableColumn<?, ?> carModelTableColumn;
     @FXML
     private TableColumn<?, ?> keyFeaturesTableColumn;
     @FXML
