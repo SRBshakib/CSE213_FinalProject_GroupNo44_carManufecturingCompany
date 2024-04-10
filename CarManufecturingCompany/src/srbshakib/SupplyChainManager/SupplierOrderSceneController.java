@@ -4,9 +4,6 @@
  */
 package srbshakib.SupplyChainManager;
 
-
-import java.util.concurrent.atomic.AtomicInteger;
-
 import Dip.AppendableObjectOutputStream;
 import java.io.EOFException;
 import java.io.File;
@@ -32,69 +29,68 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
  * @author SRB Shakib
  */
-public class MakeSupplierListSceneController implements Initializable {
+public class SupplierOrderSceneController implements Initializable {
 
     @FXML
-    private TextField suppilerNameTextField;
+    private ComboBox<String> suppilerComboBox;
     @FXML
-    private TableView<SupplierInformation> supplierInformationTableView;
+    private ComboBox<String> productComboBox;
     @FXML
-    private TableColumn<SupplierInformation, String> supplierNameTableColumn;
+    private TextField quantityTextField;
     @FXML
-    private TableColumn<SupplierInformation, String> deliveryTypeTableColumn;
+    private ComboBox<String> paymentComboBox;
     @FXML
-    private TableColumn<SupplierInformation, Integer> mobileNoTableColumn;
+    private TableView<OrderForSuppiler> orderInfoTableView;
     @FXML
-    private TableColumn<SupplierInformation, String> emailTableColumn;
+    private TableColumn<OrderForSuppiler, Integer> orderCodeTableColumn;
     @FXML
-    private TextField mobileNoTextField;
+    private TableColumn<OrderForSuppiler, String> supplierNameTableColumn;
     @FXML
-    private TextField emailTextField;
+    private TableColumn<OrderForSuppiler, String> productTableColumn;
     @FXML
-    private TextField searchTextField;
+    private TableColumn<OrderForSuppiler, Integer> quantityTableColumn;
     @FXML
-    private TextField addCountryTextField;
+    private TableColumn<OrderForSuppiler, String> paymentTableColumn;
 
-
-
-    @FXML
-    private ComboBox<String> selectCountryComboBox;
-    @FXML
-    private ComboBox<String> deliveryTypeComboBox;
-    @FXML
-    private TableColumn<SupplierInformation, Integer> idTableColumn;
-    @FXML
-    private TableColumn<SupplierInformation, String> countryTableColumn;
-
-    
-    
-    private static int idCounter = 9000;
-    
+   private static int idCounter = 1110000;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        deliveryTypeComboBox.getItems().addAll("Standard", "Express");
-        selectCountryComboBox.getItems().addAll("China","Bangladesh","India","Malaysia");
-       
+        productComboBox.getItems().addAll("Engine Block", "Cylinder Head", "Pistons", "Crankshaft", "Camshaft", "Connecting Rods",
+    "Flywheel", "Driveshaft", "Differential", "Engine Control Unit (ECU)", "Transmission Control Unit (TCU)","Electric Motor", "Battery Pack", "Inverter", "Transmission","Steel Sheets (Body Panels)", "Aluminum Castings (Engine Hood, Trunk Lid)", "Composite Materials (Bumpers, Fenders)",
+    "Windshield", "Side Windows", "Rear Window (Safety Glass)", "Sunroof (Optional)", "Doors", "Hood", "Trunk Lid",
+    "Hinges", "Latches", "Locks", "Frame Rails", "Subframe Components (Steel)",    "Steering Wheel", "Steering Column", "Rack and Pinion Steering Gear", "Tie Rods", "Drag Link",
+    "MacPherson Struts", "Coil Springs", "Shock Absorbers", "Control Arms", "Bushings", "Ball Joints","Disc Brakes (Front, Rear) or Drum Brakes (Rear, Less Common in Modern Cars)", "Brake Pads", "Rotors (Disc Brakes)", "Drums (Drum Brakes)",
+    "Calipers", "Master Cylinder", "Brake Lines", "Brake Fluid","Steel Wheels or Aluminum Alloy Wheels", "Tires (Specified Size and Type - Summer, All-Season, Winter)",
+    "Hubs", "Lug Nuts", "Seats (Frames, Upholstery)", "Instrument Panel, Dashboard", "Steering Wheel Cover, Gear Shift Knob (Interior Trim)",
+    "Door Panels", "Carpeting", "Headliner","Battery", "Alternator", "Starter Motor", "Wiring Harness", "Fuses", "Relays", "Light Switches", "Window Switches",
+    "Headlights", "Taillights", "Brake Lights", "Turn Signals (Exterior Lighting)", "Instrument Cluster Gauges", "Infotainment System (Interior Electronics)", "Compressor", "Condenser", "Evaporator (AC System)", "Heater Core", "Blower Motor","Airbags (Driver, Passenger, Side-Impact)", "Seatbelts (Pre-Tensioners, Force Limiters)", "Anti-Lock Braking System (ABS)",
+    "Electronic Stability Control (ESC)", "Traction Control System (TCS)", "Tire Pressure Monitoring System (TPMS)","Fasteners (Bolts, Nuts, Screws, Washers)", "Gaskets & Seals (Engine Gaskets, Transmission Gaskets, Door Seals)",
+    "Filters (Air Filter, Oil Filter, Fuel Filter)", "Fluids (Engine Oil, Transmission Fluid, Coolant, Brake Fluid)",
+    "Exhaust System (Catalytic Converter, Muffler, Tailpipe)");
         
+        paymentComboBox.getItems().addAll("Done", "Due");
+       
     }    
-     
+
     @FXML
     private void homeButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("SupplyChainManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
-        window.setTitle("Assigned Task");
+        window.setTitle("Supply Chain Manager");
         window.show();
     }
 
@@ -127,19 +123,12 @@ public class MakeSupplierListSceneController implements Initializable {
         window.setScene(scene1);
         window.setTitle("Order");
         window.show();
+        
+        
+        
+        
     }
 
-
-    @FXML
-    private void distribruteButtonOnMuseClicked(ActionEvent event) throws IOException {
-
-        Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.setTitle("Distribute");
-        window.show();
-    }
 
     @FXML
     private void orderHistoryButtonOnMuseClicked(ActionEvent event) throws IOException {
@@ -192,16 +181,24 @@ public class MakeSupplierListSceneController implements Initializable {
     }
 
     @FXML
-    private void submitButtonOnMouseClicked(ActionEvent event) {
-
-        SupplierInformation i = new SupplierInformation(
+    private void distribruteButtonOnMuseClicked(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("DistributeOrderScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.setTitle("Distribute");
+        window.show();
+    }
+    @FXML
+    private void orderButtonOnMouseClicked(ActionEvent event) {
+        OrderForSuppiler i = new OrderForSuppiler(
                 
                 generateUniqueId(),
-                suppilerNameTextField.getText(),
-                selectCountryComboBox.getValue(),
-                deliveryTypeComboBox.getValue(),
-                emailTextField.getText(),
-                Integer.parseInt(mobileNoTextField.getText())
+                suppilerComboBox.getValue(),
+                productComboBox.getValue(),
+                paymentComboBox.getValue(),
+                Integer.parseInt(quantityTextField.getText())
+                
                 
                 
         );
@@ -210,7 +207,7 @@ public class MakeSupplierListSceneController implements Initializable {
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("SupplierList.bin");
+            f = new File("OrderForSuppiler.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -222,7 +219,7 @@ public class MakeSupplierListSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
-            Logger.getLogger(MakeSupplierListSceneController.class
+            Logger.getLogger(SupplierOrderSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -231,15 +228,14 @@ public class MakeSupplierListSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(MakeSupplierListSceneController.class
+                Logger.getLogger(SupplierOrderSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
-                suppilerNameTextField.clear();
-                selectCountryComboBox.setValue(null);
-                deliveryTypeComboBox.setValue(null);
-                emailTextField.clear();
-                mobileNoTextField.clear();
+                suppilerComboBox.setValue(null);
+                productComboBox.setValue(null);
+                paymentComboBox.setValue(null);
+                quantityTextField.clear();
     }
      private int generateUniqueId() {
         return ++idCounter; // Increment the ID counter and return
@@ -252,34 +248,58 @@ public class MakeSupplierListSceneController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
+      
     }
 
     @FXML
-    private void loadInformationButtonOnMouseClicked(ActionEvent event) {
-        ObservableList<SupplierInformation> supplierListInfo = FXCollections.observableArrayList();
-        
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        supplierNameTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformation,String>("supplierName"));
-        countryTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformation,String>("country"));
-        deliveryTypeTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformation, String>("deliveryType"));
-        mobileNoTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformation, Integer>("mobileNo"));
-        emailTableColumn.setCellValueFactory(new PropertyValueFactory<SupplierInformation, String>("email"));
+    private void loadSupplierButtonOnMouseClicked(ActionEvent event) {
+       String filePath = "SupplierList.bin";
 
+    // Initialize an observable list to store supplier names
+    ObservableList<String> supplierNames = FXCollections.observableArrayList();
+
+    try (FileInputStream fis = new FileInputStream(filePath);
+         ObjectInputStream ois = new ObjectInputStream(fis)) {
+        // Read SupplierInformation objects from the binary file until EOF
+        while (true) {
+            SupplierInformation supplier = (SupplierInformation) ois.readObject();
+            // Add the supplier name to the observable list
+            supplierNames.add(supplier.getSupplierName());
+        }
+    } catch (EOFException e) {
+        // Reached end of file
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    // Now you can use 'supplierNames' to set the items of your ComboBox
+    suppilerComboBox.setItems(supplierNames);
+    }
+
+    @FXML
+    private void loadOrderInfoButtonOnMouseClicked(ActionEvent event) {
+        ObservableList<OrderForSuppiler> supplierOrderListInfo = FXCollections.observableArrayList();
+        
+        orderCodeTableColumn.setCellValueFactory(new PropertyValueFactory<>("orderCode"));
+        supplierNameTableColumn.setCellValueFactory(new PropertyValueFactory<OrderForSuppiler,String>("supplierName"));
+        productTableColumn.setCellValueFactory(new PropertyValueFactory<OrderForSuppiler,String>("productName"));
+        quantityTableColumn.setCellValueFactory(new PropertyValueFactory<OrderForSuppiler, Integer>("quantity"));
+        paymentTableColumn.setCellValueFactory(new PropertyValueFactory<OrderForSuppiler, String>("payment"));
+        
         
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
         try {
-            f = new File("SupplierList.bin");
+            f = new File("OrderForSuppiler.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            SupplierInformation p;
+            OrderForSuppiler p;
             try {
                 while (true) {
-                    p = (SupplierInformation) ois.readObject();
-                    supplierListInfo.add(p);
+                    p = (OrderForSuppiler) ois.readObject();
+                    supplierOrderListInfo.add(p);
                     System.out.println(p.toString());
                 }
             } catch (Exception e) {
@@ -294,54 +314,12 @@ public class MakeSupplierListSceneController implements Initializable {
             }
 
         }
-        supplierInformationTableView.setItems(supplierListInfo);
-        System.out.println(supplierListInfo.toString());
+        orderInfoTableView.setItems(supplierOrderListInfo);
+        System.out.println(supplierOrderListInfo.toString());
     }
     
-
-    @FXML
-    private void searchButtonOnMouseClicked(ActionEvent event) {
-//        String supplierList = searchTextField.getText();
-//        ObservableList<SupplierInformation> matchingName = searchSupplierListByName(supplierList);
-//        // Clear existing items in the table
-//        supplierInformationTableView.getItems().clear();
-//        if (!matchingName.isEmpty()) {
-//            supplierInformationTableView.setItems(mmatchingName);
-//        } else {
-//            // If no matching inventory found, display a message
-//            System.out.println("No inventory found for car model: " + supplierList);
-//        }
-//    }
-//
-//    // Method to search for inventory items by car model
-//    private ObservableList<Inventory> searchSupplierListByName(String carModel) {
-//        ObservableList<Inventory> matchingInventory = FXCollections.observableArrayList();
-//        try (FileInputStream fis = new FileInputStream("Inventory.bin");
-//             ObjectInputStream ois = new ObjectInputStream(fis)) {
-//            while (true) {
-//                Inventory inventory = (Inventory) ois.readObject();
-//                if (inventory.getCarModel().equals(carModel)) {
-//                    matchingInventory.add(inventory);
-//                }
-//            }
-//        } catch (EOFException e) {
-//            // Reached end of file
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return matchingInventory;
     }
     
-    @FXML
-    private void addCountryButtonOnMouseClicked(ActionEvent event) {
-        String newCountry = addCountryTextField.getText(); // Get text from TextField
-        if (!selectCountryComboBox.getItems().contains(newCountry)) {
-        selectCountryComboBox.getItems().add(newCountry); // Add text to ComboBox if it's not already there
-    }
-        addCountryTextField.clear();
-
-     }
-
-
     
-}
+   
+

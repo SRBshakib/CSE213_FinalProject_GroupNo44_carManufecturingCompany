@@ -37,7 +37,7 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
-        window.setTitle("Assigned Task");
+        window.setTitle("Supply Chain Manager");
         window.show();
     }
 
