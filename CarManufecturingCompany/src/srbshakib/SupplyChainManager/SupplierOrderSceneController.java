@@ -4,9 +4,17 @@
  */
 package srbshakib.SupplyChainManager;
 
+import java.io.EOFException;
+import java.io.FileInputStream;
+import srbshakib.SupplyChainManager.SupplierInformation;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +22,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -21,14 +32,23 @@ import javafx.stage.Stage;
  *
  * @author SRB Shakib
  */
-public class SupplyChainManagerDashboardSceneController implements Initializable {
+public class SupplierOrderSceneController implements Initializable {
+
+    @FXML
+    private ComboBox<String> suppilerComboBox;
+    @FXML
+    private ComboBox<String> productComboBox;
+    @FXML
+    private TextField quantityTextField;
+    @FXML
+    private DatePicker estimetedDateDatePicker;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
     }    
 
     @FXML
@@ -70,6 +90,10 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         window.setScene(scene1);
         window.setTitle("Order");
         window.show();
+        
+        
+        
+        
     }
 
 
@@ -132,5 +156,38 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         window.setTitle("Distribute");
         window.show();
     }
+    @FXML
+    private void orderButtonOnMouseClicked(ActionEvent event) {
+      
+    }
+
+    @FXML
+    private void loadSupplierButtonOnMouseClicked(ActionEvent event) {
+       String filePath = "SupplierList.bin";
+
+    // Initialize an observable list to store supplier names
+    ObservableList<String> supplierNames = FXCollections.observableArrayList();
+
+    try (FileInputStream fis = new FileInputStream(filePath);
+         ObjectInputStream ois = new ObjectInputStream(fis)) {
+        // Read SupplierInformation objects from the binary file until EOF
+        while (true) {
+            SupplierInformation supplier = (SupplierInformation) ois.readObject();
+            // Add the supplier name to the observable list
+            supplierNames.add(supplier.getSupplierName());
+        }
+    } catch (EOFException e) {
+        // Reached end of file
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+
+    // Now you can use 'supplierNames' to set the items of your ComboBox
+    suppilerComboBox.setItems(supplierNames);
+    }
     
-}
+    }
+    
+    
+   
+

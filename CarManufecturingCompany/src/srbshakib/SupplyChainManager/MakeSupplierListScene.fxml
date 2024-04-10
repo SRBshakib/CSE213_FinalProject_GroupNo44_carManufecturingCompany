@@ -84,11 +84,12 @@
             <ComboBox fx:id="deliveryTypeComboBox" layoutX="446.0" layoutY="22.0" prefWidth="150.0" promptText="Delivery Type" />
             <TableView fx:id="supplierInformationTableView" layoutX="13.0" layoutY="285.0" prefHeight="275.0" prefWidth="622.0">
               <columns>
+                  <TableColumn fx:id="idTableColumn" prefWidth="72.0" text="Unique ID" />
                 <TableColumn fx:id="supplierNameTableColumn" prefWidth="147.0" text="Supplier Name" />
-                <TableColumn fx:id="countryTableColumn" prefWidth="78.0" text="Country" />
-                  <TableColumn fx:id="deliveryTypeTableColumn" prefWidth="123.0" text="Delivery Type" />
-                  <TableColumn fx:id="mobileNoTableColumn" prefWidth="119.0" text="Mobile No" />
-                  <TableColumn fx:id="emailTableColumn" prefWidth="153.0" text="Email" />
+                <TableColumn fx:id="countryTableColumn" prefWidth="84.0" text="Country" />
+                  <TableColumn fx:id="deliveryTypeTableColumn" prefWidth="116.0" text="Delivery Type" />
+                  <TableColumn fx:id="mobileNoTableColumn" minWidth="0.0" prefWidth="91.0" text="Mobile No" />
+                  <TableColumn fx:id="emailTableColumn" prefWidth="111.0" text="Email" />
               </columns>
             </TableView>
             <Label layoutX="397.0" layoutY="84.0" text="Email" />

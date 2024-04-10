@@ -6,23 +6,34 @@ package srbshakib.SupplyChainManager;
 
 import java.io.Serializable;
 
-/**
- *
- * @author SRB Shakib
- */
-public class SupplierInformation implements Serializable{
-    public String supplierName, country, deliveryType,email,addCountry;
-    public int mobileNo;
+public class SupplierInformation implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private int id;
+    private String supplierName;
+    private String country;
+    private String deliveryType;
+    private String email;
+    private int mobileNo;
 
     public SupplierInformation() {
     }
 
-    public SupplierInformation(String supplierName, String country, String deliveryType, String email, int mobileNo) {
+    public SupplierInformation(int id, String supplierName, String country, String deliveryType, String email, int mobileNo) {
+        this.id = id;
         this.supplierName = supplierName;
         this.country = country;
         this.deliveryType = deliveryType;
         this.email = email;
         this.mobileNo = mobileNo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSupplierName() {
@@ -67,10 +78,13 @@ public class SupplierInformation implements Serializable{
 
     @Override
     public String toString() {
-        return "SupplierInformation{" + "supplierName=" + supplierName + ", country=" + country + ", deliveryType=" + deliveryType + ", email=" + email + ", mobileNo=" + mobileNo + '}';
+        return "SupplierInformation{" +
+                "id=" + id +
+                ", supplierName='" + supplierName + '\'' +
+                ", country='" + country + '\'' +
+                ", deliveryType='" + deliveryType + '\'' +
+                ", email='" + email + '\'' +
+                ", mobileNo=" + mobileNo +
+                '}';
     }
-    
-    
-    
-    
 }
