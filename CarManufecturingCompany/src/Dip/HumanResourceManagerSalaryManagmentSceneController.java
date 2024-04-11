@@ -55,6 +55,8 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
     private TableColumn<EmployeeList, String> genderTC;
     @FXML
     private TextField amountTF;
+    Integer index;
+    ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
     @FXML
     private TableView<Salary> salaryShowTV;
     @FXML
@@ -65,8 +67,6 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
     private TableColumn<Salary, String> dOJShowTC;
     @FXML
     private TableColumn<Salary, Float> salaryAmountShowTC;
-    Integer index;
-    ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -192,7 +192,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
 
     @FXML
     private void saveToBinOnClick(ActionEvent event) {
-        Salary i = new Salary(
+                Salary i = new Salary(
                 nameTF.getText(),
                 Integer.parseInt(idTF.getText()),
                 dOJTF.getText(),
@@ -231,5 +231,4 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         amountTF.clear();
         idTF.clear();
         dOJTF.clear();
-    }
-}
+}}
