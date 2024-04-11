@@ -143,7 +143,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
 
         nameTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("name"));
-        idTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("id"));
+        idTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("uniqueid"));
         dOJTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, LocalDate>("doj"));
         genderTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("gender"));
 
