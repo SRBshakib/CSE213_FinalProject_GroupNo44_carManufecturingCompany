@@ -74,12 +74,6 @@ public class FinanceManagerDashboardSceneController implements Initializable {
         window.show();
     }
 
-
-<<<<<<< Updated upstream
-=======
-    @FXML
->>>>>>> Stashed changes
-
     @FXML
 
 
