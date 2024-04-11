@@ -28,7 +28,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import srbshakib.SupplyChainManager.SupplierInformation;
+
 
 /**
  * FXML Controller class
@@ -168,35 +168,35 @@ public class MakeDeliverySceneController implements Initializable {
 
     @FXML
     private void loadOrderCodeAndProductButtonOnMouseClicked(ActionEvent event) {
-        String filePath = "OrderForSupplier.bin";
+    String filePath = "OrderForSuppiler.bin";
 
-    // Initialize an observable list to store supplier names
+    // Initialize observable lists to store order details
     ObservableList<Integer> orderCodes = FXCollections.observableArrayList();
     ObservableList<String> productNames = FXCollections.observableArrayList();
-    ObservableList<Integer> quantitys = FXCollections.observableArrayList();
+    ObservableList<Integer> quantities = FXCollections.observableArrayList();
 
     try (FileInputStream fis = new FileInputStream(filePath);
          ObjectInputStream ois = new ObjectInputStream(fis)) {
+
         // Read SupplierInformation objects from the binary file until EOF
         while (true) {
-            OrderForSuppiler supplierOrder = (OrderForSuppiler) ois.readObject();
-            // Add the supplier name to the observable list
-            orderCodes.add(supplierOrder.getOrderCode());
-            productNames.add(supplierOrder.getProductName());
-            quantitys.add(supplierOrder.getQuantity());
-            
+            try {
+                OrderForSuppiler supplierOrder = (OrderForSuppiler) ois.readObject();
+                orderCodes.add(supplierOrder.getOrderCode());
+                productNames.add(supplierOrder.getProductName());
+                quantities.add(supplierOrder.getQuantity());
+            } catch (EOFException e) {
+                break; // Break the loop when end of file is reached
+            }
         }
-    } catch (EOFException e) {
-        // Reached end of file
     } catch (IOException | ClassNotFoundException e) {
         e.printStackTrace();
     }
 
-    // Now you can use 'supplierNames' to set the items of your ComboBox
+    // Now you can use 'orderCodes', 'productNames', and 'quantities' to set the items of your ComboBoxes
     orderCodeComboBox.setItems(orderCodes);
     selectProductTypeComboBox.setItems(productNames);
-    quantityComboBox.setItems(quantitys);
-    }
+    quantityComboBox.setItems(quantities);
     
-    
+    }  
 }
