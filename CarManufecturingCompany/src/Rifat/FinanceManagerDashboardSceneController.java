@@ -74,6 +74,7 @@ public class FinanceManagerDashboardSceneController implements Initializable {
         window.show();
     }
 
+
     @FXML
 
 
