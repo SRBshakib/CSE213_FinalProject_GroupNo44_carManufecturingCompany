@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 
 public class HumanResourceManagerDashboardSceneController implements Initializable {
 
+    @FXML
+    private Label noticeBoardLabel;
+
 
     /**
      * Initializes the controller class.

@@ -57,7 +57,6 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
     private TextField amountTF;
     Integer index;
     ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
-//    ObservableList<Salary> salaryInfo = FXCollections.observableArrayList();
     @FXML
     private TableView<Salary> salaryShowTV;
     @FXML
@@ -193,34 +192,6 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
 
     @FXML
     private void saveToBinOnClick(ActionEvent event) {
-//        try {
-//            FileOutputStream fos = new FileOutputStream("SalaryInfo.bin", true);
-//            DataOutputStream dos = new DataOutputStream(fos);
-//            for (Salary s : salaryArr) {
-//                dos.writeUTF(s.getEmpName());
-//                dos.writeInt(s.getEmpId());
-//                dos.writeUTF(s.getEmpDoj());
-//
-//                dos.writeFloat(s.getEmpSalary());
-//            }
-//            dos.close();
-//        } catch (Exception e) {
-//            //SHOW e.toString() IN AN ALERT
-//        }
-//
-//        //2: write the Student instance using object stream
-//        try {
-//            FileOutputStream fos = new FileOutputStream("SalaryInfo.bin", true);
-//            ObjectOutputStream oos = new ObjectOutputStream(fos);
-//            for (Salary s : salaryArr) {
-//                oos.writeObject(s);
-//            }
-//            oos.close();
-//        } catch (Exception e) {
-//            //SHOW e.toString() IN AN ALERT
-//        }
-//    }
-//
                 Salary i = new Salary(
                 nameTF.getText(),
                 Integer.parseInt(idTF.getText()),
