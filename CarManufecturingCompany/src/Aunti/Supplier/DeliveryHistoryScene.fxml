@@ -57,7 +57,13 @@
 
                      </children>
                   </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+                     <children>
+
+                        <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackOrdersButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Track Orders" />
+
+                     </children>
+                  </AnchorPane>
                </items>
             </SplitPane>
             <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="383.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
@@ -132,7 +138,7 @@
                   <content>
                     <AnchorPane fx:id="newOrdersTabPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView fx:id="allNewOrdersTableView" layoutX="12.0" layoutY="98.0" prefHeight="200.0" prefWidth="595.0">
+                              <TableView fx:id="allNewOrdersTableView" layoutX="14.0" layoutY="87.0" prefHeight="200.0" prefWidth="595.0">
                                 <columns>
                                   <TableColumn fx:id="orderIdTableColumn" prefWidth="87.0" text="Order Id" />
                                   <TableColumn fx:id="perOrderQuantityTableColumn" prefWidth="157.0" text="Per Order Quantity" />

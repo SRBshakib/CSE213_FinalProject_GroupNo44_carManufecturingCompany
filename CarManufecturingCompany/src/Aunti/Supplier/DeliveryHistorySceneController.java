@@ -14,7 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -22,10 +24,32 @@ import javafx.stage.Stage;
  *
  * @author Asus
  */
-public class OrderListSceneController implements Initializable {
+public class DeliveryHistorySceneController implements Initializable {
 
     @FXML
-    private TableView<?> orderListTableView;
+    private AnchorPane pastOrdersTabPane;
+    @FXML
+    private TableView<?> pastOrderSummaryTableView;
+    @FXML
+    private TableColumn<?, ?> deliveryCodeTableColumn;
+    @FXML
+    private TableColumn<?, ?> deliveryDateTableColumn;
+    @FXML
+    private TableColumn<?, ?> orderAmountTableColumn;
+    @FXML
+    private TableColumn<?, ?> orderQuantityTableColumn;
+    @FXML
+    private AnchorPane newOrdersTabPane;
+    @FXML
+    private TableView<?> allNewOrdersTableView;
+    @FXML
+    private TableColumn<?, ?> orderIdTableColumn;
+    @FXML
+    private TableColumn<?, ?> perOrderQuantityTableColumn;
+    @FXML
+    private TableColumn<?, ?> totalAmountTableColumn;
+    @FXML
+    private TableColumn<?, ?> estimatedDeliveryTimeTableColumn;
 
     /**
      * Initializes the controller class.
@@ -117,5 +141,6 @@ public class OrderListSceneController implements Initializable {
         window.setTitle("MakeDeliveryScene");
         window.show();
     }
+    
     
 }

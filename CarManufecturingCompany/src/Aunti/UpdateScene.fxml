@@ -113,7 +113,7 @@
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
             <Label layoutX="174.0" layoutY="187.0" prefHeight="17.0" prefWidth="239.0" />
-            <TableView fx:id="updatedCarDetailsTableView" layoutX="94.0" layoutY="176.0" prefHeight="200.0" prefWidth="388.0">
+            <TableView fx:id="updatedCarDetailsTableView" layoutX="88.0" layoutY="349.0" prefHeight="200.0" prefWidth="388.0">
               <columns>
                 <TableColumn fx:id="updatedFeaturesTableColumn" prefWidth="151.0" text="Updated Features" />
                 <TableColumn fx:id="carModelsTableColumn" minWidth="0.0" prefWidth="235.0" text="Car Models" />
