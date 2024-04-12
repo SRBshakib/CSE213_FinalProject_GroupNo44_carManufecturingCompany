@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 import javafx.scene.control.TextField;
 
@@ -26,12 +28,21 @@ import javafx.stage.Stage;
  */
 public class DealerInfoSceneController implements Initializable {
 
-    @FXML
     private TextField dealerNameTextField;
-    @FXML
     private TextField contactNumberTextField;
-    @FXML
     private TextField dealerLocationTextField;
+    @FXML
+    private TableView<?> dealerInfoTableView;
+    @FXML
+    private TableColumn<?, ?> nameTableColumn;
+    @FXML
+    private TableColumn<?, ?> locationTableColumn;
+    @FXML
+    private TableColumn<?, ?> regionTableColumn;
+    @FXML
+    private TableColumn<?, ?> mobileNumberTableColumn;
+    @FXML
+    private TableColumn<?, ?> countryNameTableColumn;
 
 
     /**
@@ -39,54 +50,20 @@ public class DealerInfoSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+    }
 
-        // Set prompt text for the text fields
-    dealerNameTextField.setPromptText("Enter dealer name");
-    contactNumberTextField.setPromptText("Enter contact number");
-    dealerLocationTextField.setPromptText("Enter dealer location");
-
-        // TODO
-    }    
+    @FXML
+    private void loadButtonOnMouseClicked(ActionEvent event) {
+    }
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
     }
 
-
-    @FXML
-private void saveButtonOnMouseClick(ActionEvent event) {
-    // Retrieve data entered by the user in the text fields
-    String dealerName = dealerNameTextField.getText();
-    String contactNumber = contactNumberTextField.getText();
-    String dealerLocation = dealerLocationTextField.getText();
-
-    // Perform validation if necessary
-    if (dealerName.isEmpty() || contactNumber.isEmpty() || dealerLocation.isEmpty()) {
-        // Display an error message or handle validation failure
-        System.out.println("Please fill in all fields.");
-        return; // Exit method if validation fails
-    }
-
-    // Example: Save the dealer information to a database
-    boolean savedSuccessfully = saveDealerInfoToDatabase(dealerName, contactNumber, dealerLocation);
-    if (savedSuccessfully) {
-        System.out.println("Dealer information saved successfully.");
-    } else {
-        System.out.println("Failed to save dealer information. Please try again.");
-    }
-}
-
-// Example method to save dealer information to a database
-private boolean saveDealerInfoToDatabase(String dealerName, String contactNumber, String dealerLocation) {
-    // Perform database operation to save the dealer information
-    // Return true if the operation is successful, false otherwise
-    // Replace this example implementation with your actual database logic
-    return true; // For demonstration purposes, always return true
-   }
-
-}
+}        

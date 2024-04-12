@@ -4,6 +4,7 @@
  */
 package Rifat;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,27 +16,41 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class CarLunchingEventSceneController implements Initializable {
+public class AssemblyManuelSceneController implements Initializable {
 
+    @FXML
+    private Button selectPdfButton;
+    @FXML
+    private Button sendPdfButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
-    private void learnMoreButtonClicked(ActionEvent event) throws IOException {
-        // Load the scene for learning more about the car launching event
-        Parent learnMoreParent = FXMLLoader.load(getClass().getResource("CarLunchingEventScene.fxml"));
-        Scene learnMoreScene = new Scene(learnMoreParent);
-        
-        // Get the stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        // Set the scene onto the stage and show
-        window.setScene(learnMoreScene);
-        window.show();
+    @FXML
+    private void selectPdf(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select PDF File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PDF Files", "*.pdf")
+        );
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            // Do something with the selected PDF file
+            System.out.println("Selected PDF file: " + selectedFile.getAbsolutePath());
+        } else {
+            System.out.println("No PDF file selected.");
+        }
+    }
+
+    @FXML
+    private void sendPdf(ActionEvent event) {
+        // Implement logic to send the selected PDF file
+        System.out.println("Sending PDF...");
     }
 
     @FXML
@@ -46,5 +61,6 @@ public class CarLunchingEventSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
 }
 

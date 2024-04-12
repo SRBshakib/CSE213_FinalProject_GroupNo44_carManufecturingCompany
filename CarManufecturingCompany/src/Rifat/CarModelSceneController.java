@@ -19,7 +19,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -28,19 +32,43 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+
+import javafx.stage.Stage;
+
+
 import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
+
 
 public class CarModelSceneController implements Initializable {
 
 
+
+    
+    
+
     
     private ComboBox<String> carModelComboBox;
+
+    
     
     @FXML
-    private ImageView carModelImageview;
+    private ComboBox<String> selectCarTypeComboBox;
+    @FXML
+    private TextArea featuresTextArea;
+    @FXML
+    private TableView<CarModel> carModelTableView;
+    @FXML
+    private TableColumn<CarModel, String> carTypeTableColumn;
     
     @FXML
+
+    private TextField carModelTextField;
+    @FXML
+    private TableColumn<CarModel, String> carModelTableColumn;
+    @FXML
+    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
     private TextArea featuresTextArea;
@@ -56,6 +84,7 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private TextField carModelTextField;
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize car type ComboBox
@@ -66,7 +95,6 @@ public class CarModelSceneController implements Initializable {
         
     }    
 
-    @FXML
     private void carTypeSelectOnAction(ActionEvent event) {
         String selectedCarType = selectCarTypeComboBox.getValue();
         switch (selectedCarType) {
@@ -155,11 +183,19 @@ public class CarModelSceneController implements Initializable {
         ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
 
         
+
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
+        
+        
+        carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
+
         carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("carModel"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
         
         featuresTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("Features"));
+
         
         File f = null;
         FileInputStream fis = null;
@@ -191,5 +227,16 @@ public class CarModelSceneController implements Initializable {
         carModelTableView.setItems(CarModelInfo);
         System.out.println(CarModelInfo.toString());
     }
+
+
+    @FXML
+    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+
     
 }

@@ -4,11 +4,13 @@
  */
 package Rifat;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Lenovo
  */
-public class CarModel {
+public class CarModel implements Serializable{
     private String carType;
     private String modelName;
     private String features;
