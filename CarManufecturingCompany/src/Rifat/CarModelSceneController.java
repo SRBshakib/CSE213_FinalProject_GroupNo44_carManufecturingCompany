@@ -36,11 +36,16 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+
+import javafx.stage.Stage;
+
+
 import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
 
 
 public class CarModelSceneController implements Initializable {
+
 
 
 
@@ -61,6 +66,7 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private TableColumn<CarModel, String> carTypeTableColumn;
     
+
     @FXML
 
     private TextField carModelTextField;
@@ -78,9 +84,8 @@ public class CarModelSceneController implements Initializable {
     private TableColumn<CarModel, String> carTypeTableColumn;
     @FXML
     private TableColumn<CarModel, String> carModelTableColumn;
-    private TableColumn<CarModel, String> featuresTableColumn;
     @FXML
-    private TableColumn<?, ?> carModelTableColumn1;
+    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
     @FXML
     private TextField carModelTextField;
 
@@ -181,20 +186,22 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
         ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
+    
+    
+
 
         
 
         carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
+
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
         
         carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
 
-        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("carModel"));
-        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
+
         
-        featuresTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("Features"));
 
         
         File f = null;
@@ -240,3 +247,6 @@ public class CarModelSceneController implements Initializable {
 
     
 }
+
+    
+
