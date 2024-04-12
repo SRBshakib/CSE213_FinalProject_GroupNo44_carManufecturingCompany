@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -113,7 +114,7 @@
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
             <Label layoutX="174.0" layoutY="187.0" prefHeight="17.0" prefWidth="239.0" />
-            <TableView fx:id="carDetailsTableView" layoutX="31.0" layoutY="174.0" prefHeight="200.0" prefWidth="576.0">
+            <TableView fx:id="carDetailsTableView" layoutX="36.0" layoutY="361.0" prefHeight="200.0" prefWidth="576.0">
               <columns>
                 <TableColumn fx:id="carModelTableColumn" prefWidth="117.0" text="Car Model" />
                 <TableColumn fx:id="keyFeaturesTableColumn" prefWidth="177.0" text="Key Features" />
@@ -122,7 +123,10 @@
                   <TableColumn minWidth="0.0" prefWidth="0.0" />
               </columns>
             </TableView>
-            <Label layoutX="51.0" layoutY="102.0" prefHeight="21.0" prefWidth="103.0" text="Car Details" />
+            <Label layoutX="36.0" layoutY="306.0" prefHeight="21.0" prefWidth="103.0" text="Car Details" />
+            <ComboBox layoutX="133.0" layoutY="53.0" onAction="#selectCarComboBox" prefWidth="150.0" />
+            <Label layoutX="42.0" layoutY="58.0" prefHeight="21.0" prefWidth="110.0" text="Select Car" />
+            <Button fx:id="showCarDetailsOnMouseClicked" layoutX="42.0" layoutY="238.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" text="Show Car Details" />
          </children>
       </AnchorPane>
    </children>

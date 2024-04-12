@@ -20,7 +20,7 @@ import javafx.scene.control.TableView;
 public class MyCarSceneController implements Initializable {
 
     @FXML
-    private TableView<?> carDetailsTableView;
+    private TableView<String> carDetailsTableView;
     @FXML
     private TableColumn<?, ?> carModelTableColumn;
     @FXML
@@ -35,7 +35,8 @@ public class MyCarSceneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+       
     }    
 
     @FXML

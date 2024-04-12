@@ -32,14 +32,24 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+
 import javafx.stage.Stage;
+
+
+import srbshakib.FlagAReport;
+import srbshakib.FlagAReportSecneController;
 
 
 public class CarModelSceneController implements Initializable {
 
 
+
     
     
+
+    
+    private ComboBox<String> carModelComboBox;
+
     
     
     @FXML
@@ -52,11 +62,28 @@ public class CarModelSceneController implements Initializable {
     private TableColumn<CarModel, String> carTypeTableColumn;
     
     @FXML
+
     private TextField carModelTextField;
     @FXML
     private TableColumn<CarModel, String> carModelTableColumn;
     @FXML
     private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+
+    private ComboBox<String> selectCarTypeComboBox;
+    @FXML
+    private TextArea featuresTextArea;
+    @FXML
+    private TableView<CarModel> carModelTableView;
+    @FXML
+    private TableColumn<CarModel, String> carTypeTableColumn;
+    @FXML
+    private TableColumn<CarModel, String> carModelTableColumn;
+    private TableColumn<CarModel, String> featuresTableColumn;
+    @FXML
+    private TableColumn<?, ?> carModelTableColumn1;
+    @FXML
+    private TextField carModelTextField;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -156,11 +183,19 @@ public class CarModelSceneController implements Initializable {
         ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
 
         
+
         carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
         
         carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
+
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("carModel"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
+        
+        
+        featuresTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("Features"));
+
         
         File f = null;
         FileInputStream fis = null;
@@ -193,6 +228,7 @@ public class CarModelSceneController implements Initializable {
         System.out.println(CarModelInfo.toString());
     }
 
+
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
@@ -201,6 +237,6 @@ public class CarModelSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
     
 }
-
