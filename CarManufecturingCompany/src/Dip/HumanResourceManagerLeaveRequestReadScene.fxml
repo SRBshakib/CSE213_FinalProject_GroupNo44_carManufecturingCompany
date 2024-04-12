@@ -2,10 +2,12 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="496.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerLeaveRequestReadSceneController">
@@ -51,5 +53,22 @@
       </Label>
       <Label layoutX="80.0" layoutY="391.0" text="Reason" />
       <Label layoutX="399.0" layoutY="391.0" text="Comment" />
+
+<AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerLeaveRequestReadSceneController">
+   <children>
+      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
+      <TableView fx:id="pastLeaveInformationTableView" layoutX="10.0" layoutY="117.0" prefHeight="200.0" prefWidth="647.0">
+         <columns>
+            <TableColumn fx:id="daysTableColumn" prefWidth="58.0" text="Days" />
+            <TableColumn fx:id="forTableColumn" prefWidth="93.0" text="For" />
+            <TableColumn fx:id="fromTableColumn" prefWidth="83.0" text="From" />
+            <TableColumn fx:id="toTableColumn" prefWidth="81.0" text="To" />
+            <TableColumn fx:id="reasonTableColumn" prefWidth="99.0" text="Reason" />
+            <TableColumn fx:id="commentTableColumn" prefWidth="169.0" text="Comment" />
+            <TableColumn fx:id="pastLeaveInformationStatusTableColumn" prefWidth="60.0" text="Satatus" />
+         </columns>
+      </TableView>
+      <Button layoutX="12.0" layoutY="83.0" mnemonicParsing="false" onAction="#showPastLeaveInformationOnMouseClicked" text="Show Past Leave Information" />
+      <Line endX="559.0" layoutX="109.0" layoutY="59.0" startX="-109.0" />
    </children>
 </AnchorPane>
