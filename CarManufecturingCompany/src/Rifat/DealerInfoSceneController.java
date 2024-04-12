@@ -4,6 +4,7 @@
  */
 package Rifat;
 
+import Aunti.CountryDealer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -28,42 +30,55 @@ import javafx.stage.Stage;
  */
 public class DealerInfoSceneController implements Initializable {
 
-    private TextField dealerNameTextField;
-    private TextField contactNumberTextField;
-    private TextField dealerLocationTextField;
     @FXML
-    private TableView<?> dealerInfoTableView;
+    private TextField nameTextField;
     @FXML
-    private TableColumn<?, ?> nameTableColumn;
+    private TextField locationTextField;
     @FXML
-    private TableColumn<?, ?> locationTableColumn;
+    private TextField regionTextField;
     @FXML
-    private TableColumn<?, ?> regionTableColumn;
+    private TextField mobileNumberTextField;
     @FXML
-    private TableColumn<?, ?> mobileNumberTableColumn;
+    private TableView<CountryDealer> countryDealerTableView;
     @FXML
-    private TableColumn<?, ?> countryNameTableColumn;
-
+    private TableColumn<CountryDealer,String> nameTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> locationTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> regionTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, Integer> mobileNumberTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> countryNameTableColumn;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private ComboBox<String> countryNameComboBox;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        countryNameComboBox.getItems().addAll("Bangladesh", "China","Grece","India","Malaysia");
+        // TODO
     }
 
-    @FXML
-    private void loadButtonOnMouseClicked(ActionEvent event) {
-    }
 
-    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void submitButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void showAllButtonOnMouseClicked(ActionEvent event) {
     }
 
 }        
