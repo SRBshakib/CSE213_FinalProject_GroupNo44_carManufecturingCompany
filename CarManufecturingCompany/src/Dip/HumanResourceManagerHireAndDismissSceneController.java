@@ -23,6 +23,42 @@ import javafx.stage.Stage;
  */
 public class HumanResourceManagerHireAndDismissSceneController implements Initializable {
 
+<<<<<<< Updated upstream
+=======
+    private ComboBox<String> genderCB;
+    @FXML
+    private TextField nameTF;
+    @FXML
+    private ComboBox<String> designationCB;
+    @FXML
+    private DatePicker dateofbirthDP;
+    @FXML
+    private DatePicker dateOfJoinDP;
+    @FXML
+    private TableView<NewJoining> newJoiningTV;
+    @FXML
+    private TableColumn<NewJoining, Integer> idTC;
+    @FXML
+    private TableColumn<NewJoining, String> nameTC;
+    @FXML
+    private TableColumn<NewJoining, String> genderTC;
+    @FXML
+    private TableColumn<NewJoining, LocalDate> dateOfBirthTC;
+    @FXML
+    private TableColumn<NewJoining, LocalDate> dateOfJoinTC;
+    private static int idCounter = 22200;
+    @FXML
+    private RadioButton maleRBtn;
+    @FXML
+    private RadioButton femaleRBtn;
+    @FXML
+    private RadioButton otherRBtn;
+    private ArrayList<NewJoining> newjoiningArr;
+    ToggleGroup tg;
+    @FXML
+    private TableColumn<NewJoining, String> designationTC;
+
+>>>>>>> Stashed changes
     /**
      * Initializes the controller class.
      */

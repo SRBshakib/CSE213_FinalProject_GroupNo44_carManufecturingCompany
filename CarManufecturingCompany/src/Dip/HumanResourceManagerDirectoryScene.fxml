@@ -61,11 +61,11 @@
                         <Button layoutX="655.0" layoutY="208.0" mnemonicParsing="false" onAction="#loadButtonOnClick" text="Load" />
                         <TableView fx:id="empTV" layoutX="13.0" layoutY="14.0" prefHeight="187.0" prefWidth="781.0">
                           <columns>
-                            <TableColumn fx:id="nameTC" prefWidth="195.0" text="Name" />
-                            <TableColumn fx:id="idTC" prefWidth="151.0" text="ID" />
-                              <TableColumn fx:id="genderTC" prefWidth="171.0" text="Gender" />
-                              <TableColumn fx:id="designationTC" prefWidth="138.0" text="Designation" />
-                              <TableColumn fx:id="phoneTC" prefWidth="125.0" text="Phone" />
+                            <TableColumn fx:id="nameTC" prefWidth="200.0" text="Name" />
+                            <TableColumn fx:id="idTC" prefWidth="112.0" text="ID" />
+                              <TableColumn fx:id="genderTC" prefWidth="110.0" text="Gender" />
+                              <TableColumn fx:id="designationTC" prefWidth="194.0" text="Designation" />
+                              <TableColumn fx:id="phoneTC" prefWidth="164.0" text="Phone" />
                           </columns>
                         </TableView>
                      </children>
@@ -76,13 +76,13 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="wrkTV" layoutX="15.0" layoutY="20.0" prefHeight="162.0" prefWidth="781.0">
+                        <TableView fx:id="wrkTV" layoutX="15.0" layoutY="9.0" prefHeight="186.0" prefWidth="781.0">
                            <columns>
                               <TableColumn fx:id="nameWrkTC" prefWidth="195.0" text="Name" />
-                              <TableColumn fx:id="idWrkTC" prefWidth="151.0" text="ID" />
-                              <TableColumn fx:id="genderWrkTC" prefWidth="171.0" text="Gender" />
-                              <TableColumn fx:id="designationWrkTC" prefWidth="138.0" text="Designation" />
-                              <TableColumn fx:id="phoneWrkTC" prefWidth="125.0" text="Phone" />
+                              <TableColumn fx:id="idWrkTC" prefWidth="110.0" text="ID" />
+                              <TableColumn fx:id="genderWrkTC" prefWidth="120.0" text="Gender" />
+                              <TableColumn fx:id="designationWrkTC" prefWidth="171.0" text="Designation" />
+                              <TableColumn fx:id="phoneWrkTC" prefWidth="184.0" text="Phone" />
                            </columns>
                         </TableView>
                         <Button layoutX="693.0" layoutY="201.0" mnemonicParsing="false" onAction="#viewDetailsOnClickWorker" text="View Details" />
