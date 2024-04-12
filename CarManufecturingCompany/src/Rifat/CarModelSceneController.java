@@ -32,7 +32,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+
 import javafx.stage.Stage;
+
 
 
 import javafx.stage.Stage;
@@ -46,9 +48,33 @@ public class CarModelSceneController implements Initializable {
 
 
 
+
+    
+    
+
+    
+    private ComboBox<String> carModelComboBox;
+
+    
+    
+    @FXML
+    private ComboBox<String> selectCarTypeComboBox;
+    @FXML
+    private TextArea featuresTextArea;
+    @FXML
+    private TableView<CarModel> carModelTableView;
+    @FXML
+    private TableColumn<CarModel, String> carTypeTableColumn;
     
 
     @FXML
+
+    private TextField carModelTextField;
+    @FXML
+    private TableColumn<CarModel, String> carModelTableColumn;
+    @FXML
+    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
     private TextArea featuresTextArea;
@@ -63,8 +89,6 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private TextField carModelTextField;
 
-    
-   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -169,10 +193,13 @@ public class CarModelSceneController implements Initializable {
         
 
         carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
+
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
         
         carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
+
+        
 
         
 
