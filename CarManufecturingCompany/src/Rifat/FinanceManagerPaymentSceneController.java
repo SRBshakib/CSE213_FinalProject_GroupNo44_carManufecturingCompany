@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class CarDesignSceneController implements Initializable {
+public class FinanceManagerPaymentSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -33,7 +33,7 @@ public class CarDesignSceneController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

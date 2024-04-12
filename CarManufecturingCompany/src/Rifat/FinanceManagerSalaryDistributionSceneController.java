@@ -24,7 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class SalaryDistributionSceneController implements Initializable {
+public class FinanceManagerSalaryDistributionSceneController implements Initializable {
 
     @FXML
     private TextField amountTF;

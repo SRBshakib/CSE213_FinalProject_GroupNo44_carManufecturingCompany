@@ -28,7 +28,7 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class DealerInfoSceneController implements Initializable {
+public class FinanceManagerDealerInfoSceneController implements Initializable {
 
     @FXML
     private TextField nameTextField;

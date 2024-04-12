@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class TransactionSceneController implements Initializable {
+public class FinanceManagerTransactionSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
