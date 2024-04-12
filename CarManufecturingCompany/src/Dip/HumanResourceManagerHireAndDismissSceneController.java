@@ -65,7 +65,9 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
     private TableColumn<NewJoining, LocalDate> dateOfBirthTC;
     @FXML
     private TableColumn<NewJoining, LocalDate> dateOfJoinTC;
-    private static int idCounter = 21000;
+
+    private static int idCounter = 22200;
+
     @FXML
     private RadioButton maleRBtn;
     @FXML
@@ -77,9 +79,8 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
     @FXML
     private TableColumn<NewJoining, String> designationTC;
 
-    /**
-     * Initializes the controller class.
-     */
+  
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newjoiningArr = new ArrayList<NewJoining>();

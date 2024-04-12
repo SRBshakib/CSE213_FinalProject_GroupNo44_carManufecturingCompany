@@ -61,7 +61,7 @@
                             <TableColumn fx:id="nameShowTC" prefWidth="211.0" text="Name" />
                             <TableColumn fx:id="idShowTC" prefWidth="126.0" text="ID" />
                               <TableColumn fx:id="dOJShowTC" prefWidth="148.0" text="Date OF Joining" />
-                              <TableColumn fx:id="salaryAmountShowTC" prefWidth="195.0" text="Salary Amount" />
+                              <TableColumn fx:id="salaryAmountShowTC" prefWidth="195.0" text="Salary Amount (BDT)" />
                           </columns>
                         </TableView>
                      </children>
