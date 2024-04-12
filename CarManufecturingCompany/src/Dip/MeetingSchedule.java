@@ -44,7 +44,9 @@ public class MeetingSchedule implements Serializable{
 
     @Override
     public String toString() {
-        return "MeetingSchedule{" + "Name=" + name + ", Time=" + time + ", Date=" + date + '}';
+        return "Meeting wih Managing Director" + "\n" + "Department: " + name + "\nTime: " + time + "\nDate: " + date + '\n'+ '-'+'-'+'-'+'-'+'-'
+                +'-'+'-'+'-'+'-'+'-'+'-'+'-'+'-'+'-'+'-'+'-'+'-'
+                +'-'+'-'+'-'+'-'+'-'+'-'+'-'+ '\n';
     }
     
 }
