@@ -30,19 +30,17 @@ import javafx.stage.Stage;
 public class WorkingScheduleSceneController implements Initializable {
 
     @FXML
-    private TextField time_Text_Field;
+    private TableView<?> currentWorkingScheduleTableView;
     @FXML
-    private ComboBox<?> select_Employee_ComboBox;
+    private TableColumn<?, ?> currentWorkerNameTableColumn;
     @FXML
-    private DatePicker date_Picker;
+    private TableColumn<?, ?> currentWorkerDesignationTableColumn;
     @FXML
-    private TableView<?> TableView;
+    private TableColumn<?, ?> currentStartingDateTableColumn;
     @FXML
-    private TableColumn<?, ?> name_Table_Colm;
+    private TableColumn<?, ?> currentEndingDateTableColumn;
     @FXML
-    private TableColumn<?, ?> date_Table_Colm;
-    @FXML
-    private TableColumn<?, ?> time_Table_Colm;
+    private TableColumn<?, ?> currentShiftTableColumn;
 
     /**
      * Initializes the controller class.
@@ -52,13 +50,20 @@ public class WorkingScheduleSceneController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void back_Button_On_Click(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void submitButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadButtonOnMouseClicked(ActionEvent event) {
     }
 
     
