@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,9 +26,15 @@ import javafx.stage.Stage;
 public class BudgetSceneController implements Initializable {
 
     @FXML
-    private TextField incomeField;
+    private TextField yearTF;
     @FXML
-    private TextField expensesField;
+    private TextField partsBudgetTF;
+    @FXML
+    private TextField lunchBudgetTF;
+    @FXML
+    private TextField salaryBudgetTF;
+    @FXML
+    private Button saveButton;
 
     /**
      * Initializes the controller class.
@@ -37,7 +44,6 @@ public class BudgetSceneController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -47,7 +53,7 @@ public class BudgetSceneController implements Initializable {
     }
 
     @FXML
-    private void calculateButtonOnClicked(ActionEvent event) {
+    private void saveButtonOnClick(ActionEvent event) {
     }
     
 }
