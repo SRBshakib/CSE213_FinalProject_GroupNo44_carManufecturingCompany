@@ -16,6 +16,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +37,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import srbshakib.AskForLeave;
 
@@ -69,6 +78,21 @@ public class HumanResourceManagerLeaveRequestReadSceneController implements Init
     private Label reasonShowLabel;
     @FXML
     private Label commentShowLabel;
+    private TableView<AskForLeave> pastLeaveInformationTableView;
+    @FXML
+    private TableColumn<AskForLeave, Integer> daysTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, LocalDate> forTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, LocalDate> fromTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, LocalDate> toTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, String> reasonTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, String> commentTableColumn;
+    @FXML
+    private TableColumn<AskForLeave, String> pastLeaveInformationStatusTableColumn;
 
     /**
      * Initializes the controller class.
@@ -236,4 +260,46 @@ public class HumanResourceManagerLeaveRequestReadSceneController implements Init
         commentShowLabel.setText(commentTC.getCellData(index).toString());
     }
 
+    @FXML
+    private void showPastLeaveInformationOnMouseClicked(ActionEvent event) {
+                ObservableList<AskForLeave> leaveInfo = FXCollections.observableArrayList();
+
+        daysTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, Integer>("howManyWorkingDays"));
+        forTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave,LocalDate>("forWhichDay"));
+        fromTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, LocalDate>("fromWhichDay"));
+        toTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, LocalDate>("toWhichDay"));
+        reasonTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("reasonForLeave"));
+        commentTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("commentForLeave"));
+        pastLeaveInformationStatusTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("status"));
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("LeaveInfo.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            AskForLeave p;
+            try {
+                while (true) {
+                    p = (AskForLeave) ois.readObject();
+                    leaveInfo.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+        pastLeaveInformationTableView.setItems(leaveInfo);
+        System.out.println(leaveInfo.toString());
+    }
+    
 }
