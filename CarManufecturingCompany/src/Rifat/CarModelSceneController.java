@@ -53,7 +53,7 @@ public class CarModelSceneController implements Initializable {
     
 
     
-    private ComboBox<String> carModelComboBox;
+   
 
     
     
@@ -75,19 +75,15 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private TableColumn<CarModel, String> carModelFeaturesTableColumn;
 
-    private ComboBox<String> selectCarTypeComboBox;
-    @FXML
-    private TextArea featuresTextArea;
-    @FXML
-    private TableView<CarModel> carModelTableView;
-    @FXML
-    private TableColumn<CarModel, String> carTypeTableColumn;
-    @FXML
-    private TableColumn<CarModel, String> carModelTableColumn;
-    @FXML
-    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
-    @FXML
-    private TextField carModelTextField;
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
     @Override
