@@ -35,13 +35,19 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+import javafx.stage.Stage;
+
+
+import srbshakib.FlagAReport;
+import srbshakib.FlagAReportSecneController;
+
+
 public class CarModelSceneController implements Initializable {
 
 
+
     
-    
-    
-    
+
     @FXML
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
@@ -50,13 +56,15 @@ public class CarModelSceneController implements Initializable {
     private TableView<CarModel> carModelTableView;
     @FXML
     private TableColumn<CarModel, String> carTypeTableColumn;
-    
-    @FXML
-    private TextField carModelTextField;
     @FXML
     private TableColumn<CarModel, String> carModelTableColumn;
     @FXML
     private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+    @FXML
+    private TextField carModelTextField;
+
+    
+   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -154,13 +162,20 @@ public class CarModelSceneController implements Initializable {
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
         ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
+    
+    
+
 
         
+
         carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
         
         
         carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
+
+        
+
         
         File f = null;
         FileInputStream fis = null;
@@ -193,6 +208,7 @@ public class CarModelSceneController implements Initializable {
         System.out.println(CarModelInfo.toString());
     }
 
+
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
@@ -201,6 +217,9 @@ public class CarModelSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
     
 }
+
+    
 

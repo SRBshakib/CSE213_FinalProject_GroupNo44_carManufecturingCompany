@@ -4,7 +4,9 @@
  */
 package Dip;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,9 +16,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class ManagingDirectorDashboardSceneController implements Initializable {
+
+    @FXML
+    private TextArea noticeBoardTA;
 
     
     @Override
@@ -107,5 +113,37 @@ public class ManagingDirectorDashboardSceneController implements Initializable {
         newWindow.show();
         
     }
+
+    @FXML
+    private void refreshNoticeBoardOnClick(ActionEvent event) {
+        ObjectInputStream ois = null;
+        try {
+            MeetingSchedule s;
+            FileInputStream fis = new FileInputStream("Schedule.bin");
+            ois = new ObjectInputStream(fis);
+
+            noticeBoardTA.setText(null);
+
+            while (true) {
+                s = (MeetingSchedule) ois.readObject();
+
+                noticeBoardTA.appendText(s.toString() + "\n");
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        } catch (Exception ex) {
+
+            try {
+                System.out.println(ex.toString());
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex1) {
+            }
+        }
+    }
+    }
     
-}
+

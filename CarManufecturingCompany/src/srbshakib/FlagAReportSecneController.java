@@ -233,7 +233,7 @@ public class FlagAReportSecneController implements Initializable {
     private void loadReportsOnMouseClicked(ActionEvent event) {
         ObservableList<FlagAReport> flagReportInfo = FXCollections.observableArrayList();
 
-        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("workerId"));
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport,Integer>("workerId"));
         carModelNoTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport,String>("carModelNo"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("carType"));
         problemTypeTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("problemType"));

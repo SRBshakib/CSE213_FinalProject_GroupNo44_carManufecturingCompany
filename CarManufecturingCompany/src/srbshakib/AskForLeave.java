@@ -31,7 +31,7 @@ public class AskForLeave implements Serializable {
         this.toWhichDay = toWhichDay;
         this.reasonForLeave = reasonForLeave;
         this.commentForLeave = commentForLeave;
-        this.status = status;
+        this.status = "Pending";
     }
 
     
@@ -84,9 +84,7 @@ public class AskForLeave implements Serializable {
         this.commentForLeave = commentForLeave;
     }
 
-    public String getStatus() {
-        return status;
-    }
+ 
 
     public void setStatus(String status) {
         this.status = status;

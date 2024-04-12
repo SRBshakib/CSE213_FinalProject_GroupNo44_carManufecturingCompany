@@ -75,9 +75,10 @@ public class FinanceManagerDashboardSceneController implements Initializable {
 
     }
 
-
-
     @FXML
+
+
+    
     private void salaryDistrubutionButtonOnMuseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("SalaryDistributionScene.fxml"));
 
