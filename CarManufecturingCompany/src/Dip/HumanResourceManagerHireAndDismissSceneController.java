@@ -66,7 +66,7 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
     @FXML
     private TableColumn<NewJoining, LocalDate> dateOfJoinTC;
 
-    private static int idCounter = 22200;
+    private static int idCounter = 2221000;
 
     @FXML
     private RadioButton maleRBtn;

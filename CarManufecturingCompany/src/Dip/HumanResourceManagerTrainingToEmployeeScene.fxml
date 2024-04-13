@@ -1,11 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Dip.HumanResourceManagerTrainingToEmployeeSceneController">
+<AnchorPane id="AnchorPane" prefHeight="624.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerTrainingToEmployeeSceneController">
    <children>
       <Button layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
+      <Line endX="966.0" layoutX="101.0" layoutY="74.0" startX="-100.0" />
+      <Label layoutX="428.0" layoutY="28.0" text="Training">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="18.0" layoutY="93.0" prefHeight="521.0" prefWidth="1037.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Set Salary">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="492.0" prefWidth="906.0">
+                     <children>
+                        <AnchorPane layoutX="20.0" layoutY="23.0" prefHeight="456.0" prefWidth="315.0" style="-fx-border-color: black;">
+                           <children>
+                              <TextField fx:id="callnameTF" layoutX="149.0" layoutY="33.0" />
+                              <TextField fx:id="callIdTF" layoutX="148.0" layoutY="73.0" />
+                              <Label layoutX="31.0" layoutY="37.0" text="Name:" />
+                              <Label layoutX="31.0" layoutY="77.0" text="ID: " />
+                              <Label layoutX="29.0" layoutY="116.0" text="Date Of Joining" />
+                              <Button layoutX="158.0" layoutY="375.0" mnemonicParsing="false" onAction="#saveButtonOnMouseClick" text="Save" />
+                              <Button layoutX="215.0" layoutY="375.0" mnemonicParsing="false" onAction="#saveToBinOnClick" text="Save to BIN" />
+                              <DatePicker fx:id="trainingFromDP" layoutX="131.0" layoutY="154.0" prefHeight="25.0" prefWidth="167.0" />
+                              <DatePicker fx:id="trainingToDP" layoutX="131.0" layoutY="195.0" prefHeight="25.0" prefWidth="168.0" />
+                              <Label layoutX="31.0" layoutY="158.0" text="From" />
+                              <Label layoutX="31.0" layoutY="199.0" text="To" />
+                              <ComboBox fx:id="trainingTypeCB" layoutX="147.0" layoutY="239.0" onAction="#selectTrainingTypeOnClick" prefHeight="25.0" prefWidth="150.0" />
+                              <Label layoutX="31.0" layoutY="243.0" text="Training Type" />
+                              <ComboBox fx:id="trainingNameCB" layoutX="146.0" layoutY="281.0" onAction="#selectTrainingNameOnClick" prefHeight="25.0" prefWidth="150.0" />
+                              <Label layoutX="31.0" layoutY="285.0" text="Training Name" />
+                              <ComboBox fx:id="trainingFeesCB" layoutX="146.0" layoutY="321.0" prefHeight="25.0" prefWidth="150.0" />
+                              <Label layoutX="31.0" layoutY="325.0" text="Course Fees" />
+                              <TextField fx:id="callDOJTF" layoutX="148.0" layoutY="112.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="354.0" layoutY="22.0" prefHeight="455.0" prefWidth="542.0" style="-fx-border-color: black;">
+                           <children>
+                              <TableView fx:id="workerListTV" layoutX="14.0" layoutY="14.0" onMouseClicked="#getRowItem" prefHeight="386.0" prefWidth="520.0">
+                                 <columns>
+                                    <TableColumn fx:id="callNameTC" prefWidth="148.0" text="Name" />
+                                    <TableColumn fx:id="callIdTC" prefWidth="97.0" text="ID" />
+                                    <TableColumn fx:id="callDOJTC" prefWidth="129.0" text="Joining Date" />
+                                    <TableColumn fx:id="callgenderTC" prefWidth="145.0" text="Gender" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="476.0" layoutY="407.0" mnemonicParsing="false" onAction="#loadButtonOnClick" text="Load" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Employee Information">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="840.0" layoutY="444.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
+                        <TableView fx:id="trainingShowTV" layoutX="17.0" layoutY="14.0" prefHeight="424.0" prefWidth="1020.0">
+                           <columns>
+                              <TableColumn fx:id="nameShowTC" prefWidth="118.0" text="Name" />
+                              <TableColumn fx:id="idShowTC" prefWidth="106.0" text="ID" />
+                              <TableColumn fx:id="trainingFromTC" prefWidth="104.0" text="From" />
+                              <TableColumn fx:id="trainingToTC" prefWidth="98.0" text="To" />
+                              <TableColumn fx:id="typeTC" prefWidth="180.0" text="Training Type" />
+                              <TableColumn fx:id="trainingNameTC" prefWidth="142.0" text="Program Name" />
+                              <TableColumn fx:id="feesTC" prefWidth="119.0" text="Fees" />
+                              <TableColumn fx:id="trainIdTC" prefWidth="87.0" text="Training ID" />
+                              <TableColumn fx:id="statusTC" prefWidth="65.0" text="Status" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
