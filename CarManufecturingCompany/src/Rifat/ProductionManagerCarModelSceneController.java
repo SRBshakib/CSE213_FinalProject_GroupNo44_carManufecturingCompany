@@ -36,11 +36,15 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
+
+import javafx.stage.Stage;
+
+
 import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
 
 
-public class ProductionManagerCarModelSceneController implements Initializable {
+public class CarModelSceneController implements Initializable {
 
 
 
@@ -156,7 +160,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
-            Logger.getLogger(ProductionManagerCarModelSceneController.class
+            Logger.getLogger(CarModelSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -165,7 +169,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(ProductionManagerCarModelSceneController.class
+                Logger.getLogger(CarModelSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -230,7 +234,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerDashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
