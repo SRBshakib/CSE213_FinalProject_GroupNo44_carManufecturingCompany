@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +25,15 @@ import javafx.stage.Stage;
  */
 public class FinanceManagerPaymentSceneController implements Initializable {
 
+    @FXML
+    private TableView<?> paymentListTableView;
+    @FXML
+    private TableColumn<?, ?> userIdTableColumn;
+    @FXML
+    private TableColumn<?, ?> totalPaymentTableColumn;
+    @FXML
+    private TableColumn<?, ?> totalPaidTableColumn;
+
     /**
      * Initializes the controller class.
      */
@@ -31,7 +42,6 @@ public class FinanceManagerPaymentSceneController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);

@@ -29,18 +29,6 @@ import javafx.stage.Stage;
  */
 public class ProductionManagerWorkingScheduleSceneController implements Initializable {
 
-    @FXML
-    private TableView<?> currentWorkingScheduleTableView;
-    @FXML
-    private TableColumn<?, ?> currentWorkerNameTableColumn;
-    @FXML
-    private TableColumn<?, ?> currentWorkerDesignationTableColumn;
-    @FXML
-    private TableColumn<?, ?> currentStartingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> currentEndingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> currentShiftTableColumn;
 
     /**
      * Initializes the controller class.
@@ -50,21 +38,10 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
         // TODO
     }    
 
-    private void back_Button_On_Click(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    @FXML
+    private void backButtonOnMouseClicked(ActionEvent event) {
     }
 
-    @FXML
-    private void submitButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void loadButtonOnMouseClicked(ActionEvent event) {
-    }
 
     
 }

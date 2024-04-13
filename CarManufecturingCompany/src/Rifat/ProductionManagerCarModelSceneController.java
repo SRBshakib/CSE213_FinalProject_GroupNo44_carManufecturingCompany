@@ -234,7 +234,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);

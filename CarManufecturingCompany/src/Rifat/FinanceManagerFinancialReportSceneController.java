@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 
 import javafx.scene.control.TextArea;
 
@@ -28,13 +29,11 @@ import javafx.stage.Stage;
 public class FinanceManagerFinancialReportSceneController implements Initializable {
 
     @FXML
-    private TextArea fromDateTextArea;
+    private Button selectFileButton;
     @FXML
-    private TextArea toDateTextArea;
+    private Button submitButton;
     @FXML
-    private TextArea summaryTextArea;
-    @FXML
-    private TextArea recommendationsTextArea;
+    private Button cancelButton;
 
 
 
@@ -47,14 +46,24 @@ public class FinanceManagerFinancialReportSceneController implements Initializab
     }    
 
 
-    @FXML
-
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void selectFile(ActionEvent event) {
+    }
+
+    @FXML
+    private void submitReport(ActionEvent event) {
+    }
+
+    @FXML
+    private void cancelReport(ActionEvent event) {
     }
     
 }

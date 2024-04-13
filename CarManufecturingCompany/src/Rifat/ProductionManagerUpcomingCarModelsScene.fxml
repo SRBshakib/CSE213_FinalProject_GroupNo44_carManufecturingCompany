@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.UpcomingCarModelsSceneController">
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerUpcomingCarModelsSceneController">
    <children>
       <!-- ComboBox for selecting car type -->
       <ComboBox fx:id="selectCarTypeComboBox" layoutX="62.0" layoutY="75.0" onAction="#carTypeSelectOnAction" prefWidth="150.0" promptText="Car Type" />

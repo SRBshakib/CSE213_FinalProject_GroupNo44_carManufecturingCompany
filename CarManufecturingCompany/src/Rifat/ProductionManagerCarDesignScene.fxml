@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.FileChooser?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerCarDesignSceneController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Car Design" />
       <VBox layoutX="14.0" layoutY="42.0" spacing="10">

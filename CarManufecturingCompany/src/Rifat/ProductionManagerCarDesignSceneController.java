@@ -14,6 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +26,17 @@ import javafx.stage.Stage;
  */
 public class ProductionManagerCarDesignSceneController implements Initializable {
 
+    @FXML
+    private TextField carTypeTextField;
+    @FXML
+    private TextField carModelTextField;
+    @FXML
+    private TextArea featuresTextArea;
+    @FXML
+    private Button submitButton;
+    @FXML
+    private Button loadButton;
+
     /**
      * Initializes the controller class.
      */
@@ -31,13 +45,20 @@ public class ProductionManagerCarDesignSceneController implements Initializable 
         // TODO
     }    
 
-    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void submitCarDesign(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadCarDesign(ActionEvent event) {
     }
     
 }
