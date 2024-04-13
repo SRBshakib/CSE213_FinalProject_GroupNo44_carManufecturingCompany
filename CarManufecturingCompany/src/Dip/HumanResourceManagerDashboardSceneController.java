@@ -1,6 +1,8 @@
 package Dip;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -11,15 +13,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 
 public class HumanResourceManagerDashboardSceneController implements Initializable {
 
     @FXML
-    private Label noticeBoardLabel;
-
+    private TextArea noticeOutputTA;
 
     /**
      * Initializes the controller class.
@@ -27,7 +28,7 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void noticeMgtButtonOnClick(ActionEvent event) throws IOException {
@@ -46,7 +47,6 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
         window.setScene(scene1);
         window.show();
     }
-
 
     @FXML
     private void leaveRequestButtonOnClick(ActionEvent event) throws IOException {
@@ -106,9 +106,40 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
     private void termsAndConditionsReadOnClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerTermsAndConditionsReadScene.fxml"));
         Scene scene1 = new Scene(mainParent);
-        Stage newWindow  = new Stage();
+        Stage newWindow = new Stage();
         newWindow.setTitle("Terms And Conditions");
         newWindow.setScene(scene1);
         newWindow.show();
-    } 
+    }
+
+    @FXML
+    private void refreshNoticeButtonOnClick(ActionEvent event) {
+        ObjectInputStream ois = null;
+        try {
+            MeetingSchedule s;
+            FileInputStream fis = new FileInputStream("Schedule.bin");
+            ois = new ObjectInputStream(fis);
+
+            noticeOutputTA.setText(null);
+
+            while (true) {
+                s = (MeetingSchedule) ois.readObject();
+
+                noticeOutputTA.appendText(s.toString() + "\n");
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        } catch (Exception ex) {
+
+            try {
+                System.out.println(ex.toString());
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex1) {
+            }
+        }
+    }
 }
