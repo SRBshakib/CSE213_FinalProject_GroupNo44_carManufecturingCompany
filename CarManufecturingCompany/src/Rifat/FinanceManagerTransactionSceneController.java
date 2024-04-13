@@ -4,9 +4,15 @@
  */
 package Rifat;
 
-import java.io.IOException;
+import Dip.AppendableObjectOutputStream;
+import java.io.*;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,35 +20,31 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Lenovo
- */
 public class FinanceManagerTransactionSceneController implements Initializable {
 
     @FXML
-    private TextField transactionIdTextField;
+    private DatePicker datePicker;
     @FXML
     private TextField amountTextField;
     @FXML
-    private TextField dateTextField;
+    private TableView<Transaction> transactionTableView;
     @FXML
-    private Button submitButton;
+    private TableColumn<Transaction, LocalDate> dateColumnTable;
     @FXML
-    private Button cancelButton;
+    private TableColumn<Transaction, Double> amountColumnTable;
 
-    /**
-     * Initializes the controller class.
-     */
+    private final ObservableList<Transaction> transactionList = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        dateColumnTable.setCellValueFactory(new PropertyValueFactory<>("date"));
+        amountColumnTable.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        transactionTableView.setItems(transactionList);
+    }
 
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
@@ -53,7 +55,43 @@ public class FinanceManagerTransactionSceneController implements Initializable {
     }
 
     @FXML
-    private void backButtonOnMouseClicked(ActionEvent event) {
+private void loadButtonOnMouseClick(ActionEvent event) {
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("TransactionInfo.bin"))) {
+        transactionList.clear();
+        while (true) {
+            try {
+                Transaction transaction = (Transaction) ois.readObject();
+                transactionList.add(transaction);
+            } catch (EOFException e) {
+                break; // End of file reached
+            }
+        }
+    } catch (IOException | ClassNotFoundException ex) {
+        Logger.getLogger(FinanceManagerTransactionSceneController.class.getName()).log(Level.SEVERE, null, ex);
     }
-    
 }
+
+
+    @FXML
+    private void saveButtonOnMouseClick(ActionEvent event) {
+        LocalDate date = datePicker.getValue();
+        double amount = Double.parseDouble(amountTextField.getText());
+        Transaction transaction = new Transaction(date, amount);
+        transactionList.add(transaction);
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("TransactionInfo.bin", true))) {
+            oos.writeObject(transaction);
+        } catch (IOException ex) {
+            Logger.getLogger(FinanceManagerTransactionSceneController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        clearFields();
+    }
+
+    private void clearFields() {
+        datePicker.setValue(null);
+        amountTextField.clear();
+    }
+}
+
+

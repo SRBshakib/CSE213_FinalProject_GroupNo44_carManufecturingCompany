@@ -95,6 +95,14 @@ public class EmployeeList extends NewJoining implements Serializable {
         return "EmployeeList{" + "email=" + email + ", phone=" + phone + ", address=" + address + ", education=" + education + '}';
     }
 
+    public Object getDOJ() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
    
 
 }

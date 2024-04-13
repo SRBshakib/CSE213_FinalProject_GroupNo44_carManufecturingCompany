@@ -75,6 +75,7 @@ public class ProductionManagerUpcomingCarModelsSceneController implements Initia
         
     }
 
+    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
