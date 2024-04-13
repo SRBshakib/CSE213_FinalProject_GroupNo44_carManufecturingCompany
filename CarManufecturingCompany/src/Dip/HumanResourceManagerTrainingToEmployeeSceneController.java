@@ -324,7 +324,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     
     
 private int generateUniqueId() {
-    trainidCounter = 000;
+    trainidCounter = 1100;
 
         return ++trainidCounter; // Increment the ID counter and return
     }
