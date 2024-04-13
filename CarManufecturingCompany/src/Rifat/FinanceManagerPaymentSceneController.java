@@ -4,6 +4,14 @@
  */
 package Rifat;
 
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,23 +26,24 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 /**
  * FXML Controller class
  *
  * @author Lenovo
  */
-public class BudgetSceneController implements Initializable {
+
+public class FinanceManagerPaymentSceneController implements Initializable {
 
     @FXML
-    private TextField yearTF;
+    private TableView<?> paymentListTableView;
     @FXML
-    private TextField partsBudgetTF;
+    private TableColumn<?, ?> userIdTableColumn;
     @FXML
-    private TextField lunchBudgetTF;
+    private TableColumn<?, ?> totalPaymentTableColumn;
     @FXML
-    private TextField salaryBudgetTF;
-    @FXML
-    private Button saveButton;
+    private TableColumn<?, ?> totalPaidTableColumn;
+
 
     /**
      * Initializes the controller class.
@@ -43,6 +52,8 @@ public class BudgetSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+
 
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
@@ -55,5 +66,6 @@ public class BudgetSceneController implements Initializable {
     @FXML
     private void saveButtonOnClick(ActionEvent event) {
     }
+
     
 }

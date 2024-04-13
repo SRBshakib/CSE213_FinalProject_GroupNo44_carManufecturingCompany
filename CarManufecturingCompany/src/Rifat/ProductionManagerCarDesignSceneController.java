@@ -4,12 +4,17 @@
  */
 package Rifat;
 
-import Aunti.CountryDealer;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -23,46 +28,26 @@ import javafx.scene.control.TextField;
 
 import javafx.stage.Stage;
 
+
 /**
  * FXML Controller class
  *
  * @author Lenovo
  */
-public class DealerInfoSceneController implements Initializable {
+
+public class ProductionManagerCarDesignSceneController implements Initializable {
 
     @FXML
-    private TextField nameTextField;
+    private TextField carTypeTextField;
     @FXML
-    private TextField locationTextField;
+    private TextField carModelTextField;
     @FXML
-    private TextField regionTextField;
+    private TextArea featuresTextArea;
     @FXML
-    private TextField mobileNumberTextField;
+    private Button submitButton;
     @FXML
-    private TableView<CountryDealer> countryDealerTableView;
-    @FXML
-    private TableColumn<CountryDealer,String> nameTableColumn;
-    @FXML
-    private TableColumn<CountryDealer, String> locationTableColumn;
-    @FXML
-    private TableColumn<CountryDealer, String> regionTableColumn;
-    @FXML
-    private TableColumn<CountryDealer, Integer> mobileNumberTableColumn;
-    @FXML
-    private TableColumn<CountryDealer, String> countryNameTableColumn;
-    @FXML
-    private TextField emailTextField;
-    @FXML
-    private ComboBox<String> countryNameComboBox;
+    private Button loadButton;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        countryNameComboBox.getItems().addAll("Bangladesh", "China","Grece","India","Malaysia");
-        // TODO
-    }
 
 
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -82,3 +67,4 @@ public class DealerInfoSceneController implements Initializable {
     }
 
 }        
+
