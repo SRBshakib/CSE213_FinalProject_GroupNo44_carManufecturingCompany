@@ -14,6 +14,10 @@
       <ComboBox fx:id="selectCarTypeComboBox" layoutX="62.0" layoutY="75.0" prefWidth="150.0" promptText="Car Type" />
       <Label layoutX="192.0" layoutY="24.0" text="Car Model Information" />
       <TextArea fx:id="featuresTextArea" layoutX="45.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" />
+
+      <Button layoutX="45.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
+      <Button layoutX="137.0" layoutY="361.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
+
       <TableView fx:id="carModelTableView" layoutX="103.0" layoutY="427.0" prefHeight="200.0" prefWidth="361.0">
         <columns>
           <TableColumn fx:id="carTypeTableColumn" prefWidth="75.0" text="Car Type" />
@@ -24,7 +28,5 @@
       <TextField fx:id="carModelTextField" layoutX="364.0" layoutY="75.0" />
       <Label layoutX="283.0" layoutY="80.0" text="Car Model:" />
       <Button layoutX="486.0" layoutY="19.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
-      <Button layoutX="137.0" layoutY="361.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
-      <Button layoutX="50.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
    </children>
 </AnchorPane>
