@@ -4,6 +4,7 @@
  */
 package Rifat;
 
+import Aunti.CountryDealer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,9 +18,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
+
 import javafx.stage.Stage;
 
 /**
@@ -27,32 +28,42 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class UpcomingCarModelsSceneController implements Initializable {
+public class FinanceManagerDealerInfoSceneController implements Initializable {
 
     @FXML
-    private ComboBox<?> selectCarTypeComboBox;
+    private TextField nameTextField;
     @FXML
-    private ImageView carModelImageView;
+    private TextField locationTextField;
     @FXML
-    private TextArea featuresTextArea;
+    private TextField regionTextField;
     @FXML
-    private TableView<?> carModelTableView;
+    private TextField mobileNumberTextField;
     @FXML
-    private TableColumn<?, ?> carTypeTableColumn;
+    private TableView<CountryDealer> countryDealerTableView;
     @FXML
-    private TableColumn<?, ?> carModelTableColumn;
+    private TableColumn<CountryDealer,String> nameTableColumn;
     @FXML
-    private TableColumn<?, ?> carModelTableColumn1;
+    private TableColumn<CountryDealer, String> locationTableColumn;
     @FXML
-    private TextField upcomingCarModelTextField;
+    private TableColumn<CountryDealer, String> regionTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, Integer> mobileNumberTableColumn;
+    @FXML
+    private TableColumn<CountryDealer, String> countryNameTableColumn;
+    @FXML
+    private TextField emailTextField;
+    @FXML
+    private ComboBox<String> countryNameComboBox;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        countryNameComboBox.getItems().addAll("Bangladesh", "China","Grece","India","Malaysia");
         // TODO
-    }    
+    }
+
 
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
@@ -63,15 +74,11 @@ public class UpcomingCarModelsSceneController implements Initializable {
     }
 
     @FXML
-    private void carTypeSelectOnAction(ActionEvent event) {
-    }
-
-    @FXML
     private void submitButtonOnMouseClicked(ActionEvent event) {
     }
 
     @FXML
-    private void loadButtonOnMouseClicked(ActionEvent event) {
+    private void showAllButtonOnMouseClicked(ActionEvent event) {
     }
-    
-}
+
+}        

@@ -1,4 +1,3 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
@@ -15,8 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,31 +25,42 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class WorkingScheduleSceneController implements Initializable {
+public class FinanceManagerBudgetSceneController implements Initializable {
 
     @FXML
-    private TableView<?> currentWorkingScheduleTableView;
+    private TextField yearTF;
     @FXML
-    private TableColumn<?, ?> currentWorkerNameTableColumn;
+    private TextField partsBudgetTF;
     @FXML
-    private TableColumn<?, ?> currentWorkerDesignationTableColumn;
+    private TextField lunchBudgetTF;
     @FXML
-    private TableColumn<?, ?> currentStartingDateTableColumn;
+    private TextField salaryBudgetTF;
     @FXML
-    private TableColumn<?, ?> currentEndingDateTableColumn;
+    private TextField marketingBudgetTF;
     @FXML
-    private TableColumn<?, ?> currentShiftTableColumn;
+    private TableView<Budget> budgetTableView;
+    @FXML
+    private TableColumn<Budget, String> yearTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> partsBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> lunchBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> salaryBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> marketingBudgetTableColumn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
 
-    private void back_Button_On_Click(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -65,6 +74,5 @@ public class WorkingScheduleSceneController implements Initializable {
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
     }
-
     
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.CarLunchingEventSceneController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerCarLunchingEventSceneController">
    <children>
       <Label layoutX="28.0" layoutY="26.0" text="Car Launching Events" />
       <TableView layoutX="28.0" layoutY="60.0" prefHeight="520.0" prefWidth="820.0">

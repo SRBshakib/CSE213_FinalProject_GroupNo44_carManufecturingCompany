@@ -24,7 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class SalaryDistributionSceneController implements Initializable {
+public class FinanceManagerSalaryDistributionSceneController implements Initializable {
 
     @FXML
     private TextField amountTF;
@@ -42,11 +42,21 @@ public class SalaryDistributionSceneController implements Initializable {
     private TableColumn<Salary, Integer> idTC;
     @FXML
     private TableColumn<Salary, String> dOJTC;
-    @FXML
-    private TableColumn<Salary, Float> salaryAmountTC;
     
     private ArrayList<EmployeeList> empArr;
     private ArrayList<Salary> salaryArr;
+    @FXML
+    private TableColumn<?, ?> genderTC;
+    @FXML
+    private TableView<?> salaryShowTV;
+    @FXML
+    private TableColumn<?, ?> nameShowTC;
+    @FXML
+    private TableColumn<?, ?> idShowTC;
+    @FXML
+    private TableColumn<?, ?> dOJShowTC;
+    @FXML
+    private TableColumn<?, ?> salaryAmountShowTC;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -118,5 +128,9 @@ public class SalaryDistributionSceneController implements Initializable {
             //dOJTF.setText(selectedSalary.getDoj());
             //amountTF.setText(String.valueOf(selectedSalary.getSalary()));
         }
+    }
+
+    @FXML
+    private void showButtonOnMouseClick(ActionEvent event) {
     }
 }

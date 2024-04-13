@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.IssueSceneController">
+<AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerIssueSceneController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Issue Details" />
       <VBox layoutX="14.0" layoutY="42.0" spacing="10">

@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -21,7 +23,18 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class CarDesignSceneController implements Initializable {
+public class FinanceManagerTransactionSceneController implements Initializable {
+
+    @FXML
+    private TextField transactionIdTextField;
+    @FXML
+    private TextField amountTextField;
+    @FXML
+    private TextField dateTextField;
+    @FXML
+    private Button submitButton;
+    @FXML
+    private Button cancelButton;
 
     /**
      * Initializes the controller class.
@@ -31,13 +44,16 @@ public class CarDesignSceneController implements Initializable {
         // TODO
     }    
 
-    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void backButtonOnMouseClicked(ActionEvent event) {
     }
     
 }

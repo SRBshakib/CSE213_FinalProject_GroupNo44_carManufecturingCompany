@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.CarModelSceneController">
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerCarModelSceneController">
    <children>
       <ComboBox fx:id="selectCarTypeComboBox" layoutX="62.0" layoutY="75.0" prefWidth="150.0" promptText="Car Type" />
       <Label layoutX="192.0" layoutY="24.0" text="Car Model Information" />

@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class AssignTasksSceneController implements Initializable {
+public class ProductionManagerAssignTasksSceneController implements Initializable {
 
     @FXML
     private ComboBox<String> destinationComboBox;

@@ -36,111 +36,61 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
-
-import javafx.stage.Stage;
-
-
 import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
 
+/**
+ * FXML Controller class
+ *
+ * @author Lenovo
+ */
+public class ProductionManagerUpcomingCarModelsSceneController implements Initializable {
 
-public class CarModelSceneController implements Initializable {
-
-
-
-
-    
-    
-
-    
-   
-
-    
-    
     @FXML
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
     private TextArea featuresTextArea;
     @FXML
-    private TableView<CarModel> carModelTableView;
+    private TableColumn<UpcomingCarModels, String> carTypeTableColumn;
     @FXML
-    private TableColumn<CarModel, String> carTypeTableColumn;
-    
-
+    private TableColumn<UpcomingCarModels, String> carModelTableColumn;
     @FXML
-
-    private TextField carModelTextField;
+    private TableView<UpcomingCarModels> upcomingCarModelTableView;
     @FXML
-    private TableColumn<CarModel, String> carModelTableColumn;
+    
+    
+    private TextField upcomingCarModelsTextField;
     @FXML
-    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+    private TableColumn<UpcomingCarModels, String> upcomingCarModelFeaturesTableColumn;
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
+    /**
+     * Initializes the controller class.
+     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // Initialize car type ComboBox
+    public void initialize(URL url, ResourceBundle rb) {// Initialize car type ComboBox
         selectCarTypeComboBox.getItems().addAll("Sedan", "Hatchback", "SUV", "Crossover", "Coupe", "Convertible", "Minivan", "Truck", "Electric Vehicle (EV)");
         
         
         
         
-    }    
-
-    private void carTypeSelectOnAction(ActionEvent event) {
-        String selectedCarType = selectCarTypeComboBox.getValue();
-        switch (selectedCarType) {
-            case "Sedan":
-                carModelTextField.getText();
-                break;
-            case "Hatchback":
-                carModelTextField.getText();
-                break;
-             case "SUV":
-                carModelTextField.getText();
-                break;
-            case "Crossover":
-                carModelTextField.getText();
-                break;
-            case "Coupe":
-                carModelTextField.getText();
-                break;
-            case "Convertible":
-                carModelTextField.getText();
-                break;
-            case "Minivan":
-                carModelTextField.getText();
-                break;
-            case "Truck":
-                carModelTextField.getText();
-                break;
-            case "Electric Vehicle (EV)":
-                carModelTextField.getText();
-            default:
-                carModelTextField.clear(); // Clear the ComboBox if no specific car type is selected
-                break;
-        }
-        
     }
 
-   
+    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+
 
     @FXML
     private void submitButtonOnMouseClicked(ActionEvent event) {
-        CarModel i= new CarModel(
+        UpcomingCarModels i= new UpcomingCarModels(
               
                 
                 selectCarTypeComboBox.getValue(),
-                carModelTextField.getText(),
+                upcomingCarModelsTextField.getText(),
                 featuresTextArea.getText()
                 
         );
@@ -148,7 +98,7 @@ public class CarModelSceneController implements Initializable {
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("CarModelInfo.bin");
+            f = new File("UpcomingCarModelsInfo.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -160,7 +110,7 @@ public class CarModelSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
-            Logger.getLogger(CarModelSceneController.class
+            Logger.getLogger(ProductionManagerUpcomingCarModelsSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -169,31 +119,31 @@ public class CarModelSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(CarModelSceneController.class
+                Logger.getLogger(ProductionManagerUpcomingCarModelsSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
         
         selectCarTypeComboBox.setValue(null);
-        carModelTextField.clear();
+        upcomingCarModelsTextField.clear();
         featuresTextArea.clear();
     }
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
-        ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
+        ObservableList<UpcomingCarModels> UpcomingCarModelsInfo = FXCollections.observableArrayList();
     
     
 
 
         
 
-        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels,String>("carModel"));
 
-        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels, String>("carType"));
         
         
-        carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
+        upcomingCarModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels, String>("Features"));
 
         
 
@@ -205,14 +155,14 @@ public class CarModelSceneController implements Initializable {
         ObjectInputStream ois = null;
 
         try {
-            f = new File("CarModelInfo.bin");
+            f = new File("UpcomingCarModelsInfo.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            CarModel p;
+            UpcomingCarModels p;
             try {
                 while (true) {
-                    p = (CarModel) ois.readObject();
-                    CarModelInfo.add(p);
+                    p = (UpcomingCarModels) ois.readObject();
+                    UpcomingCarModelsInfo.add(p);
                     System.out.println(p.toString());
                 }
             } catch (Exception e) {
@@ -227,22 +177,43 @@ public class CarModelSceneController implements Initializable {
             }
 
         }
-        carModelTableView.setItems(CarModelInfo);
-        System.out.println(CarModelInfo.toString());
+        upcomingCarModelTableView.setItems(UpcomingCarModelsInfo);
+        System.out.println(UpcomingCarModelsInfo.toString());
     }
-
 
     @FXML
-    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        window.show();
+    private void carTypeSelectOnAction(ActionEvent event) {String selectedCarType = selectCarTypeComboBox.getValue();
+        switch (selectedCarType) {
+            case "Sedan":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Hatchback":
+                upcomingCarModelsTextField.getText();
+                break;
+             case "SUV":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Crossover":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Coupe":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Convertible":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Minivan":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Truck":
+                upcomingCarModelsTextField.getText();
+                break;
+            case "Electric Vehicle (EV)":
+                upcomingCarModelsTextField.getText();
+            default:
+                upcomingCarModelsTextField.clear(); // Clear the ComboBox if no specific car type is selected
+                break;
+        }
+        
     }
-
-    
 }
-
-    
-
