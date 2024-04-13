@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerWorkingScheduleSceneController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
-      <Button layoutX="481.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonOnMouseClicked" text="Return" />
+      <VBox layoutX="43.0" layoutY="14.0" spacing="10.0">
+         <children>
+            <Label text="Assembly Line Worker Schedule" />
+            <HBox spacing="10.0">
+               <Label text="Worker ID:" />
+               <TextField fx:id="workerIdTextField" />
+               <Label text="Worker Name:" />
+               <TextField fx:id="workerNameTextField" />
+            </HBox>
+            <HBox spacing="10.0">
+               <Label text="Shift Date:" />
+               <TextField fx:id="shiftDateTextField" />
+               <Label text="Shift Time:" />
+               <TextField fx:id="shiftTimeTextField" />
+            </HBox>
+            <Button onAction="#addButtonClicked" text="Add Worker" />
+            <Button onAction="#deleteButtonClicked" text="Delete Worker" />
+            <TableView fx:id="scheduleTableView" prefHeight="300.0" prefWidth="514.0">
+               <columns>
+                  <TableColumn fx:id="workerIdColumn" prefWidth="100.0" text="Worker ID" />
+                  <TableColumn fx:id="workerNameColumn" prefWidth="100.0" text="Worker Name" />
+                  <TableColumn fx:id="shiftDateColumn" prefWidth="100.0" text="Shift Date" />
+                  <TableColumn fx:id="shiftTimeColumn" prefWidth="100.0" text="Shift Time" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
+

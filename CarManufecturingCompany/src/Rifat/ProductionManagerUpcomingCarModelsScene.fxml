@@ -36,5 +36,6 @@
       <TextField fx:id="upcomingCarModelsTextField" layoutX="382.0" layoutY="75.0" />
       <!-- Label for displaying "Car Model" -->
       <Label layoutX="228.0" layoutY="80.0" text="Upcoming Car Model:" />
+      <Button layoutX="504.0" layoutY="19.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
    </children>
 </AnchorPane>

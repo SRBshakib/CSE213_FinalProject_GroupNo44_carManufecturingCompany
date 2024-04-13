@@ -4,30 +4,9 @@
  */
 package Rifat;
 
-/**
- *
- * @author Lenovo
- */
-
-
 import java.io.Serializable;
-import java.util.List;
 
 public class Budget implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    static List<Budget> getBudgetData() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    static void serializeBudgetList(List<Budget> budgetList, String budgetInfobin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    static List<Budget> deserializeBudgetList(String budgetInfobin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     private String year;
     private double partsBudget;
     private double lunchBudget;
@@ -92,25 +71,6 @@ public class Budget implements Serializable {
                 ", marketingBudget=" + marketingBudget +
                 '}';
     }
-
-    void yearProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    Object partsBudgetProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    Object lunchBudgetProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    Object salaryBudgetProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    Object marketingBudgetProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
+
 
