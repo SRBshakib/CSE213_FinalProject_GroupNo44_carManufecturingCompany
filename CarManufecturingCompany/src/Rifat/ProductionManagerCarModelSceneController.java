@@ -44,7 +44,7 @@ import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
 
 
-public class CarModelSceneController implements Initializable {
+public class ProductionManagerCarModelSceneController implements Initializable {
 
 
 
@@ -160,7 +160,7 @@ public class CarModelSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
-            Logger.getLogger(CarModelSceneController.class
+            Logger.getLogger(ProductionManagerCarModelSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -169,7 +169,7 @@ public class CarModelSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(CarModelSceneController.class
+                Logger.getLogger(ProductionManagerCarModelSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
