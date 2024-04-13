@@ -15,6 +15,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -34,13 +36,26 @@ public class FinanceManagerBudgetSceneController implements Initializable {
     @FXML
     private TextField salaryBudgetTF;
     @FXML
-    private Button saveButton;
+    private TextField marketingBudgetTF;
+    @FXML
+    private TableView<Budget> budgetTableView;
+    @FXML
+    private TableColumn<Budget, String> yearTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> partsBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> lunchBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> salaryBudgetTableColumn;
+    @FXML
+    private TableColumn<Budget, Double> marketingBudgetTableColumn;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
 
@@ -53,7 +68,11 @@ public class FinanceManagerBudgetSceneController implements Initializable {
     }
 
     @FXML
-    private void saveButtonOnClick(ActionEvent event) {
+    private void submitButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadButtonOnMouseClicked(ActionEvent event) {
     }
     
 }

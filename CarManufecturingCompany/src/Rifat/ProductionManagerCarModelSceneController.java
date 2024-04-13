@@ -36,10 +36,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
-
-import javafx.stage.Stage;
-
-
 import srbshakib.FlagAReport;
 import srbshakib.FlagAReportSecneController;
 
