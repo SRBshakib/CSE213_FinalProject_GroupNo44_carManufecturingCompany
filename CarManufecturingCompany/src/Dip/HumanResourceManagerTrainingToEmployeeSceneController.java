@@ -105,7 +105,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     @FXML
     private TableColumn<Training, String> statusTC;
     
-   private static Integer trainidCounter ;
+   private static int trainidCounter = 1100; ;
     @FXML
     private TableView<Training> trainingShowTV;
 
@@ -324,7 +324,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     
     
 private int generateUniqueId() {
-    trainidCounter = 1100;
+    
 
         return ++trainidCounter; // Increment the ID counter and return
     }
