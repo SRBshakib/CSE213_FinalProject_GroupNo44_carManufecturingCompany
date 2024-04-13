@@ -9,7 +9,11 @@
    <children>
       <AnchorPane layoutX="105.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
+
             <Label layoutX="56.0" layoutY="167.0" style="-fx-background-color: red;" text="Payment List" textFill="#8a2525" />
+
+            <Label layoutX="56.0" layoutY="167.0" style="-fx-background-color: red;" text="Payment List" />
+
             <TableView fx:id="paymentListTableView" layoutX="48.0" layoutY="211.0" prefHeight="200.0" prefWidth="548.0">
               <columns>
                 <TableColumn fx:id="userIdTableColumn" prefWidth="75.0" text="User Id" />
