@@ -5,6 +5,7 @@
 package Rifat;
 
 import Dip.AppendableObjectOutputStream;
+import Dip.HumanResourceManagerDirectorySceneController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -163,11 +164,16 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
         } catch (IOException ex) {
 
+
             Logger.getLogger(ProductionManagerCarModelSceneController.class
 
             Logger.getLogger(CarModelSceneController.class
 
                     .getName()).log(Level.SEVERE, null, ex);
+
+Logger.getLogger(ProductionManagerCarModelSceneController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
         } finally {
             try {
                 if (oos != null) {
@@ -176,11 +182,6 @@ public class ProductionManagerCarModelSceneController implements Initializable {
                 }
             } catch (IOException ex) {
 
-                Logger.getLogger(ProductionManagerCarModelSceneController.class
-
-                Logger.getLogger(CarModelSceneController.class
-
-                        .getName()).log(Level.SEVERE, null, ex);
             }
         }
         
