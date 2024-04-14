@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerCarLunchingEventSceneController">
+   <children>
+      <Label layoutX="28.0" layoutY="26.0" text="Car Launching Events" />
+      <TableView layoutX="28.0" layoutY="60.0" prefHeight="520.0" prefWidth="820.0">
+        <columns>
+          <TableColumn prefWidth="150.0" text="Car Model" />
+          <TableColumn prefWidth="186.0" text="Key Features" />
+          <TableColumn prefWidth="141.0" text="Year of Launching" />
+          <TableColumn prefWidth="125.0" text="Manufacturer" />
+          <TableColumn prefWidth="248.0" text="Production Status" />
+        </columns>
+      </TableView>
+      <Button layoutX="771.0" layoutY="21.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
+   </children>
+</AnchorPane>

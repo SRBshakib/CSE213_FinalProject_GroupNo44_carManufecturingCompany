@@ -279,6 +279,7 @@ public class SignUpSceneController implements Initializable {
 
         }
     }
+
         
     }
         

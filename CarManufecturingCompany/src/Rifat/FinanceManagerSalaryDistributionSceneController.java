@@ -1,19 +1,19 @@
-package Dip;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
+package Rifat;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import Dip.AppendableObjectOutputStream;
+import Dip.EmployeeList;
+import Dip.Salary;
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,7 +31,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class HumanResourceManagerSalaryManagmentSceneController implements Initializable {
+public class FinanceManagerSalaryDistributionSceneController implements Initializable {
 
     @FXML
     private TableView<EmployeeList> salaryTV;
@@ -77,10 +77,13 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         salaryTV.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
+        
+   
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerDashboardScene.fxml"));
+        // Go back to the Finance Manager Dashboard scene
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -88,7 +91,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
     }
 
     @FXML
-    private void saveButtonOnMouseClick(ActionEvent event) {
+    private void distributeButtonOnMouseClick(ActionEvent event) {
         salaryArr.add(
                 new Salary(
                         nameTF.getText(),
@@ -152,7 +155,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         ObjectInputStream ois = null;
 
         try {
-            f = new File("WorkerDirectory.bin");
+            f = new File("EmployeeDirectory.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             EmployeeList p;
@@ -214,7 +217,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
             oos.writeObject(i);
 
         } catch (IOException ex) {
-            Logger.getLogger(HumanResourceManagerSalaryManagmentSceneController.class
+            Logger.getLogger(FinanceManagerSalaryDistributionSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -223,7 +226,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(HumanResourceManagerSalaryManagmentSceneController.class
+                Logger.getLogger(FinanceManagerSalaryDistributionSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
