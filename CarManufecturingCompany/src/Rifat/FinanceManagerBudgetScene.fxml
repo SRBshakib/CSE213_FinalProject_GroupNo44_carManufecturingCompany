@@ -78,5 +78,6 @@
             </TableColumn>
          </columns>
       </TableView>
+      <Button layoutX="861.0" layoutY="32.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
    </children>
 </AnchorPane>

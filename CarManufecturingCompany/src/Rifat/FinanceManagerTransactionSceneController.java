@@ -46,6 +46,7 @@ public class FinanceManagerTransactionSceneController implements Initializable {
         transactionTableView.setItems(transactionList);
     }
 
+    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
