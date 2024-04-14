@@ -108,7 +108,7 @@ public class SignUpSceneController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getUserId()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("/Rifat/ProducerDashboard.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
