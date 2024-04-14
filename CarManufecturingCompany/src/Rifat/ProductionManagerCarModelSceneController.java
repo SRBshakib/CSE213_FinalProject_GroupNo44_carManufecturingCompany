@@ -164,6 +164,17 @@ public class ProductionManagerCarModelSceneController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ProductionManagerCarModelSceneController.class
                     .getName()).log(Level.SEVERE, null, ex);
+
+
+            
+
+            Logger.getLogger(ProductionManagerCarModelSceneController.class
+
+                    .getName()).log(Level.SEVERE, null, ex);
+
+Logger.getLogger(ProductionManagerCarModelSceneController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+
         } finally {
             try {
                 if (oos != null) {
@@ -171,8 +182,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-                Logger.getLogger(ProductionManagerCarModelSceneController.class
-                        .getName()).log(Level.SEVERE, null, ex);
+
             }
         }
         

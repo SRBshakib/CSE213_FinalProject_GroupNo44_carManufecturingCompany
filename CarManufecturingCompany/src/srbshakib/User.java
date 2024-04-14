@@ -16,15 +16,18 @@ import java.util.UUID;
  */
 public class User implements Serializable{
     private String name;
-    private String UserId;
+    private int UserId;
     private String password;
-    private UserType userType;
+    private String userType;
     private String email;
     private int phone;
     private String address;
     private LocalDate DoB;
 
-    public User(String name, String UserId, String password, UserType userType, String email, int phone, String address, LocalDate DoB) {
+    public User() {
+    }
+
+    public User(String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
         this.name = name;
         this.UserId = UserId;
         this.password = password;
@@ -43,11 +46,11 @@ public class User implements Serializable{
         this.name = name;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return UserId;
     }
 
-    public void setUserId(String UserId) {
+    public void setUserId(int UserId) {
         this.UserId = UserId;
     }
 
@@ -59,11 +62,11 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public UserType getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(UserType userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 
@@ -98,22 +101,18 @@ public class User implements Serializable{
     public void setDoB(LocalDate DoB) {
         this.DoB = DoB;
     }
-    public void login(){
-    }
-    public void verifyLogin(){
-    }
-    public void forgotPassword(){
-    }
-    public void signUp(){
-    }
-    public void showNoticeBoard(){
-    }
+
     @Override
     public String toString() {
         return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", userType=" + userType + ", email=" + email + ", phone=" + phone + ", address=" + address + ", DoB=" + DoB + '}';
+    }
+
+    
+    
+    
     }
     
 
    
     
-}
+
