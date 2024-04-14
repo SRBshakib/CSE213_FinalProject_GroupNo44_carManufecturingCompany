@@ -152,7 +152,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
         ObjectInputStream ois = null;
 
         try {
-            f = new File("WorkerDirectory.bin");
+            f = new File("EmployeeDirectory.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             EmployeeList p;

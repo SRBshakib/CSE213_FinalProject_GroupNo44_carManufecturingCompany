@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package Dip;
 
 import java.io.File;
@@ -19,14 +22,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,7 +34,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-
+/**
+ * FXML Controller class
+ *
+ * @author DIPAYON
+ */
 public class HumanResourceManagerTrainingToEmployeeSceneController implements Initializable {
 
     @FXML
@@ -54,6 +53,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     private ComboBox<String> trainingTypeCB;
     @FXML
     private ComboBox<String> trainingNameCB;
+    private ComboBox<String> trainingCourseNameCB;
     @FXML
     private ComboBox<String> trainingFeesCB;
     @FXML
@@ -78,6 +78,8 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     private TableColumn<WorkerList, String> callgenderTC;
     @FXML
     private TableView<WorkerList> workerListTV;
+    @FXML
+    private TableView<Training> trainingShowTV;
     @FXML
     private TableColumn<WorkerList, LocalDate> callDOJTC;
     Integer index;
@@ -105,13 +107,8 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
     @FXML
     private TableColumn<Training, String> statusTC;
     
-   private static int trainidCounter = 1100; ;
-    @FXML
-    private TableView<Training> trainingShowTV;
+   private static int idCounter = 000;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -124,18 +121,16 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         
         
         nameShowTC.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
-        idShowTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("empId"));
-        trainingFromTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateFrom"));
-        trainingToTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateTo"));
-        typeTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingType"));
-        trainingNameTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingName"));
-        feesTC.setCellValueFactory(new PropertyValueFactory<Training, String>("payment"));
-        trainIdTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("trainingId"));
-        statusTC.setCellValueFactory(new PropertyValueFactory<Training, String>("status"));
+        idShowTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("uniqueid"));
+        trainingFromTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("doj"));
+        trainingToTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("gender"));
+        typeTC.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
+        trainingNameTC.setCellValueFactory(new PropertyValueFactory<Training, String>("uniqueid"));
+        feesTC.setCellValueFactory(new PropertyValueFactory<Training, String>("doj"));
+        trainIdTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("gender"));
+        statusTC.setCellValueFactory(new PropertyValueFactory<Training, String>("gender"));
 
-        // TODO
     }    
-
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -148,38 +143,27 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
 
     @FXML
     private void saveButtonOnMouseClick(ActionEvent event) {
-        ObservableList<Training> trainingArry = FXCollections.observableArrayList();
-
-        File f = null;
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-
-        try {
-            f = new File("TrainingInfo.bin");
-            fis = new FileInputStream(f);
-            ois = new ObjectInputStream(fis);
-            Training p;
-            try {
-                while (true) {
-                    p = (Training) ois.readObject();
-                    trainingArry.add(p);
-                    System.out.println(p.toString());
-                }
-            } catch (Exception e) {
-            }
-        } catch (IOException ex) {
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-            } catch (IOException ex) {
-            }
-
-        }
-        trainingShowTV.setItems(trainingArry);
-        System.out.println(trainingArry.toString());
+        trainingArr.add(
+                new Training(
+                generateUniqueId(),
+                callnameTF.getText(),
+                Integer.parseInt(callIdTF.getText()),
+                callDOJTF.getText(),
+                trainingFromDP.getValue(),
+                trainingToDP.getValue(),
+                trainingTypeCB.getValue(),
+                trainingNameCB.getValue(),
+                trainingFeesCB.getValue()
+                ));
+        System.out.println(trainingArr.toString());
     }
+private int generateUniqueId() {
+        return ++idCounter; // Increment the ID counter and return
+    }
+
+
+
+
 
     @FXML
     private void saveToBinOnClick(ActionEvent event) {
@@ -199,7 +183,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("TrainingInfo.bin");
+            f = new File("Training.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -232,11 +216,12 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         trainingTypeCB.setValue(null);
         trainingNameCB.setValue(null);
         trainingFeesCB.setValue(null);
+
     }
 
     @FXML
-    private void getItem(MouseEvent event) {
-                index = workerListTV.getSelectionModel().getSelectedIndex();
+    private void getRowItem(MouseEvent event) {
+        index = workerListTV.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
@@ -259,7 +244,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         ObjectInputStream ois = null;
 
         try {
-            f = new File("WorkerDirectory.bin");
+            f = new File("Training.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             WorkerList p;
@@ -293,7 +278,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         ObjectInputStream ois = null;
 
         try {
-            f = new File("TrainingInfo.bin");
+            f = new File("NewJoining.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             Training p;
@@ -317,18 +302,7 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         }
         trainingShowTV.setItems(trainingArr);
         System.out.println(trainingArr.toString());
-        
     }
-
-
-    
-    
-private int generateUniqueId() {
-    
-
-        return ++trainidCounter; // Increment the ID counter and return
-    }
-    
 
     @FXML
     private void selectTrainingTypeOnClick(ActionEvent event) {
@@ -353,6 +327,10 @@ private int generateUniqueId() {
     }
     }
         
+    @FXML
+    private void selectTrainingNameOnClick(ActionEvent event) {
+        
+   }
 
     
 }

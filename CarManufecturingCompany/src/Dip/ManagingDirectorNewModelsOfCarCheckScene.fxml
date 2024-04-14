@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.ManagingDirectorNewModelsOfCarCheckSceneController">
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Dip.ManagingDirectorNewModelsOfCarCheckSceneController">
    <children>
       <Button layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
-      <TableView fx:id="carModelTableView" layoutX="34.0" layoutY="112.0" prefHeight="242.0" prefWidth="550.0">
-         <columns>
-            <TableColumn fx:id="carTypeTableColumn" prefWidth="179.0" text="Car Type" />
-            <TableColumn fx:id="carModelTableColumn" prefWidth="200.0" text="Car Model" />
-            <TableColumn fx:id="carModelFeaturesTableColumn" prefWidth="170.0" text="Features" />
-         </columns>
-      </TableView>
-      <Line endX="499.0" layoutX="101.0" layoutY="70.0" startX="-100.0" />
-      <Label layoutX="255.0" layoutY="33.0" text="Car Models">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="279.0" layoutY="361.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
    </children>
 </AnchorPane>
