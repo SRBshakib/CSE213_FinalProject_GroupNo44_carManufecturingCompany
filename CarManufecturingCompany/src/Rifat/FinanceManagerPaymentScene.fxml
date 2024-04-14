@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,6 +23,7 @@
                   <TableColumn fx:id="totalPaidTableColumn" prefWidth="116.0" text="Total Paid" />
               </columns>
             </TableView>
+            <Button layoutX="549.0" layoutY="22.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
          </children>
       </AnchorPane>
    </children>

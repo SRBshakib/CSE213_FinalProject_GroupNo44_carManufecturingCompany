@@ -30,7 +30,6 @@
             <HBox spacing="10">
                <children>
                   <Button onAction="#submitButtonOnMouseClicked" text="Submit" />
-                  <Button onAction="#cancelButtonOnMouseClicked" text="Cancel" />
                </children>
             </HBox>
          </children>
@@ -42,5 +41,6 @@
         </columns>
       </TableView>
       <Button layoutX="383.0" layoutY="624.0" onAction="#loadButtonOnMouseClicked" text="Load" />
+      <Button layoutX="503.0" layoutY="20.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
    </children>
 </AnchorPane>

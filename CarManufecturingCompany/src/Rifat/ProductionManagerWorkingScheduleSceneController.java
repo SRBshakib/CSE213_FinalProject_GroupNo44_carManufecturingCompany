@@ -171,4 +171,13 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
         scheduleTableView.setItems(WorkingScheduleInfo);
         System.out.println(WorkingScheduleInfo.toString());
     }
-}
+
+    @FXML
+    private void backButtonOnMouseClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
+    }
+}    

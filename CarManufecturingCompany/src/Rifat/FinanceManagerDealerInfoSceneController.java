@@ -45,7 +45,7 @@ public class FinanceManagerDealerInfoSceneController implements Initializable {
     @FXML
     private TableColumn<Dealer, String> regionTableColumn;
     @FXML
-    private TableColumn<Dealer, Integer> mobileNumberTableColumn;
+    private TableColumn<Dealer, String> mobileNumberTableColumn;
     @FXML
     private TableColumn<Dealer, String> countryNameTableColumn;
     @FXML
@@ -65,6 +65,7 @@ public class FinanceManagerDealerInfoSceneController implements Initializable {
         
     }
 
+    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -78,13 +79,16 @@ public class FinanceManagerDealerInfoSceneController implements Initializable {
         Dealer i= new Dealer(
               
                 
+                
+                
+                
                 countryNameComboBox.getValue(),
                 nameTextField.getText(),
                 locationTextField.getText(),
-                
-               Integer.parseInt(mobileNumberTextField.getText()),
+                mobileNumberTextField.getText(),
                 regionTextField.getText(),
                 emailTextField.getText()
+                
                             
         );
         FileOutputStream fos = null;
@@ -142,9 +146,10 @@ public class FinanceManagerDealerInfoSceneController implements Initializable {
         
         
         locationTableColumn.setCellValueFactory(new PropertyValueFactory<Dealer, String>("Location"));
-        mobileNumberTableColumn.setCellValueFactory(new PropertyValueFactory<Dealer, Integer>("MobileNumber"));
-
         regionTableColumn.setCellValueFactory(new PropertyValueFactory<Dealer, String>("Region"));
+        mobileNumberTableColumn.setCellValueFactory(new PropertyValueFactory<Dealer, String>("MobileNumber"));
+
+        
         emailTableColumn.setCellValueFactory(new PropertyValueFactory<Dealer, String>("Email"));
 
         
