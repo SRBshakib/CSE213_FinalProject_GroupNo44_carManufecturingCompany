@@ -162,11 +162,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
-
             Logger.getLogger(ProductionManagerCarModelSceneController.class
-
-            Logger.getLogger(CarModelSceneController.class
-
                     .getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
@@ -175,11 +171,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
                 }
             } catch (IOException ex) {
-
                 Logger.getLogger(ProductionManagerCarModelSceneController.class
-
-                Logger.getLogger(CarModelSceneController.class
-
                         .getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -188,6 +180,8 @@ public class ProductionManagerCarModelSceneController implements Initializable {
         carModelTextField.clear();
         featuresTextArea.clear();
     }
+        
+        
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
@@ -250,9 +244,6 @@ public class ProductionManagerCarModelSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
-
-    
 }
-
     
 

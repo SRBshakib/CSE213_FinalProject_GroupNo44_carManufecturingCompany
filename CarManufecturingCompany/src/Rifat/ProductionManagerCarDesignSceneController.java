@@ -5,6 +5,7 @@
 package Rifat;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -64,6 +65,11 @@ public class ProductionManagerCarDesignSceneController implements Initializable 
 
     @FXML
     private void showAllButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }        
