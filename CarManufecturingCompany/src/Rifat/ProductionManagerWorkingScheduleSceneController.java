@@ -95,6 +95,7 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
                 oos = new ObjectOutputStream(fos);
             }
 
+
             oos.writeObject(i);
 
         } catch (IOException ex) {
@@ -118,6 +119,7 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
         shiftDateTextField.clear();
         shiftTimeTextField.clear();
     }
+
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
@@ -172,6 +174,7 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
         System.out.println(WorkingScheduleInfo.toString());
     }
 
+
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
@@ -181,3 +184,6 @@ public class ProductionManagerWorkingScheduleSceneController implements Initiali
         window.show();
     }
 }    
+
+
+
