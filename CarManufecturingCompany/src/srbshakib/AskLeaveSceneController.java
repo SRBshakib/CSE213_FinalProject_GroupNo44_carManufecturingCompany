@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,11 +44,9 @@ import javafx.stage.Stage;
 public class AskLeaveSceneController implements Initializable {
 
     @FXML
-    private AnchorPane askLeaveFromDatePIcker;
+    private DatePicker askLeaveFromDatePIcker;
     @FXML
     private ComboBox<Integer> askLeaveHowManyWorkingDaysComboBox;
-    @FXML
-    private DatePicker askLeaveForDatePIcker;
     @FXML
     private DatePicker askLeaveToDatePIcker;
     @FXML
@@ -183,7 +182,7 @@ public class AskLeaveSceneController implements Initializable {
                 
                 askLeaveHowManyWorkingDaysComboBox.getValue(),
                 askLeaveForSingleDatePIcker.getValue(),
-                askLeaveForDatePIcker.getValue(),
+                askLeaveFromDatePIcker.getValue(),
                 askLeaveToDatePIcker.getValue(),
                 askLeaveReasonComboBox.getValue(),
                 askLeaveTextArea.getText()
@@ -224,7 +223,7 @@ public class AskLeaveSceneController implements Initializable {
         askLeaveHowManyWorkingDaysComboBox.setValue(null);
         askLeaveTextArea.clear();
         askLeaveForSingleDatePIcker.setValue(null);
-        askLeaveForDatePIcker.setValue(null);
+        askLeaveFromDatePIcker.setValue(null);
         askLeaveToDatePIcker.setValue(null);
         askLeaveReasonComboBox.setValue(null);
     }
@@ -237,27 +236,27 @@ public class AskLeaveSceneController implements Initializable {
         switch (askLeaveHowManyWorkingDaysComboBox.getValue()) {
             case 1:
                 askLeaveForSingleDatePIcker.setDisable(false);
-                askLeaveForDatePIcker.setDisable(true);
+                askLeaveFromDatePIcker.setDisable(true);
                 askLeaveToDatePIcker.setDisable(true);
                 break;
             case 2:
                 askLeaveForSingleDatePIcker.setDisable(true);
-                askLeaveForDatePIcker.setDisable(false);
+                askLeaveFromDatePIcker.setDisable(false);
                 askLeaveToDatePIcker.setDisable(false);
                 break;
             case 3:
                 askLeaveForSingleDatePIcker.setDisable(true);
-                askLeaveForDatePIcker.setDisable(false);
+                askLeaveFromDatePIcker.setDisable(false);
                 askLeaveToDatePIcker.setDisable(false);
                 break;
             case 4:
                 askLeaveForSingleDatePIcker.setDisable(true);
-                askLeaveForDatePIcker.setDisable(false);
+                askLeaveFromDatePIcker.setDisable(false);
                 askLeaveToDatePIcker.setDisable(false);
                 break;
             case 5:
                 askLeaveForSingleDatePIcker.setDisable(true);
-                askLeaveForDatePIcker.setDisable(false);
+                askLeaveFromDatePIcker.setDisable(false);
                 askLeaveToDatePIcker.setDisable(false);
                 break;
             default:
@@ -277,6 +276,7 @@ public class AskLeaveSceneController implements Initializable {
         reasonTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("reasonForLeave"));
         commentTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("commentForLeave"));
         pastLeaveInformationStatusTableColumn.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("status"));
+        
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
@@ -304,6 +304,7 @@ public class AskLeaveSceneController implements Initializable {
             }
 
         }
+        Collections.reverse(leaveInfo);
         pastLeaveInformationTableView.setItems(leaveInfo);
         System.out.println(leaveInfo.toString());
     }
