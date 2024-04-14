@@ -1,36 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerCreateUserSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerCreateUserSceneController">
    <children>
       <Button layoutX="15.0" layoutY="22.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt; Return &lt;&lt;" />
-      <AnchorPane layoutX="24.0" layoutY="47.0" prefHeight="479.0" prefWidth="754.0">
-         <children>
-            <Button layoutX="307.0" layoutY="369.0" mnemonicParsing="false" onAction="#signUpOnMouseClick" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #367E18;" text="Sign Up" textFill="WHITE">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <ComboBox fx:id="selectIdComboBox" layoutX="157.0" layoutY="50.0" prefWidth="150.0" promptText="Select ID" />
-            <ComboBox fx:id="selectNameComboBox" layoutX="335.0" layoutY="50.0" prefWidth="150.0" promptText="Select Name" />
-            <Button layoutX="548.0" layoutY="50.0" mnemonicParsing="false" onAction="#loadNameAndIdButtonONMouseClicked" text="Load Name and ID" />
-            <ComboBox fx:id="userTypeComboBox" layoutX="320.0" layoutY="121.0" prefWidth="150.0" promptText="Select User Type" />
-            <TextField fx:id="emailTextField" layoutX="149.0" layoutY="179.0" promptText="Enter Email" />
-            <TextField fx:id="phoneNumberTextField" layoutX="321.0" layoutY="179.0" promptText="Phone Number" />
-            <TextField fx:id="addressTextField" layoutX="142.0" layoutY="240.0" promptText="Address" />
-            <DatePicker fx:id="dobDatePicker" layoutX="308.0" layoutY="240.0" promptText="Date of Birth" />
-            <TextField fx:id="passwordTextField" layoutX="149.0" layoutY="121.0" promptText="Enter Password" />
-         </children>
-         <effect>
-            <DropShadow />
-         </effect>
-      </AnchorPane>
    </children>
 </AnchorPane>
