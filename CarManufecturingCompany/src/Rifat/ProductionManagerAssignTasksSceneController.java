@@ -56,12 +56,23 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     private TextField startingDateTextField;
     @FXML
     private TextField endingDateTextField;
-    @FXML
-    private TextField assemblingCarModelTextField;
+    
     @FXML
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
     private TableColumn<AssignTasks, String> assemblingCarModelTableColumn;
+    @FXML
+    private ComboBox<String> selectCarModelComboBox;
+    
+    private ObservableList<String> sedanCarModels = FXCollections.observableArrayList("Camry", "Corolla", "Avalon");
+    private ObservableList<String> hatchbackCarModels = FXCollections.observableArrayList("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
+    private ObservableList<String> suvCarModels = FXCollections.observableArrayList("RAV4", "Highlander", "4Runner");
+    private ObservableList<String> crossoverCarModels = FXCollections.observableArrayList("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid", "Venza");
+    private ObservableList<String> coupeCarModels = FXCollections.observableArrayList("GT86", "Supra");
+    private ObservableList<String> convertibleCarModels = FXCollections.observableArrayList("Solara");
+    private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
+    private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
+    private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
 
     /**
      * Initializes the controller class.
@@ -90,7 +101,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
                 destinationTextField.getText(),
                 startingDateTextField.getText(),
                 endingDateTextField.getText(),
-                assemblingCarModelTextField.getText(),
+                selectCarModelComboBox.getValue(),
                 selectCarTypeComboBox.getValue()
                 
         );
@@ -128,7 +139,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         destinationTextField.clear();
         startingDateTextField.clear();
         endingDateTextField.clear();
-        assemblingCarModelTextField.clear();        
+        selectCarModelComboBox.setValue(null);        
         selectCarTypeComboBox.setValue(null);
     }
 
@@ -174,39 +185,40 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         System.out.println(AssignTasksInfo.toString());
     }
 
+    
+
     @FXML
     private void carTypeSelectOnAction(ActionEvent event) {String selectedCarType = selectCarTypeComboBox.getValue();
         switch (selectedCarType) {
             case "Sedan":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(sedanCarModels);
                 break;
             case "Hatchback":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(hatchbackCarModels);
                 break;
              case "SUV":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(suvCarModels);
                 break;
             case "Crossover":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(crossoverCarModels);
                 break;
             case "Coupe":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(coupeCarModels);
                 break;
             case "Convertible":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(convertibleCarModels);
                 break;
             case "Minivan":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(minivanCarModels);
                 break;
             case "Truck":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(truckCarModels);
                 break;
             case "Electric Vehicle (EV)":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(evCarModels);
             default:
-                assemblingCarModelTextField.clear(); // Clear the ComboBox if no specific car type is selected
+                selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
                 break;
         }
-        
     }
-}
+}    
