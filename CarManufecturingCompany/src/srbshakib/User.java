@@ -17,29 +17,18 @@ import java.util.UUID;
 public class User implements Serializable{
 
 
-    private String name;
-    private int UserId;
-    private String password;
-    private String userType;
-    private String email;
-    private int phone;
-    private String address;
-    private LocalDate DoB;
+     String name;
+     int UserId;
+     String password;
+     LocalDate DoB;
+     String userType;
 
-
-    public User() {
-    }
-
-    public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
-
-
-    public User(String name, int UserId, String password, LocalDate dob, String userType) {
+    public User(String name, int UserId, String password, LocalDate DoB, String userType) {
         this.name = name;
         this.UserId = UserId;
         this.password = password;
-        this.dob = dob;
+        this.DoB = DoB;
         this.userType = userType;
-    
     }
 
     public String getName() {
@@ -66,12 +55,12 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public LocalDate getDob() {
-        return dob;
+    public LocalDate getDoB() {
+        return DoB;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDoB(LocalDate DoB) {
+        this.DoB = DoB;
     }
 
     public String getUserType() {
@@ -84,8 +73,12 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + dob + ", userType=" + userType + '}';
+        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", DoB=" + DoB + ", userType=" + userType + '}';
     }
+     
+
+
+    
 
 }
 
