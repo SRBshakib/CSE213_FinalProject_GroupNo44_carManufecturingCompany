@@ -180,7 +180,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerCreateUserScene.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
