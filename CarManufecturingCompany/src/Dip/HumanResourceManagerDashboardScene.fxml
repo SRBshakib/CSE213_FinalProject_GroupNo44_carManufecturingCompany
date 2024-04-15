@@ -31,5 +31,6 @@
             <ComboBox fx:id="NoticeUserSelectCB" layoutX="14.0" layoutY="19.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
+      <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#signOutOnClick" text="Sign Out" />
    </children>
 </AnchorPane>
