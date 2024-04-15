@@ -33,11 +33,11 @@ public class User implements Serializable{
     public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
 
 
-    public User(String name, int UserId, String password, LocalDate dob, String userType) {
+    
         this.name = name;
         this.UserId = UserId;
         this.password = password;
-        this.dob = dob;
+        this.DoB = DoB;
         this.userType = userType;
     
     }
