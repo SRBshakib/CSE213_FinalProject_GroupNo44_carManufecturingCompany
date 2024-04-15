@@ -8,6 +8,6 @@ package Aunti.Supplier;
  *
  * @author Asus
  */
-public class Order {
+public class DueBills {
     
 }

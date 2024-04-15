@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -39,9 +39,7 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-
-                        <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#inventoryListButtonOnMouseClicked" text="Inventory List" />
-
+                        <Button layoutX="20.0" layoutY="13.0" mnemonicParsing="false" onAction="#makeDeliveryButtonOnMouseClicked" prefHeight="31.0" prefWidth="120.0" text="Make Delivery" />
                      </children>
                   </AnchorPane>
                </items>
@@ -55,13 +53,7 @@
 
                      </children>
                   </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
-                     <children>
-
-                        <Button layoutX="6.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackOrdersButtonOnMouseClicked" prefHeight="31.0" prefWidth="138.0" text="Track Orders" />
-
-                     </children>
-                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0" />
                </items>
             </SplitPane>
             <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="383.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
@@ -110,17 +102,19 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <AnchorPane layoutX="222.0" layoutY="13.0" prefHeight="608.0" prefWidth="668.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <Label layoutX="56.0" layoutY="167.0" style="-fx-background-color: aqua;" text="Payment List" />
-            <TableView fx:id="paymentListTableView" layoutX="48.0" layoutY="211.0" prefHeight="200.0" prefWidth="548.0">
+            <TableView fx:id="paymentListTableView" layoutX="35.0" layoutY="370.0" prefHeight="200.0" prefWidth="359.0">
               <columns>
-                <TableColumn fx:id="orderIdTableColumn" prefWidth="75.0" text="Order Id" />
-                <TableColumn fx:id="totalPaymentTableColumn" prefWidth="153.0" text="Total Payment" />
-                  <TableColumn prefWidth="203.0" text="Due Payment" />
-                  <TableColumn fx:id="totalPaidTableColumn" prefWidth="116.0" text="Total Paid" />
+                <TableColumn fx:id="orderCodeTableColumn" prefWidth="167.0" text="Order Code" />
+                <TableColumn fx:id="paymentTypeTableColumn" prefWidth="189.0" text="Payment Type" />
               </columns>
             </TableView>
+            <Button layoutX="35.0" layoutY="314.0" mnemonicParsing="false" onAction="#loadPaymentListButtonOnMouseClicked" text="Load Payment List" />
+            <ComboBox fx:id="paymentTypeComboBox" layoutX="176.0" layoutY="97.0" prefWidth="150.0" promptText="Payment Type" />
+            <ComboBox fx:id="orderCodeComboBox" layoutX="9.0" layoutY="97.0" prefWidth="150.0" promptText="Order Code" />
+            <Button layoutX="17.0" layoutY="26.0" mnemonicParsing="false" onAction="#loadOrderCodeButtonOnMouseClicked" text="Load Order Code" />
+            <Button layoutX="126.0" layoutY="168.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
          </children>
       </AnchorPane>
    </children>
