@@ -28,7 +28,6 @@ public class User implements Serializable{
         this.password = password;
         this.dob = dob;
         this.userType = userType;
-    
     }
 
     public String getName() {
@@ -76,9 +75,5 @@ public class User implements Serializable{
         return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + dob + ", userType=" + userType + '}';
     }
 
+    
 }
-
-    
-
-    
-

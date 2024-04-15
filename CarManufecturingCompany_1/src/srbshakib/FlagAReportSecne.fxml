@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.FlagAReportSecneController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="14.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button layoutX="53.0" layoutY="17.0" mnemonicParsing="false" onAction="#homeButtonOnMuseClicked" text="Home" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+                     <children>
+                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#assignedTaskButtonOnMuseClicked" text="Assigned Tasks" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="137.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#inventoryButtonOnMuseClicked" text="Inventory" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+                     <children>
+                        <Button layoutX="40.0" layoutY="16.0" mnemonicParsing="false" onAction="#instructionsButtonOnMuseClicked" text="Instructions" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="260.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#leaveApplicationButtonOnMuseClicked" text="Leave Application" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+                     <children>
+                        <Button layoutX="53.0" layoutY="16.0" mnemonicParsing="false" onAction="#traingButtonOnMuseClicked" text="Training" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.5" layoutX="20.0" layoutY="383.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="160.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button layoutX="40.0" layoutY="17.0" mnemonicParsing="false" onAction="#flagReportButtonOnMuseClicked" text="Flag Report" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
+                     <children>
+                        <Button layoutX="33.0" layoutY="16.0" mnemonicParsing="false" onAction="#checkScheduleButtonOnMuseClicked" text="Check Schedule" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+            <AnchorPane layoutX="20.0" layoutY="506.0" minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="160.0" style="-fx-border-color: silver;">
+               <children>
+                  <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewCarsButtonOnMuseClicked" text="View Cars" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <Label layoutX="124.0" layoutY="29.0" text="ID:" />
+            <Label layoutX="253.0" layoutY="29.0" text="Assembling Car Model No:" />
+            <Label layoutX="37.0" layoutY="137.0" text="comments" />
+            <ComboBox fx:id="flagReportProblemTypeComboBox" layoutX="343.0" layoutY="63.0" prefWidth="150.0" promptText="problem type" />
+            <TextArea fx:id="flagReportTextArea" layoutX="131.0" layoutY="145.0" prefHeight="74.0" prefWidth="490.0" />
+            <Button layoutX="297.0" layoutY="229.0" mnemonicParsing="false" onAction="#flagReportSubmitButtonOnMouseClicked" text="Submit" />
+            <TextField fx:id="flagReportWorkarIdTextField" layoutX="145.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
+            <TextField fx:id="flagReportAssigendCarModelNoTextField" layoutX="406.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0" />
+            <ComboBox fx:id="flagReportCarTypeComboBox" layoutX="131.0" layoutY="63.0" prefWidth="150.0" promptText="Car Type" />
+            <TableView fx:id="flagReportTableView" layoutX="8.0" layoutY="370.0" prefHeight="213.0" prefWidth="628.0">
+              <columns>
+                <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="carModelNoTableColumn" prefWidth="89.0" text="Car Model No" />
+                  <TableColumn fx:id="carTypeTableColumn" prefWidth="89.0" text="Car Type" />
+                  <TableColumn fx:id="problemTypeTableColumn" prefWidth="89.0" text="Problem Type" />
+                  <TableColumn fx:id="commentsTableColumn" prefWidth="210.0" text="Comments" />
+                  <TableColumn fx:id="statusTableColumn" prefWidth="75.0" text="Status" />
+              </columns>
+            </TableView>
+            <Button layoutX="11.0" layoutY="333.0" mnemonicParsing="false" onAction="#loadReportsOnMouseClicked" text="Load Reports" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

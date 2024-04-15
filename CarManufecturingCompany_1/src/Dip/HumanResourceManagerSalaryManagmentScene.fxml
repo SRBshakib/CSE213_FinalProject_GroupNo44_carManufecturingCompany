@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerSalaryManagmentSceneController">
+   <children>
+      <Button layoutX="12.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
+      <Line endX="679.5" layoutX="45.0" layoutY="69.0" startX="-45.0" />
+      <TabPane layoutX="8.0" layoutY="83.0" prefHeight="437.0" prefWidth="715.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Set Salary">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="414.0" prefWidth="715.0">
+                     <children>
+                        <AnchorPane layoutX="20.0" layoutY="23.0" prefHeight="368.0" prefWidth="200.0" style="-fx-border-color: black;">
+                           <children>
+                              <TextField fx:id="amountTF" layoutX="24.0" layoutY="223.0" prefHeight="25.0" prefWidth="151.0" />
+                              <Label layoutX="31.0" layoutY="206.0" text="Enter Amount:" />
+                              <TextField fx:id="nameTF" layoutX="25.0" layoutY="59.0" />
+                              <TextField fx:id="idTF" layoutX="25.0" layoutY="113.0" />
+                              <TextField fx:id="dOJTF" layoutX="25.0" layoutY="172.0" />
+                              <Label layoutX="28.0" layoutY="31.0" text="Name:" />
+                              <Label layoutX="32.0" layoutY="96.0" text="ID: " />
+                              <Label layoutX="28.0" layoutY="151.0" text="Date Of Joining" />
+                              <Button layoutX="25.0" layoutY="263.0" mnemonicParsing="false" onAction="#saveButtonOnMouseClick" text="Save" />
+                              <Button layoutX="96.0" layoutY="263.0" mnemonicParsing="false" onAction="#saveToBinOnClick" text="Save to BIN" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="254.0" layoutY="23.0" prefHeight="370.0" prefWidth="450.0" style="-fx-border-color: black;">
+                           <children>
+                              <TableView fx:id="salaryTV" layoutX="14.0" layoutY="14.0" onMouseClicked="#getItem" prefHeight="273.0" prefWidth="419.0">
+                                <columns>
+                                  <TableColumn fx:id="nameTC" prefWidth="95.0" text="Name" />
+                                  <TableColumn fx:id="idTC" prefWidth="87.0" text="ID" />
+                                    <TableColumn fx:id="dOJTC" prefWidth="127.0" text="Joining Date" />
+                                    <TableColumn fx:id="genderTC" prefWidth="109.0" text="Gender" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="386.0" layoutY="320.0" mnemonicParsing="false" onAction="#loadButtonOnClick" text="Load" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Employee Information">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="633.0" layoutY="367.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
+                        <TableView fx:id="salaryShowTV" layoutX="20.0" layoutY="28.0" prefHeight="304.0" prefWidth="681.0">
+                          <columns>
+                            <TableColumn fx:id="nameShowTC" prefWidth="211.0" text="Name" />
+                            <TableColumn fx:id="idShowTC" prefWidth="126.0" text="ID" />
+                              <TableColumn fx:id="dOJShowTC" prefWidth="148.0" text="Date OF Joining" />
+                              <TableColumn fx:id="salaryAmountShowTC" prefWidth="195.0" text="Salary Amount (BDT)" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
