@@ -18,8 +18,6 @@ public class AssemblyLineWorker extends Employee implements Serializable {
 
     public AssemblyLineWorker(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
         super(dateOfJoin, salary, designation, name, UserId, password, userType, email, phone, address, DoB);
-    public AssemblyLineWorker(String name, int UserId, String password, LocalDate dob, String userType) {
-        super(name, UserId, password, dob, userType);
     }
 
     
