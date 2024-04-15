@@ -69,6 +69,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
         userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
 
 
+
     }
 
     @FXML
