@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -241,8 +242,6 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
             dOBDP.setValue(dateOfBirth);
         }
 
-
-
         designationTF.setText(callDesignationTC.getCellData(index).toString());
     }
 
@@ -289,6 +288,7 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
 
     @FXML
     private void addToBinButtonOnMouseClick(ActionEvent event) {
+
         if (designationTF.getText().equals("Assambly Line Worker")) {
 //        String selectdesignation = designationTF.getText();
 //        switch (selectdesignation) {
@@ -399,38 +399,59 @@ public class HumanResourceManagerDirectorySceneController implements Initializab
 
     @FXML
     private void addArrayButtonOnMouseClick(ActionEvent event) {
+        
+            if (emailTF.getText().isEmpty()
+                    || phoneTF.getText().isEmpty()
+                    || addressTA.getText().isEmpty()
+                    || educationTA.getText().isEmpty()
+                    || idTF.getText().isEmpty()
+                    || nameTF.getText().isEmpty()
+                    || genderTF.getText().isEmpty()
+                    || designationTF.getText().isEmpty()
+                    || nameTF.getText().isEmpty()
+                    || dOBDP.getValue() == null
+                    || dOJDP.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all the information");
+                alert.showAndWait();
+            } else {
 
-        if (callDesignationTC.cellValueFactoryProperty().equals("Assambly Line Worker")) {
+                if (callDesignationTC.cellValueFactoryProperty().equals("Assambly Line Worker")) {
 
-            workerArr.add(
-                    new WorkerList(
-                            emailTF.getText(),
-                            Integer.parseInt(phoneTF.getText()),
-                            addressTA.getText(),
-                            educationTA.getText(),
-                            Integer.parseInt(idTF.getText()),
-                            nameTF.getText(),
-                            genderTF.getText(),
-                            designationTF.getText(),
-                            dOBDP.getValue(),
-                            dOJDP.getValue()));
-            System.out.println(workerArr.toString());
+                    workerArr.add(
+                            new WorkerList(
+                                    emailTF.getText(),
+                                    Integer.parseInt(phoneTF.getText()),
+                                    addressTA.getText(),
+                                    educationTA.getText(),
+                                    Integer.parseInt(idTF.getText()),
+                                    nameTF.getText(),
+                                    genderTF.getText(),
+                                    designationTF.getText(),
+                                    dOBDP.getValue(),
+                                    dOJDP.getValue()));
+                    System.out.println(workerArr.toString());
 
-        } else {
-            empArr.add(
-                    new EmployeeList(
-                            emailTF.getText(),
-                            Integer.parseInt(phoneTF.getText()),
-                            addressTA.getText(),
-                            educationTA.getText(),
-                            Integer.parseInt(idTF.getText()),
-                            nameTF.getText(),
-                            genderTF.getText(),
-                            designationTF.getText(),
-                            dOBDP.getValue(),
-                            dOJDP.getValue()));
-            System.out.println(empArr.toString());
+                } else {
 
+                    empArr.add(
+                            new EmployeeList(
+                                    emailTF.getText(),
+                                    Integer.parseInt(phoneTF.getText()),
+                                    addressTA.getText(),
+                                    educationTA.getText(),
+                                    Integer.parseInt(idTF.getText()),
+                                    nameTF.getText(),
+                                    genderTF.getText(),
+                                    designationTF.getText(),
+                                    dOBDP.getValue(),
+                                    dOJDP.getValue()));
+                    System.out.println(empArr.toString());
+
+                }
+            }
         }
     }
-}
+
