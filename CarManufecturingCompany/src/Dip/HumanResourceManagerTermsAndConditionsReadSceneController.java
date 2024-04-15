@@ -11,28 +11,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 public class HumanResourceManagerTermsAndConditionsReadSceneController implements Initializable {
 
     @FXML
-    private Label termsAndConditionsSetTextLabel;
+    private TextArea termsAndConditionsSetTextArea;
        
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-
-    @FXML
-    private void loadButtonOnClick(ActionEvent event) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("termsAndConditions.bin"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("termsAndConditions.bin"))) {
             String loadedData = (String) ois.readObject();
-            termsAndConditionsSetTextLabel.setText(loadedData);
+            termsAndConditionsSetTextArea.setText(loadedData);
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    }
+    }    
+
 
     
     
