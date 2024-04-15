@@ -26,7 +26,7 @@
                <font>
                   <Font name="Arial Bold Italic" size="17.0" />
                </font></Label>
-            <TextArea fx:id="noticeOutputTA" layoutX="6.0" layoutY="51.0" prefHeight="200.0" prefWidth="308.0" />
+            <TextArea fx:id="noticeOutputTA" layoutY="55.0" prefHeight="200.0" prefWidth="308.0" />
             <Button layoutX="258.0" layoutY="255.0" mnemonicParsing="false" onAction="#refreshNoticeButtonOnClick" text="Refresh" />
             <ComboBox fx:id="NoticeUserSelectCB" layoutX="14.0" layoutY="19.0" prefWidth="150.0" />
          </children>
