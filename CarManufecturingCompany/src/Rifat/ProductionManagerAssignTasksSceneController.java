@@ -44,18 +44,13 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     @FXML
     private TableColumn<AssignTasks, String> destinationTableColumn;
     @FXML
-    private TableColumn<AssignTasks, String> startingDateTableColumn;
+    private TableColumn<AssignTasks, LocalDate> startingDateTableColumn;
     @FXML
-    private TableColumn<AssignTasks, String> endingDateTableColumn;
-    private TableColumn<AssignTasks, String> carModelTableColumn;
+    private TableColumn<AssignTasks, LocalDate> endingDateTableColumn;
     @FXML
     private TableColumn<AssignTasks, String> carTypeTableColumn;
-    @FXML
-    private TextField destinationTextField;
-    @FXML
-    private TextField startingDateTextField;
-    @FXML
-    private TextField endingDateTextField;
+  
+    
     
     @FXML
     private ComboBox<String> selectCarTypeComboBox;
@@ -73,6 +68,15 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
     private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
     private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
+    @FXML
+    private DatePicker startingDatePicker;
+    @FXML
+    private DatePicker endingDatePicker;
+    @FXML
+    private ComboBox<String> destinationComboBox;
+    
+   
+    
 
     /**
      * Initializes the controller class.
@@ -81,7 +85,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize car type ComboBox
         selectCarTypeComboBox.getItems().addAll("Sedan", "Hatchback", "SUV", "Crossover", "Coupe", "Convertible", "Minivan", "Truck", "Electric Vehicle (EV)");
-                            
+        destinationComboBox.getItems().addAll("Painting","Stamping","Welding","AssemblyInspection");
     }
     
 
@@ -98,11 +102,12 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     private void submitButtonOnMouseClicked(ActionEvent event) {
         AssignTasks i= new AssignTasks(
               
-                destinationTextField.getText(),
-                startingDateTextField.getText(),
-                endingDateTextField.getText(),
+                destinationComboBox.getValue(),
+                startingDatePicker.getValue(),
+                endingDatePicker.getValue(),
                 selectCarModelComboBox.getValue(),
                 selectCarTypeComboBox.getValue()
+                
                 
         );
         FileOutputStream fos = null;
@@ -136,9 +141,9 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         }
         
         
-        destinationTextField.clear();
-        startingDateTextField.clear();
-        endingDateTextField.clear();
+        destinationComboBox.setValue(null);
+        startingDatePicker.setValue(null);
+        endingDatePicker.setValue(null);
         selectCarModelComboBox.setValue(null);        
         selectCarTypeComboBox.setValue(null);
     }
@@ -148,8 +153,13 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         ObservableList<AssignTasks> AssignTasksInfo = FXCollections.observableArrayList();
 
         destinationTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks,String>("destination"));
-        startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("startingDate"));
-        endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("endingDate"));
+
+
+        startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("startingDate"));
+        
+        
+        endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("endingDate"));
+
         assemblingCarModelTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("assemblingCarModel"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("carType"));
 
@@ -184,12 +194,10 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         assignTasksTableView.setItems(AssignTasksInfo);
         System.out.println(AssignTasksInfo.toString());
     }
-
-    
-
     @FXML
-    private void carTypeSelectOnAction(ActionEvent event) {String selectedCarType = selectCarTypeComboBox.getValue();
-        switch (selectedCarType) {
+    private void carTypeSelectOnAction(ActionEvent event) {
+        String selectedCarType = selectCarTypeComboBox.getValue();
+       switch (selectedCarType) {
             case "Sedan":
                 selectCarModelComboBox.setItems(sedanCarModels);
                 break;
