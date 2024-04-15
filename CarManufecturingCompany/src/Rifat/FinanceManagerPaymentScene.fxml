@@ -4,26 +4,35 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.FinanceManagerPaymentSceneController">
    <children>
       <AnchorPane layoutX="105.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-
-            <Label layoutX="56.0" layoutY="167.0" style="-fx-background-color: red;" text="Payment List" textFill="#8a2525" />
-
-            <Label layoutX="56.0" layoutY="167.0" style="-fx-background-color: red;" text="Payment List" />
-
-            <TableView fx:id="paymentListTableView" layoutX="48.0" layoutY="211.0" prefHeight="200.0" prefWidth="548.0">
+            <Button layoutX="549.0" layoutY="22.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
+            <Label layoutX="53.0" layoutY="53.0" text="ID: " />
+            <Label layoutX="53.0" layoutY="95.0" text="Name:" />
+            <Label layoutX="53.0" layoutY="140.0" text="Total Payment:" />
+            <Label layoutX="47.0" layoutY="189.0" text="Due Payment:" />
+            <Label layoutX="50.0" layoutY="233.0" text="Designation:" />
+            <TableView fx:id="paymentTableView" layoutX="24.0" layoutY="351.0" prefHeight="200.0" prefWidth="594.0">
               <columns>
-                <TableColumn fx:id="userIdTableColumn" prefWidth="75.0" text="User Id" />
-                <TableColumn fx:id="totalPaymentTableColumn" prefWidth="153.0" text="Total Payment" />
-                  <TableColumn prefWidth="203.0" text="Due Payment" />
-                  <TableColumn fx:id="totalPaidTableColumn" prefWidth="116.0" text="Total Paid" />
+                <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nameTableColumn" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="designationTableColumn" prefWidth="126.0" text="Designation" />
+                  <TableColumn fx:id="totalPaymentTableColumn" prefWidth="126.0" text="Total Payment" />
+                  <TableColumn fx:id="duePaymentTableColumn" prefWidth="190.0" text="Due Payment" />
               </columns>
             </TableView>
-            <Button layoutX="549.0" layoutY="22.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
+            <TextField fx:id="idTextField" layoutX="82.0" layoutY="48.0" />
+            <TextField fx:id="nameTextField" layoutX="109.0" layoutY="90.0" />
+            <TextField fx:id="totalPaymentTextField" layoutX="161.0" layoutY="135.0" />
+            <TextField fx:id="duePaymentTextField" layoutX="151.0" layoutY="184.0" />
+            <TextField fx:id="designationTextField" layoutX="151.0" layoutY="228.0" />
+            <Button layoutX="64.0" layoutY="284.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
+            <Button layoutX="151.0" layoutY="284.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
          </children>
       </AnchorPane>
    </children>

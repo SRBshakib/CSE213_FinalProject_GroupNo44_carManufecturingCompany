@@ -25,33 +25,39 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import srbshakib.FlagAReport;
 
 public class ProductionManagerIssueSceneController implements Initializable {
 
+    
+    
+    
     @FXML
-    private TextField titleTextField;
+    private TableColumn<FlagAReport, Integer> idTableColumn;
     @FXML
-    private TextArea descriptionTextArea;
+    private TableColumn<FlagAReport, String> carModelNoTableColumn;
     @FXML
-    private TableView<Issue> issueTableView;
+    private TableColumn<FlagAReport, String> carTypeTableColumn;
     @FXML
-    private TableColumn<Issue, String> titleTableColumn;
+    private TableColumn<FlagAReport, String> problemTypeTableColumn;
     @FXML
-    private TableColumn<Issue, String> descriptionTableColumn;
+    private TableColumn<FlagAReport, String> commentsTableColumn;
+    @FXML
+    private TableColumn<FlagAReport, String> statusTableColumn;
+    
+    @FXML
+    private TableView<FlagAReport> issueTableView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-    descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-    // Clear any existing items
-    issueTableView.getItems().clear();
+        
         
         
     }    
@@ -65,85 +71,33 @@ public class ProductionManagerIssueSceneController implements Initializable {
         window.show();
     }
 
-    @FXML
-    private void submitButtonOnMouseClicked(ActionEvent event) {
-        Issue i= new Issue(
-              
-                
-                titleTextField.getText(),
-                descriptionTextArea.getText()
-                
-        );
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        File f = null;
-        try {
-            f = new File("IssueInfo.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
 
-            oos.writeObject(i);
-
-        } catch (IOException ex) {
-            Logger.getLogger(ProductionManagerIssueSceneController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(ProductionManagerIssueSceneController.class
-                        .getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
-        titleTextField.clear();
-        descriptionTextArea.clear();
-        
-    }
+      
 
     @FXML
-    private void loadButtonOnMouseClicked(ActionEvent event) {
-        ObservableList<Issue> IssueInfo = FXCollections.observableArrayList();
-    
-    
+    private void loadReportsOnMouseClicked(ActionEvent event) {
+        ObservableList<FlagAReport> flagReportInfo = FXCollections.observableArrayList();
 
-
-        
-
-        titleTableColumn.setCellValueFactory(new PropertyValueFactory<Issue,String>("title"));
-
-        descriptionTableColumn.setCellValueFactory(new PropertyValueFactory<Issue, String>("description"));
-        
-        
-        
-
-        
-
-        
-
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport,Integer>("workerId"));
+        carModelNoTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport,String>("carModelNo"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("carType"));
+        problemTypeTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("problemType"));
+        commentsTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("comments"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<FlagAReport, String>("Status"));
         
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
         try {
-            f = new File("IssueInfo.bin");
+            f = new File("FlagReportInfo.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            Issue p;
+            FlagAReport p;
             try {
                 while (true) {
-                    p = (Issue) ois.readObject();
-                    IssueInfo.add(p);
+                    p = (FlagAReport) ois.readObject();
+                    flagReportInfo.add(p);
                     System.out.println(p.toString());
                 }
             } catch (Exception e) {
@@ -158,9 +112,14 @@ public class ProductionManagerIssueSceneController implements Initializable {
             }
 
         }
-        issueTableView.setItems(IssueInfo);
-        System.out.println(IssueInfo.toString());
-    }  
-  
+        issueTableView.setItems(flagReportInfo);
+        System.out.println(flagReportInfo.toString());
+    }
+
+
+    
+    
 }
+  
+        
   
