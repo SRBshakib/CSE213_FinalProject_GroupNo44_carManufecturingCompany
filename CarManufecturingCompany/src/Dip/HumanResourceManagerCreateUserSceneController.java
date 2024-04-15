@@ -88,6 +88,8 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
                 "Supply Chain Manager",
                 "Human Resource Manager",
                 "Production Manager");
+        
+        
     }
     @FXML
     private void getRowItrems(MouseEvent event) {
