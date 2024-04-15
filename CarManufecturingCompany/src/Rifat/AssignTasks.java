@@ -9,7 +9,7 @@ import java.time.LocalDate;
  *
  * @author Lenovo
  */
-class AssignTasks implements Serializable{
+public class AssignTasks implements Serializable{
     public String destination;
     public LocalDate startingDate;
     public LocalDate endingDate;

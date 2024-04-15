@@ -24,7 +24,7 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
-import Rifat.AssignTasks
+import Rifat.AssignTasks;
 
 /**
  * FXML Controller class
