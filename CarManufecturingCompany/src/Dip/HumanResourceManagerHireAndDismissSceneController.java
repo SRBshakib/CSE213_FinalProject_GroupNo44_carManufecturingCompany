@@ -84,7 +84,13 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newjoiningArr = new ArrayList<NewJoining>();
-        designationCB.getItems().addAll("Assambly Line Worker", "Managing Director", "Human Resource Manager", "Finance Manager", "Supply Chain Manager");
+        designationCB.getItems().addAll(
+                "Assambly Line Worker", 
+                "Managing Director", 
+                "Human Resource Manager", 
+                "Finance Manager", 
+                "Supply Chain Manager",
+                "Production Manager");
         tg = new ToggleGroup();
         maleRBtn.setToggleGroup(tg);
         femaleRBtn.setToggleGroup(tg);
