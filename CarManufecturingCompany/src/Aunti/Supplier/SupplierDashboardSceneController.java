@@ -49,7 +49,6 @@ public class SupplierDashboardSceneController implements Initializable {
         window.show();
     }
 
-    @FXML
     private void ordersButtonOnMouseClicked(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("OrdersScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -110,6 +109,10 @@ public class SupplierDashboardSceneController implements Initializable {
         window.setScene(scene1);
         window.setTitle("MakeDeliveryScene");
         window.show();
+    }
+
+    @FXML
+    private void orderHistoryButtonOnMouseClicked(ActionEvent event) {
     }
     
 }
