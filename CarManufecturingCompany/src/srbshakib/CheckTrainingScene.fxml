@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.CheckTrainingSceneController">
+<AnchorPane id="AnchorPane" prefHeight="746.0" prefWidth="1181.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="srbshakib.CheckTrainingSceneController">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="598.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
@@ -73,23 +73,22 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="214.0" layoutY="7.0" prefHeight="693.0" prefWidth="899.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <AnchorPane layoutX="228.0" layoutY="19.0" prefHeight="746.0" prefWidth="1073.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <TableView fx:id="trainingShowTV" layoutX="3.0" layoutY="101.0" prefHeight="483.0" prefWidth="888.0">
+            <TableView fx:id="trainingShowTV" layoutX="14.0" layoutY="113.0" prefHeight="424.0" prefWidth="1020.0">
                <columns>
-                  <TableColumn fx:id="nameShowTC" prefWidth="103.0" text="Name" />
-                  <TableColumn fx:id="idShowTC" prefWidth="81.00001525878906" text="ID" />
-                  <TableColumn fx:id="trainingFromTC" prefWidth="102.99998474121094" text="From" />
-                  <TableColumn fx:id="trainingToTC" prefWidth="81.0" text="To" />
-                  <TableColumn fx:id="typeTC" prefWidth="135.0" text="Training Type" />
-                  <TableColumn fx:id="trainingNameTC" prefWidth="100.0" text="Program Name" />
-                  <TableColumn fx:id="feesTC" prefWidth="100.0" text="Fees" />
-                  <TableColumn fx:id="trainIdTC" prefWidth="100.0" text="Train ID" />
-                  <TableColumn fx:id="statusTC" prefWidth="69.0" text="Status" />
+                  <TableColumn fx:id="nameShowTC" prefWidth="118.0" text="Name" />
+                  <TableColumn fx:id="idShowTC" prefWidth="106.0" text="ID" />
+                  <TableColumn fx:id="trainingFromTC" prefWidth="104.0" text="From" />
+                  <TableColumn fx:id="trainingToTC" prefWidth="98.0" text="To" />
+                  <TableColumn fx:id="typeTC" prefWidth="180.0" text="Training Type" />
+                  <TableColumn fx:id="trainingNameTC" prefWidth="142.0" text="Program Name" />
+                  <TableColumn fx:id="feesTC" prefWidth="119.0" text="Fees" />
+                  <TableColumn fx:id="trainIdTC" prefWidth="87.0" text="Training ID" />
+                  <TableColumn fx:id="statusTC" prefWidth="65.0" text="Status" />
                </columns>
             </TableView>
-            <Button layoutX="824.0" layoutY="616.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
-         </children>
-      </AnchorPane>
+            <Button layoutX="839.0" layoutY="608.0" mnemonicParsing="false" onAction="#showButtonOnMouseClick" text="Show" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>

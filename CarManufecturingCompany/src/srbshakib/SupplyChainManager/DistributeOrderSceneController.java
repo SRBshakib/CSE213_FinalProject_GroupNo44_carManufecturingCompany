@@ -6,7 +6,6 @@ package srbshakib.SupplyChainManager;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,17 +14,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-
 
 /**
  * FXML Controller class
  *
  * @author SRB Shakib
  */
-public class SupplyChainManagerDashboardSceneController implements Initializable {
+public class DistributeOrderSceneController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -136,15 +132,4 @@ public class SupplyChainManagerDashboardSceneController implements Initializable
         window.setTitle("Distribute");
         window.show();
     }
-
-    @FXML
-    private void signOUtButtonOnMuseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("/mainpkg/LoginScene.fxml"));
-        Scene scene1 = new Scene(mainParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene1);
-        
-        window.show();
-    }
-    
 }
