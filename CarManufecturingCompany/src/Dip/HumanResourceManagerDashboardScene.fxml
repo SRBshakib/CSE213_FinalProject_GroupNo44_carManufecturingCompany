@@ -5,32 +5,73 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="723.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerDashboardSceneController">
+<AnchorPane id="AnchorPane" prefHeight="514.0" prefWidth="973.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerDashboardSceneController">
    <children>
-      <Button layoutX="37.0" layoutY="80.0" mnemonicParsing="false" text="Home" />
-      <Button layoutX="37.0" layoutY="173.0" mnemonicParsing="false" onAction="#noticeMgtButtonOnClick" text="Notice Board Manager" />
-      <Button layoutX="37.0" layoutY="128.0" mnemonicParsing="false" onAction="#directoryMgtButtonOnClick" text="Directory Managment" />
-      <Button layoutX="37.0" layoutY="448.0" mnemonicParsing="false" onAction="#salaryMgtButtonOnClick" text="Salary Managment" />
-      <Button layoutX="40.0" layoutY="261.0" mnemonicParsing="false" onAction="#leaveRequestButtonOnClick" text="Leave Request" />
-      <Button layoutX="34.0" layoutY="302.0" mnemonicParsing="false" onAction="#hireAndDismissButtonOnClick" text="Hire And Dismiss" />
-      <Button layoutX="38.0" layoutY="349.0" mnemonicParsing="false" onAction="#trainEmployeeButtonOnClick" text="Train Employee" />
-      <Button layoutX="37.0" layoutY="210.0" mnemonicParsing="false" onAction="#createUserButtonOnClick" text="Create User" />
-      <Button layoutX="38.0" layoutY="400.0" mnemonicParsing="false" onAction="#jobApplicationButtonOnClick" text="Job Application" />
-      <Hyperlink layoutX="424.0" layoutY="663.0" onAction="#termsAndConditionsReadOnClick" text="Terms And Conditions" />
-      <AnchorPane layoutX="616.0" layoutY="224.0" prefHeight="301.0" prefWidth="324.0">
+      <ImageView fitHeight="561.0" fitWidth="973.0">
+         <image>
+            <Image url="@../pictures/ToyotaDashboard.png" />
+         </image>
+         <effect>
+            <BoxBlur />
+         </effect>
+      </ImageView>
+      <AnchorPane layoutX="10.0" layoutY="35.0" prefHeight="496.0" prefWidth="185.0">
          <children>
-            <Label layoutX="207.0" layoutY="24.0" text="Notice Board">
+            <Button layoutX="9.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Home" />
+            <Button layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#noticeMgtButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Notice Board Management" />
+            <Button layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#directoryMgtButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Directory Managment" />
+            <Button layoutX="12.0" layoutY="394.0" mnemonicParsing="false" onAction="#salaryMgtButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Salary Managment" />
+            <Button layoutX="10.0" layoutY="156.0" mnemonicParsing="false" onAction="#leaveRequestButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Leave Request" />
+            <Button layoutX="10.0" layoutY="204.0" mnemonicParsing="false" onAction="#hireAndDismissButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Requirement" />
+            <Button layoutX="13.0" layoutY="346.0" mnemonicParsing="false" onAction="#trainEmployeeButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Assign Traininig" />
+            <Button layoutX="11.0" layoutY="252.0" mnemonicParsing="false" onAction="#createUserButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Create User" />
+            <Button layoutX="12.0" layoutY="299.0" mnemonicParsing="false" onAction="#jobApplicationButtonOnClick" prefHeight="40.0" prefWidth="160.0" text="Job Application" />
+            <Button layoutX="12.0" layoutY="442.0" mnemonicParsing="false" onAction="#signOutOnClick" prefHeight="40.0" prefWidth="160.0" text="Sign Out" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="635.0" layoutY="237.0" prefHeight="301.0" prefWidth="324.0">
+         <children>
+            <Label layoutX="207.0" layoutY="24.0" text="Notice Board" textFill="#ff8080">
                <font>
                   <Font name="Arial Bold Italic" size="17.0" />
                </font></Label>
-            <TextArea fx:id="noticeOutputTA" layoutX="6.0" layoutY="51.0" prefHeight="200.0" prefWidth="308.0" />
+            <TextArea fx:id="noticeOutputTA" layoutX="6.0" layoutY="51.0" prefHeight="200.0" prefWidth="308.0">
+               <effect>
+                  <ColorAdjust brightness="-0.29" hue="-0.81" saturation="0.07" />
+               </effect></TextArea>
             <Button layoutX="258.0" layoutY="255.0" mnemonicParsing="false" onAction="#refreshNoticeButtonOnClick" text="Refresh" />
-            <ComboBox fx:id="NoticeUserSelectCB" layoutX="14.0" layoutY="19.0" prefWidth="150.0" />
+            <ComboBox fx:id="NoticeUserSelectCB" layoutX="8.0" layoutY="19.0" prefWidth="150.0">
+               <effect>
+                  <ColorAdjust brightness="-0.38" contrast="0.17" hue="0.19" saturation="-0.43" />
+               </effect></ComboBox>
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
-      <Button layoutX="36.0" layoutY="500.0" mnemonicParsing="false" onAction="#signOutOnClick" text="Sign Out" />
+      <Hyperlink layoutX="414.0" layoutY="526.0" onAction="#termsAndConditionsReadOnClick" text="Terms And Conditions" />
+      <Label layoutX="211.0" layoutY="20.0" prefHeight="31.0" prefWidth="551.0" text="Wellcome Back! Mr. Human Resourse Manager">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#ff8c8c" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
    </children>
 </AnchorPane>

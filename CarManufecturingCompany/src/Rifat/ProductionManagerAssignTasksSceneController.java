@@ -151,24 +151,17 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
         ObservableList<AssignTasks> AssignTasksInfo = FXCollections.observableArrayList();
-    
-    
-
-
-        
 
         destinationTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks,String>("destination"));
+
 
         startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("startingDate"));
         
         
         endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("endingDate"));
+
         assemblingCarModelTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("assemblingCarModel"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("carType"));
-
-        
-
-        
 
         
         File f = null;

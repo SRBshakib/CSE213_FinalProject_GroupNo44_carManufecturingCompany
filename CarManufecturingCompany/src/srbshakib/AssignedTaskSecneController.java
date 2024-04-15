@@ -17,6 +17,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import Rifat.AssignTasks;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.time.LocalDate;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -26,17 +34,17 @@ import javafx.stage.Stage;
 public class AssignedTaskSecneController implements Initializable {
 
     @FXML
-    private TableView<?> assignedTaskTableView;
+    private TableView<AssignTasks> assignedTaskTableView;
     @FXML
-    private TableColumn<?, ?> destinationTableColumn;
+    private TableColumn<AssignTasks, String> destinationTableColumn;
     @FXML
-    private TableColumn<?, ?> startingDateTableColumn;
+    private TableColumn<AssignTasks, LocalDate> startingDateTableColumn;
     @FXML
-    private TableColumn<?, ?> endingDateTableColumn;
+    private TableColumn<AssignTasks, LocalDate> endingDateTableColumn;
     @FXML
-    private TableColumn<?, ?> carModelTableColumn;
+    private TableColumn<AssignTasks, String> carModelTableColumn;
     @FXML
-    private TableColumn<?, ?> carTypeTableColumn;
+    private TableColumn<AssignTasks, String> carTypeTableColumn;
 
     /**
      * Initializes the controller class.
@@ -135,6 +143,48 @@ public class AssignedTaskSecneController implements Initializable {
         window.setScene(scene1);
         window.setTitle("Cars");
         window.show();
+    }
+
+    @FXML
+    private void loadTaskOnMouseClicked(ActionEvent event) {
+        ObservableList<AssignTasks> AssignTasksInfo = FXCollections.observableArrayList();
+
+        destinationTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks,String>("destination"));
+        startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("startingDate"));
+        endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("endingDate"));
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("assemblingCarModel"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("carType"));
+
+        
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("AssignTasksInfo.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            AssignTasks p;
+            try {
+                while (true) {
+                    p = (AssignTasks) ois.readObject();
+                    AssignTasksInfo.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+        assignedTaskTableView.setItems(AssignTasksInfo);
+        System.out.println(AssignTasksInfo.toString());
     }
     
 }
