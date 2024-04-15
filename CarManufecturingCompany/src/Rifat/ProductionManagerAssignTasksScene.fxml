@@ -30,11 +30,11 @@
             <TextField fx:id="destinationTextField" layoutX="154.0" layoutY="39.0" />
             <TextField fx:id="startingDateTextField" layoutX="154.0" layoutY="76.0" />
             <TextField fx:id="endingDateTextField" layoutX="154.0" layoutY="119.0" />
-            <TextField fx:id="assemblingCarModelTextField" layoutX="219.0" layoutY="158.0" />
             <ComboBox fx:id="selectCarTypeComboBox" layoutX="203.0" layoutY="204.0" onAction="#carTypeSelectOnAction" prefWidth="150.0" />
             <Button layoutX="76.0" layoutY="262.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
             <Button layoutX="181.0" layoutY="262.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
             <Button layoutX="741.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
+            <ComboBox fx:id="selectCarModelComboBox" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
