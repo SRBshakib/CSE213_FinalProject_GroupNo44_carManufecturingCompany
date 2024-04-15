@@ -189,6 +189,31 @@ public class FinanceManagerDashboardSceneController implements Initializable {
         }
 }
 
+    @FXML
+    private void signOutOnClick(ActionEvent event) throws IOException {
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+        a.setTitle("Confirmation Alert");
+        a.setHeaderText("Confirm");
+        a.setContentText("Are you sure to SIgnOut?");
+
+        Optional<ButtonType> result = a.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/mainpkg/LoginScene.fxml"));
+            Scene scene1 = new Scene(mainSceneParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene1);
+            window.show();
+            showCustomInformationAlert("Have a Good Day.");
+        } else {
+            //show appropriate cancellation message
+            showCustomInformationAlert("You choose to stay in Dashboard!");
+        }
+    }
+
+    private void showCustomInformationAlert(String have_a_Good_Day) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
        }
     
 

@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.scene.control.DatePicker;
 
 /**
  * FXML Controller class
@@ -75,6 +76,11 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     @FXML
     private ComboBox<String> destinationComboBox;
     
+    @FXML
+    private TextField workerNameTextField;
+    @FXML
+    private TableColumn<AssignTasks, String> carTypeTableColumn1;
+    
    
     
 
@@ -106,10 +112,11 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
                 startingDatePicker.getValue(),
                 endingDatePicker.getValue(),
                 selectCarModelComboBox.getValue(),
-                selectCarTypeComboBox.getValue()
-                
+                selectCarTypeComboBox.getValue(),
+                workerNameTextField.getText()
                 
         );
+        
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -146,6 +153,8 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         endingDatePicker.setValue(null);
         selectCarModelComboBox.setValue(null);        
         selectCarTypeComboBox.setValue(null);
+        workerNameTextField.clear();
+        
     }
 
     @FXML
@@ -162,6 +171,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
 
         assemblingCarModelTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("assemblingCarModel"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("carType"));
+        carTypeTableColumn1.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("worker"));
 
         
         File f = null;
@@ -197,7 +207,8 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     @FXML
     private void carTypeSelectOnAction(ActionEvent event) {
         String selectedCarType = selectCarTypeComboBox.getValue();
-       switch (selectedCarType) {
+        if (selectedCarType != null) {
+        switch (selectedCarType) {
             case "Sedan":
                 selectCarModelComboBox.setItems(sedanCarModels);
                 break;
@@ -228,5 +239,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
                 selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
                 break;
         }
+    
     }
+}
 }    
