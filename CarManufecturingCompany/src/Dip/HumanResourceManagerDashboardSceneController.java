@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -21,13 +22,16 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
 
     @FXML
     private TextArea noticeOutputTA;
+    @FXML
+    private ComboBox<String> NoticeUserSelectCB;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        NoticeUserSelectCB.getItems().addAll("Managing Director",
+                "Human Resource Manager");
     }
 
     @FXML
@@ -114,6 +118,7 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
 
     @FXML
     private void refreshNoticeButtonOnClick(ActionEvent event) {
+        if (NoticeUserSelectCB.getValue().equals("Managing Director")){
         ObjectInputStream ois = null;
         try {
             MeetingSchedule s;
@@ -141,5 +146,33 @@ public class HumanResourceManagerDashboardSceneController implements Initializab
             } catch (IOException ex1) {
             }
         }
-    }
-}
+    }else{
+        ObjectInputStream ois = null;
+        try {
+            Notice s;
+            FileInputStream fis = new FileInputStream("Notice.bin");
+            ois = new ObjectInputStream(fis);
+
+            noticeOutputTA.setText(null);
+
+            while (true) {
+                s = (Notice) ois.readObject();
+
+                noticeOutputTA.appendText(s.toString() + "\n");
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        } catch (Exception ex) {
+
+            try {
+                System.out.println(ex.toString());
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex1) {
+            }
+        }  
+        }
+}}
