@@ -16,14 +16,13 @@ import java.util.UUID;
  */
 public class User implements Serializable{
 
-    private String name;
-    private int UserId;
-    private String password;
-    private String userType;
-    private String email;
-    private int phone;
-    private String address;
-    private LocalDate DoB;
+
+     String name;
+     int UserId;
+     String password;
+     LocalDate DoB;
+     String userType;
+
 
 
     public User() {
@@ -31,12 +30,14 @@ public class User implements Serializable{
 
     public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
 
+
+    
+
         this.name = name;
         this.UserId = UserId;
         this.password = password;
         this.DoB = DoB;
         this.userType = userType;
-    
     }
 
     public String getName() {
@@ -63,7 +64,13 @@ public class User implements Serializable{
         this.password = password;
     }
 
+    public LocalDate getDoB() {
+        return DoB;
+    }
 
+    public void setDoB(LocalDate DoB) {
+        this.DoB = DoB;
+    }
 
     public String getUserType() {
         return userType;
@@ -73,52 +80,16 @@ public class User implements Serializable{
         this.userType = userType;
     }
 
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public LocalDate getDoB() {
-        return DoB;
-    }
-
-    public void setDoB(LocalDate DoB) {
-        this.DoB = DoB;
-    }
-
-
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + DoB + ", userType=" + userType + '}';
+        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", DoB=" + DoB + ", userType=" + userType + '}';
     }
+     
 
 
     
-    
-    
-    }
 
-
+}
 
     
 

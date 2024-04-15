@@ -25,5 +25,6 @@
       <Button layoutX="585.0" layoutY="506.0" mnemonicParsing="false" onAction="#refreshNoticeButtonOnClick" text="Refresh" />
       <Label layoutX="540.0" layoutY="207.0" text="Notice Board" />
       <Hyperlink layoutX="288.0" layoutY="551.0" onAction="#termsAndConditionsReadOnClick" text="Terms And Conditions" />
+      <Button layoutX="78.0" layoutY="506.0" mnemonicParsing="false" onAction="#signOutOnClick" text="Sign Out" />
    </children>
 </AnchorPane>
