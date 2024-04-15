@@ -16,11 +16,22 @@ import java.util.UUID;
  */
 public class User implements Serializable{
 
-    String name;
-     int UserId;
-     String password;
-     LocalDate dob;
-     String userType;
+
+    private String name;
+    private int UserId;
+    private String password;
+    private String userType;
+    private String email;
+    private int phone;
+    private String address;
+    private LocalDate DoB;
+
+
+    public User() {
+    }
+
+    public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
+
 
     public User(String name, int UserId, String password, LocalDate dob, String userType) {
         this.name = name;

@@ -5,6 +5,7 @@
 package Rifat;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 /**
  *
  * @author Lenovo
@@ -12,12 +13,12 @@ import java.io.Serializable;
 
 public class AssignTasks implements Serializable {
     private String destination;
-    private String startingDate;
-    private String endingDate;
+    private LocalDate startingDate;
+    private LocalDate endingDate;
     private String assemblingCarModel;
     private String carType;
 
-    public AssignTasks(String destination, String startingDate, String endingDate, String assemblingCarModel, String carType) {
+    public AssignTasks(String destination, LocalDate startingDate, LocalDate endingDate, String assemblingCarModel, String carType) {
         this.destination = destination;
         this.startingDate = startingDate;
         this.endingDate = endingDate;
@@ -33,19 +34,19 @@ public class AssignTasks implements Serializable {
         this.destination = destination;
     }
 
-    public String getStartingDate() {
+    public LocalDate getStartingDate() {
         return startingDate;
     }
 
-    public void setStartingDate(String startingDate) {
+    public void setStartingDate(LocalDate startingDate) {
         this.startingDate = startingDate;
     }
 
-    public String getEndingDate() {
+    public LocalDate getEndingDate() {
         return endingDate;
     }
 
-    public void setEndingDate(String endingDate) {
+    public void setEndingDate(LocalDate endingDate) {
         this.endingDate = endingDate;
     }
 
@@ -70,6 +71,5 @@ public class AssignTasks implements Serializable {
         return "AssignTasks{" + "destination=" + destination + ", startingDate=" + startingDate + ", endingDate=" + endingDate + ", assemblingCarModel=" + assemblingCarModel + ", carType=" + carType + '}';
     }
     
-    
 
-}
+}    
