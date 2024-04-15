@@ -105,7 +105,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
         if (dateOfBirth != null) {
             dobDatePicker.setValue(dateOfBirth);
         }
-        userTypeComboBox.setValue(idTC.getCellData(index).toString());
+        userTypeComboBox.setValue(designationTC.getCellData(index).toString());
 
     }
 
@@ -234,8 +234,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
         if (nameTextField.getText().isEmpty()
                 || IDTextField.getText().isEmpty()
                 || passwordTextField.getText().isEmpty()
-                || dobDatePicker.getValue() == null
-                ) {
+                || dobDatePicker.getValue() == null) {
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
