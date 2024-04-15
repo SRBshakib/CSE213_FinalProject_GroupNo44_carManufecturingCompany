@@ -72,6 +72,7 @@
                   <Button layoutX="30.0" layoutY="11.0" mnemonicParsing="false" onAction="#supplyHistoryButtonOnMuseClicked" text="Supply History" />
                </children>
             </AnchorPane>
+            <Button layoutX="43.0" layoutY="553.0" mnemonicParsing="false" onAction="#signOUtButtonOnMuseClicked" text="Sign Out" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">

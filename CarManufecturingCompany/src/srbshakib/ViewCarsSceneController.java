@@ -22,6 +22,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import Rifat.CarModel;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TextArea;
+import Rifat.CarModel;
 
 /**
  * FXML Controller class
@@ -39,20 +46,28 @@ public class ViewCarsSceneController implements Initializable {
     @FXML
     private PieChart viewCarsAssemblingPieChart;
     @FXML
-    private ComboBox<String> viewcarsCarModelSelectCarTypeComboBox;
-    @FXML
-    private ComboBox<String> viewcarsCarModelSelectCarModelComboBox;
-    @FXML
     private ImageView carViewCarImageview;
     @FXML
-    private Label carViewcarFeaturesLabel;
+    private TextArea carViewcarFeaturesLabel;
 
-    /**
-     * Initializes the controller class.
-     */
+    private ObservableList<String> sedanCarModels = FXCollections.observableArrayList("Camry", "Corolla", "Avalon");
+    private ObservableList<String> hatchbackCarModels = FXCollections.observableArrayList("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
+    private ObservableList<String> suvCarModels = FXCollections.observableArrayList("RAV4", "Highlander", "4Runner");
+    private ObservableList<String> crossoverCarModels = FXCollections.observableArrayList("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid", "Venza");
+    private ObservableList<String> coupeCarModels = FXCollections.observableArrayList("GT86", "Supra");
+    private ObservableList<String> convertibleCarModels = FXCollections.observableArrayList("Solara");
+    private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
+    private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
+    private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
+    @FXML
+    private ComboBox<String> CarTypeComboBox;
+    @FXML
+    private ComboBox<String> selectCarModelComboBox;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        CarTypeComboBox.getItems().addAll("Sedan", "Hatchback", "SUV", "Crossover", "Coupe", "Convertible", "Minivan", "Truck", "Electric Vehicle (EV)");
+        
     }    
 
     @FXML
@@ -147,12 +162,82 @@ public class ViewCarsSceneController implements Initializable {
 
     @FXML
     private void viewcarsCarTypeSelectcarTypeOnMouseClicked(ActionEvent event) {
+        String selectedCarType = CarTypeComboBox.getValue();
+        switch (selectedCarType) {
+            case "Sedan":
+                selectCarModelComboBox.setItems(sedanCarModels);
+                break;
+            case "Hatchback":
+                selectCarModelComboBox.setItems(hatchbackCarModels);
+                break;
+             case "SUV":
+                selectCarModelComboBox.setItems(suvCarModels);
+                break;
+            case "Crossover":
+                selectCarModelComboBox.setItems(crossoverCarModels);
+                break;
+            case "Coupe":
+                selectCarModelComboBox.setItems(coupeCarModels);
+                break;
+            case "Convertible":
+                selectCarModelComboBox.setItems(convertibleCarModels);
+                break;
+            case "Minivan":
+                selectCarModelComboBox.setItems(minivanCarModels);
+                break;
+            case "Truck":
+                selectCarModelComboBox.setItems(truckCarModels);
+                break;
+            case "Electric Vehicle (EV)":
+                selectCarModelComboBox.setItems(evCarModels);
+            default:
+                selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
+                break;
+        }
+    
     }
 
     @FXML
-    private void viewcarsCarModelSelectcarTypeOnMouseClicked(ActionEvent event) {
+    private void selectCarModelComboBoxOnAction(ActionEvent event) {
+          String carModelName = selectCarModelComboBox.getValue();
+        
+        // Call the method to search for car features by model name
+        ObservableList<String> features = searchInventoryByCarModel(carModelName);
+        
+        // Clear existing text in the label
+        carViewcarFeaturesLabel.setText("");
+        
+        // Check if features were found for the selected model
+        if (!features.isEmpty()) {
+            // Concatenate the features into a single string
+            StringBuilder featuresText = new StringBuilder();
+            for (String feature : features) {
+                featuresText.append(feature).append("\n");
+            }
+            // Set the concatenated features text in the label
+            carViewcarFeaturesLabel.setText(featuresText.toString());
+        } else {
+            // If no features were found, display a message
+            carViewcarFeaturesLabel.setText("No features found for car model: " + carModelName);
+        }
     }
 
-   
-    
+    private ObservableList<String> searchInventoryByCarModel(String carModelName) {
+        ObservableList<String> carFeatures = FXCollections.observableArrayList();
+        try (FileInputStream fis = new FileInputStream("UpcomingCarModelsInfo.bin");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            while (true) {
+                CarModel carModel = (CarModel) ois.readObject();
+                if (carModel.getModelName().equals(carModelName)) {
+                    carFeatures.addAll(carModel.getFeatures());
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            // Handle exceptions
+            e.printStackTrace();
+        }
+        return carFeatures;
+    }
 }
+
+
