@@ -34,7 +34,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import Dip.EmployeeList;
 import Dip.NewJoining;
-
+import java.time.LocalDate;
+import java.util.ArrayList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -51,25 +56,51 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     private DatePicker dobDatePicker;
 
     boolean addUserStatus;
-
+    
     @FXML
-    private ComboBox<Integer> selectIdComboBox;
+    private TableView<NewJoining> newJoiningTV;
     @FXML
-    private ComboBox<String> selectNameComboBox;
+    private TableColumn<NewJoining, Integer> idTC;
     @FXML
-    private TextField emailTextField;
+    private TableColumn<NewJoining, String> nameTC;
     @FXML
-    private TextField phoneNumberTextField;
+    private TableColumn<NewJoining, String> genderTC;
     @FXML
-    private TextField addressTextField;
+    private TableColumn<NewJoining, LocalDate> dateOfBirthTC;
+    @FXML
+    private TableColumn<NewJoining, LocalDate> dateOfJoinTC;
+    @FXML
+    private TableColumn<NewJoining, String> designationTC;
+    private ArrayList<NewJoining> newjoiningArr;
+    @FXML
+    private TextField nameTextField;
+    @FXML
+    private TextField IDTextField;
+//    private DatePicker dobDatePicker1;
+    Integer index;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-
-        userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
-
-
-
+        userTypeComboBox.getItems().addAll(
+                "Assembly Line Worker",
+                "Finance Manager",
+                "Managing Director",
+                "Supplier",
+                "Supply Chain Manager",
+                "Human Resource Manager",
+                "Production Manager");
+    }
+    @FXML
+    private void getRowItrems(MouseEvent event) {
+        index = newJoiningTV.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        nameTextField.setText(nameTC.getCellData(index).toString());
+        IDTextField.setText(idTC.getCellData(index).toString());
+        LocalDate dateOfBirth = (LocalDate) dateOfBirthTC.getCellData(index);
+        if (dateOfBirth != null) {
+            dobDatePicker.setValue(dateOfBirth);
+    }
     }
 
     @FXML
@@ -85,14 +116,13 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     @FXML
     private void signUpOnMouseClick(ActionEvent event) throws IOException {
          if(userTypeComboBox.getValue().equals("Assembly Line Worker")){
-
-            lineWorkerAndShow();
+            assemblyLineWorkerAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -100,7 +130,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
                 window.show();                                         
         }   
         else if(userTypeComboBox.getValue().equals("Finance Manager")){
-            FinanceManagerAndShow(); 
+            financeManagerAndShow(); 
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
             a1.setContentText("Click Ok to Continue");
@@ -114,27 +144,27 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
                 window.show();
         }
         else if(userTypeComboBox.getValue().equals("Managing Director")){
-            ManagingDirectorAndShow();
+            managingDirectorAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
         }
-        else if(userTypeComboBox.getValue().equals("Suppler")){
-            SupplierAndShow();
+        else if(userTypeComboBox.getValue().equals("Supplier")){
+            supplierAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -148,7 +178,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -156,28 +186,42 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
                 window.show();
         }
         else if(userTypeComboBox.getValue().equals("Supply Chain Manager")){
-           supplyChainManagerAndShow();
+            supplyChainManagerAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
             a1.setContentText("Click Ok to Continue");
             a1.setHeaderText("Your account has been created successfully");
             a1.showAndWait();
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
                 //This line gets the Stage information
                 Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
                 window.setScene(tableViewScene);
                 window.show();
         }
-                     selectNameComboBox.setItems(null);
-                     selectIdComboBox.setItems(null);
-                     passwordTextField.clear();
-                     userTypeComboBox.setItems(null);
-                     emailTextField.clear();
-                     phoneNumberTextField.clear();
-                     addressTextField.clear();
-                     dobDatePicker.setValue(null);
-         }     
+        else if(userTypeComboBox.getValue().equals("Human Resource Manager")){
+            humanResourceManagerAndShow();
+            Alert a1 = new Alert(Alert.AlertType.INFORMATION);
+            a1.setTitle("LogIn Status");
+            a1.setContentText("Click Ok to Continue");
+            a1.setHeaderText("Your account has been created successfully");
+            a1.showAndWait();
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
+                Scene tableViewScene = new Scene(tableViewParent);
+                //This line gets the Stage information
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(tableViewScene);
+                window.show();
+        
+        }
+        else {
+            Alert a2 = new Alert(Alert.AlertType.WARNING);
+            a2.setTitle("Warning ");
+            a2.setHeaderText("LogIn Failed");
+//            a2.setContentText("Wrong ID/Password");
+            a2.setContentText("Wrong ID/Password. Please Try Again");
+            a2.showAndWait();
+        }}    
        
     
 
@@ -185,7 +229,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     private void backLoginSceneOnClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("HumanResourceManagerHireAndDismissSceneController.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -199,16 +243,11 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     
-    private void lineWorkerAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+    private void assemblyLineWorkerAndShow() throws IOException {
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -216,21 +255,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i;
-             i = new User(
-                     selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+               dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("AssemblyLineWorkerData.bin");
+            f = new File("Assembly Line Worker.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -260,16 +294,11 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     
-    private void FinanceManagerAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+    private void financeManagerAndShow() throws IOException {
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -277,20 +306,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new User(
-                selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("FinanceManagerData.bin");
+            f = new File("Finance Manager.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -320,16 +345,11 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     
-    private void ManagingDirectorAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+    private void managingDirectorAndShow() throws IOException {
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -337,20 +357,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new User(
-               selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("ManagingDirectorData.bin");
+            f = new File("Managing Director.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -381,16 +397,11 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     
-    private void SupplierAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+    private void supplierAndShow() throws IOException {
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -398,20 +409,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new User(
-                selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("SuppilerData.bin");
+            f = new File("Supplier.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -442,15 +449,10 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     private void productionManagerAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -458,20 +460,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new User(
-                selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("ProductionManagerData.bin");
+            f = new File("Production Manager.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -503,15 +501,10 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     private void supplyChainManagerAndShow() throws IOException {
-         if (selectNameComboBox.getValue().isEmpty()
-               ||  selectIdComboBox.getValue()== null
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
                 || passwordTextField.getText().isEmpty() 
-                || userTypeComboBox.getValue().isEmpty()
-                || emailTextField.getText().isEmpty()
-                 || phoneNumberTextField.getText().isEmpty()
-                
-                 || addressTextField.getText().isEmpty()
-                || dobDatePicker.getValue()== null){
+                || dobDatePicker.getValue() == null ){
             // Show notification to user
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -519,19 +512,16 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
             alert.setContentText("Please fill all the information");
             alert.showAndWait();
         } else {          
-       User i = new User( selectNameComboBox.getValue(),
-                     selectIdComboBox.getValue(),
-                     passwordTextField.getText(),
-                     userTypeComboBox.getValue(),
-                     emailTextField.getText(),
-                     Integer.parseInt(phoneNumberTextField.getText()),
-                     addressTextField.getText(),
-                     dobDatePicker.getValue());
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
         try {
-            f = new File("SupplyChainManagerData.bin");
+            f = new File("Supply Chain Manager.bin");
             if (f.exists()) {
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -562,37 +552,100 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     
     
     
+    private void humanResourceManagerAndShow() throws IOException {
+         if (nameTextField.getText().isEmpty() 
+                || IDTextField.getText().isEmpty() 
+                || passwordTextField.getText().isEmpty() 
+                || dobDatePicker.getValue() == null ){
+            // Show notification to user
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all the information");
+            alert.showAndWait();
+        } else {          
+       User i = new User(nameTextField.getText(),
+                    Integer.parseInt(IDTextField.getText()),
+                    passwordTextField.getText(),
+                    dobDatePicker.getValue(),
+                    userTypeComboBox.getValue());
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        File f = null;
+        try {
+            f = new File("Human Resource Manager.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
 
-    
+            oos.writeObject(i);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HumanResourceManagerCreateUserSceneController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(HumanResourceManagerCreateUserSceneController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    }
+
+
+  
 
     @FXML
-    private void loadNameAndIdButtonONMouseClicked(ActionEvent event) {
-        String filePath = "NewJoining.bin";
+    private void loadbuttonOnClick(ActionEvent event) {
+        ObservableList<NewJoining> newjoiningArr = FXCollections.observableArrayList();
+        idTC.setCellValueFactory(new PropertyValueFactory<NewJoining, Integer>("uniqueid"));
+        nameTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("name"));
+        genderTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("gender"));
+        dateOfBirthTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("dob"));
+        dateOfJoinTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("doj"));
+        designationTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("designation"));
 
-    // Initialize an observable list to store supplier names
-    ObservableList<String> userNames = FXCollections.observableArrayList();
-    ObservableList<Integer> userID = FXCollections.observableArrayList();
 
-    try (FileInputStream fis = new FileInputStream(filePath);
-         ObjectInputStream ois = new ObjectInputStream(fis)) {
-        // Read SupplierInformation objects from the binary file until EOF
-        while (true) {
-            NewJoining newJoiningList = (NewJoining) ois.readObject();
-            // Add the supplier name to the observable list
-            userNames.add(newJoiningList.getName());
-            userID.add(newJoiningList.getUniqueid());
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("NewJoining.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            NewJoining p;
+            try {
+                while (true) {
+                    p = (NewJoining) ois.readObject();
+                    newjoiningArr.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
         }
-    } catch (EOFException e) {
-        // Reached end of file
-    } catch (IOException | ClassNotFoundException e) {
-        e.printStackTrace();
+        newJoiningTV.setItems(newjoiningArr);
+        System.out.println(newjoiningArr.toString());
     }
-
     
-    selectNameComboBox.setItems(userNames);
-    selectIdComboBox.setItems(userID);
-    }
-
         
     }
 

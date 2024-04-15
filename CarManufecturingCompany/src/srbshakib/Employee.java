@@ -17,11 +17,14 @@ public class Employee extends User implements Serializable{
     private float salary;
     private String designation;
 
-    public Employee() {
+    public Employee(LocalDate dateOfJoin, float salary, String designation) {
+        this.dateOfJoin = dateOfJoin;
+        this.salary = salary;
+        this.designation = designation;
     }
 
-    public Employee(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
-        super(name, UserId, password, userType, email, phone, address, DoB);
+    public Employee(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, LocalDate DoB, String userType) {
+        super(name, UserId, password, DoB, userType);
         this.dateOfJoin = dateOfJoin;
         this.salary = salary;
         this.designation = designation;
@@ -55,6 +58,8 @@ public class Employee extends User implements Serializable{
     public String toString() {
         return "Employee{" + "dateOfJoin=" + dateOfJoin + ", salary=" + salary + ", designation=" + designation + '}';
     }
+
+   
 
     
    

@@ -14,12 +14,11 @@ import java.time.LocalDate;
  */
 public class AssemblyLineWorker extends Employee implements Serializable {
 
-    public AssemblyLineWorker() {
+    public AssemblyLineWorker(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, LocalDate DoB, String userType) {
+        super(dateOfJoin, salary, designation, name, UserId, password, DoB, userType);
     }
 
-    public AssemblyLineWorker(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
-        super(dateOfJoin, salary, designation, name, UserId, password, userType, email, phone, address, DoB);
-    }
+    
 
     
     
