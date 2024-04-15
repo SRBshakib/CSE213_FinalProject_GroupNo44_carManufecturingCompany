@@ -4,13 +4,14 @@
  */
 package Dip;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author DIPAYON
  */
-public class Notice {
+public class Notice implements Serializable{
     private LocalDate noticeDate;
     private String dept;
     private String msg;
@@ -47,7 +48,9 @@ public class Notice {
 
     @Override
     public String toString() {
-        return "Notice{" + "noticeDate=" + noticeDate + ", dept=" + dept + ", msg=" + msg + '}';
+        return "Notice!\n" + "Notice Date: " + noticeDate + "\nDepartment: " + dept + "\nNotice Massage: " + msg +
+                "\n-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+
+                "-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-"+"-";
     }
     
     
