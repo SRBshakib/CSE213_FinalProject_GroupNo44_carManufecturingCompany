@@ -15,12 +15,7 @@ import java.util.UUID;
  * @author SRB Shakib
  */
 public class User implements Serializable{
-//   private int  uniqueid;
-//    public String name;
-//    public String gender;
-//    public String designation;
-//    public LocalDate dob;
-//    public LocalDate doj;
+
     String name;
      int UserId;
      String password;
