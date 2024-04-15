@@ -1,67 +1,47 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+
+
+
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="834.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerCreateUserSceneController">
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerCreateUserSceneController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" style="-fx-background-color: red;" text="&lt;&lt; Return &lt;&lt;" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font></Button>
-      <TableView fx:id="newJoiningTV" layoutX="25.0" layoutY="546.0" onMouseClicked="#getRowItrems" prefHeight="270.0" prefWidth="608.0" style="-fx-background-color: BURLYWOOD;">
-         <columns>
-            <TableColumn fx:id="idTC" prefWidth="61.0" text="ID" />
-            <TableColumn fx:id="nameTC" prefWidth="115.0" text="Name" />
-            <TableColumn fx:id="genderTC" prefWidth="92.0" text="Gender" />
-            <TableColumn fx:id="dateOfBirthTC" prefWidth="141.0" text="Date of Birth" />
-            <TableColumn fx:id="dateOfJoinTC" prefWidth="96.0" text="Date of Join" />
-            <TableColumn fx:id="designationTC" prefWidth="100.0" text="Designation" />
-         </columns>
-      </TableView>
-      <Button layoutX="30.0" layoutY="486.0" mnemonicParsing="false" onAction="#loadbuttonOnClick" prefHeight="43.0" prefWidth="91.0" style="-fx-background-color: green;" text="Load" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
-      <AnchorPane layoutX="16.0" layoutY="59.0" prefHeight="387.0" prefWidth="621.0" style="-fx-background-color: BURLYWOOD; -fx-background-radius: 8;">
+
+
+      <Button layoutX="15.0" layoutY="22.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt; Return &lt;&lt;" />
+      <AnchorPane layoutX="24.0" layoutY="47.0" prefHeight="479.0" prefWidth="754.0">
          <children>
-            <Label layoutX="12.0" prefHeight="43.0" prefWidth="256.0" text="Create User Account">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="13.0" layoutY="36.0" text="It's quick and easy." textFill="#5e5e5e">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <Line endX="272.0" layoutX="104.0" layoutY="59.0" startX="-104.0" stroke="#c6c1c1" />
-            <TextField fx:id="nameTextField" layoutX="136.0" layoutY="70.0" prefHeight="35.0" prefWidth="352.0" promptText="Enter Your Name" style="-fx-background-radius: 7;" />
-            <TextField fx:id="IDTextField" layoutX="136.0" layoutY="116.0" prefHeight="35.0" prefWidth="352.0" promptText="Enter Your ID" style="-fx-background-radius: 7;" />
-            <TextField fx:id="passwordTextField" layoutX="136.0" layoutY="163.0" prefHeight="35.0" prefWidth="352.0" promptText="New Password" style="-fx-background-radius: 7;" />
-            <Button layoutX="219.0" layoutY="333.0" mnemonicParsing="false" onAction="#signUpOnMouseClick" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #367E18;" text="Create Account" textFill="WHITE">
+            <Button layoutX="307.0" layoutY="369.0" mnemonicParsing="false" onAction="#signUpOnMouseClick" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #367E18;" text="Sign Up" textFill="WHITE">
+
+
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Label layoutX="138.0" layoutY="257.0" text="Designation" textFill="#5e5e5e">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <ComboBox fx:id="userTypeComboBox" layoutX="137.0" layoutY="277.0" prefHeight="35.0" prefWidth="352.0" style="-fx-background-radius: 7;" />
-            <DatePicker fx:id="dobDatePicker" layoutX="137.0" layoutY="210.0" prefHeight="35.0" prefWidth="352.0" promptText="Date of Birth" style="-fx-background-radius: 7;" />
+
+
+            <ComboBox fx:id="selectIdComboBox" layoutX="157.0" layoutY="50.0" prefWidth="150.0" promptText="Select ID" />
+            <ComboBox fx:id="selectNameComboBox" layoutX="335.0" layoutY="50.0" prefWidth="150.0" promptText="Select Name" />
+            <Button layoutX="548.0" layoutY="50.0" mnemonicParsing="false" onAction="#loadNameAndIdButtonONMouseClicked" text="Load Name and ID" />
+            <ComboBox fx:id="userTypeComboBox" layoutX="320.0" layoutY="121.0" prefWidth="150.0" promptText="Select User Type" />
+            <TextField fx:id="emailTextField" layoutX="149.0" layoutY="179.0" promptText="Enter Email" />
+            <TextField fx:id="phoneNumberTextField" layoutX="321.0" layoutY="179.0" promptText="Phone Number" />
+            <TextField fx:id="addressTextField" layoutX="142.0" layoutY="240.0" promptText="Address" />
+            <DatePicker fx:id="dobDatePicker" layoutX="308.0" layoutY="240.0" promptText="Date of Birth" />
+            <TextField fx:id="passwordTextField" layoutX="149.0" layoutY="121.0" promptText="Enter Password" />
+
          </children>
+         <effect>
+            <DropShadow />
+         </effect>
       </AnchorPane>
-      <Separator layoutX="-1.0" layoutY="468.0" prefHeight="1.0" prefWidth="650.0" />
    </children>
 </AnchorPane>

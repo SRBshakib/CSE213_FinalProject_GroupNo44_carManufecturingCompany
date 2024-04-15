@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
@@ -24,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -31,17 +33,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
-
 import javafx.stage.Stage;
 
 
 
-import javafx.stage.Stage;
-
-
-import srbshakib.FlagAReport;
-import srbshakib.FlagAReportSecneController;
 
 
 
@@ -69,15 +64,23 @@ public class ProductionManagerCarModelSceneController implements Initializable {
     private TableColumn<CarModel, String> carTypeTableColumn;
     
 
-    @FXML
-
     private TextField carModelTextField;
     @FXML
     private TableColumn<CarModel, String> carModelTableColumn;
     @FXML
     private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+    @FXML
+    private ComboBox<String> selectCarModelComboBox;
 
-    
+    private ObservableList<String> sedanCarModels = FXCollections.observableArrayList("Camry", "Corolla", "Avalon");
+    private ObservableList<String> hatchbackCarModels = FXCollections.observableArrayList("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
+    private ObservableList<String> suvCarModels = FXCollections.observableArrayList("RAV4", "Highlander", "4Runner");
+    private ObservableList<String> crossoverCarModels = FXCollections.observableArrayList("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid", "Venza");
+    private ObservableList<String> coupeCarModels = FXCollections.observableArrayList("GT86", "Supra");
+    private ObservableList<String> convertibleCarModels = FXCollections.observableArrayList("Solara");
+    private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
+    private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
+    private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
     
     
     
@@ -97,44 +100,8 @@ public class ProductionManagerCarModelSceneController implements Initializable {
         
         
     }    
-
-    private void carTypeSelectOnAction(ActionEvent event) {
-        String selectedCarType = selectCarTypeComboBox.getValue();
-        switch (selectedCarType) {
-            case "Sedan":
-                carModelTextField.getText();
-                break;
-            case "Hatchback":
-                carModelTextField.getText();
-                break;
-             case "SUV":
-                carModelTextField.getText();
-                break;
-            case "Crossover":
-                carModelTextField.getText();
-                break;
-            case "Coupe":
-                carModelTextField.getText();
-                break;
-            case "Convertible":
-                carModelTextField.getText();
-                break;
-            case "Minivan":
-                carModelTextField.getText();
-                break;
-            case "Truck":
-                carModelTextField.getText();
-                break;
-            case "Electric Vehicle (EV)":
-                carModelTextField.getText();
-            default:
-                carModelTextField.clear(); // Clear the ComboBox if no specific car type is selected
-                break;
-        }
-        
-    }
-
-   
+    
+    
 
     @FXML
     private void submitButtonOnMouseClicked(ActionEvent event) {
@@ -142,7 +109,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
               
                 
                 selectCarTypeComboBox.getValue(),
-                carModelTextField.getText(),
+                selectCarModelComboBox.getValue(),
                 featuresTextArea.getText()
                 
         );
@@ -170,6 +137,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
             Logger.getLogger(ProductionManagerCarModelSceneController.class
 
+
                     .getName()).log(Level.SEVERE, null, ex);
 
 Logger.getLogger(ProductionManagerCarModelSceneController.class
@@ -187,7 +155,7 @@ Logger.getLogger(ProductionManagerCarModelSceneController.class
         }
         
         selectCarTypeComboBox.setValue(null);
-        carModelTextField.clear();
+        selectCarModelComboBox.setValue(null);
         featuresTextArea.clear();
     }
         
@@ -254,6 +222,41 @@ Logger.getLogger(ProductionManagerCarModelSceneController.class
         window.setScene(scene1);
         window.show();
     }
-}
-    
 
+    @FXML
+    private void selectCarTypeOnMouseClicked(ActionEvent event) {
+         String selectedCarType = selectCarTypeComboBox.getValue();
+        switch (selectedCarType) {
+            case "Sedan":
+                selectCarModelComboBox.setItems(sedanCarModels);
+                break;
+            case "Hatchback":
+                selectCarModelComboBox.setItems(hatchbackCarModels);
+                break;
+             case "SUV":
+                selectCarModelComboBox.setItems(suvCarModels);
+                break;
+            case "Crossover":
+                selectCarModelComboBox.setItems(crossoverCarModels);
+                break;
+            case "Coupe":
+                selectCarModelComboBox.setItems(coupeCarModels);
+                break;
+            case "Convertible":
+                selectCarModelComboBox.setItems(convertibleCarModels);
+                break;
+            case "Minivan":
+                selectCarModelComboBox.setItems(minivanCarModels);
+                break;
+            case "Truck":
+                selectCarModelComboBox.setItems(truckCarModels);
+                break;
+            case "Electric Vehicle (EV)":
+                selectCarModelComboBox.setItems(evCarModels);
+            default:
+                selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
+                break;
+        }
+    
+    }
+}
