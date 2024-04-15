@@ -89,6 +89,10 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
 
     @FXML
     private void saveButtonOnMouseClick(ActionEvent event) {
+        if (nameTF.getText().isEmpty() 
+                || idTF.getText().isEmpty()
+                ||dOJTF.getText().isEmpty()
+                ||amountTF.getText().isEmpty() ) {
         salaryArr.add(
                 new Salary(
                         nameTF.getText(),
@@ -96,7 +100,7 @@ public class HumanResourceManagerSalaryManagmentSceneController implements Initi
                         dOJTF.getText(),
                         Float.parseFloat(amountTF.getText())));
         System.out.println(salaryArr.toString());
-    }
+    }}
 
     @FXML
     private void showButtonOnMouseClick(ActionEvent event) {
