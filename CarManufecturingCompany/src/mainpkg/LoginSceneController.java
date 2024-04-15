@@ -1,18 +1,14 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package mainpkg;
 
-import Dip.EmployeeList;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,9 +27,9 @@ import srbshakib.User;
 /**
  * FXML Controller class
  *
- * @author SRB Shakib
+ * @author DIPAYON
  */
-public class SignUpSceneController implements Initializable {
+public class LoginSceneController implements Initializable {
 
     @FXML
     private TextField userIdTextfield;
@@ -41,14 +37,21 @@ public class SignUpSceneController implements Initializable {
     private PasswordField userPasswordPwfield;
     @FXML
     private ComboBox<String> userTypeComboBox;
-    
-    
 
-   
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
+        userTypeComboBox.getItems().addAll(
+                "Assembly Line Worker",
+                "Finance Manager",
+                "Managing Director",
+                "Supplier",
+                "Supply Chain Manager",
+                "Human Resource Manager",
+                "Production Manager");
+        // TODO
     }    
 
     @FXML
@@ -63,7 +66,7 @@ public class SignUpSceneController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("AssemblyLineWorkerData.bin");
+            f = new File("Assembly Line Worker.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -100,7 +103,7 @@ public class SignUpSceneController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("FinanceManagerData.bin");
+            f = new File("Finance Manager.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -137,14 +140,14 @@ public class SignUpSceneController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("ManagingDirectorData.bin");
+            f = new File("Managing Director.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
             try {
                 while (true) {
                     p = (User) ois.readObject();
-                    if (String.valueOf(p.getPhone()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
+                    if (String.valueOf(p.getUserId()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
                         Parent A = FXMLLoader.load(getClass().getResource("/Dip/ManagingDirectorDashboardScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -174,7 +177,7 @@ public class SignUpSceneController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("ProductionManagerData.bin");
+            f = new File("Production Manager.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -182,7 +185,7 @@ public class SignUpSceneController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getUserId()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerdashboardScene.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
@@ -205,13 +208,51 @@ public class SignUpSceneController implements Initializable {
 
         }
     }
-        if(userTypeComboBox.getValue().equals("Suppler")){
+        if(userTypeComboBox.getValue().equals("Supplier")){
             File f = null;
             FileInputStream fis = null;
             ObjectInputStream ois = null;
 
         try {
-            f = new File("SuppilerData.bin");
+            f = new File("Supplier.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            User p;
+            try {
+                while (true) {
+                    p = (User) ois.readObject();
+                    if (String.valueOf(p.getUserId()).equals
+        (userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
+                        Parent A = FXMLLoader.load(getClass().getResource("/Aunti.Supplier/SupplierDashboardScene.fxml"));
+                        Scene sceneA = new Scene(A);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(sceneA);                      
+                        stage.show();
+                    }else {
+                        Alert();
+                        }
+                    
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+    }
+        if(userTypeComboBox.getValue().equals("Human Resource Manager")){
+            File f = null;
+            FileInputStream fis = null;
+            ObjectInputStream ois = null;
+
+        try {
+            f = new File("Human Resource Manager.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -219,7 +260,7 @@ public class SignUpSceneController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getUserId()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("/Aunti/supplier/SupplierDashboardScene.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/Dip/HumanResourceManagerCreateUserScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
@@ -248,7 +289,7 @@ public class SignUpSceneController implements Initializable {
             ObjectInputStream ois = null;
 
         try {
-            f = new File("SupplyChainManagerData.bin");
+            f = new File("Supply Chain Manager.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             User p;
@@ -256,7 +297,7 @@ public class SignUpSceneController implements Initializable {
                 while (true) {
                     p = (User) ois.readObject();
                     if (String.valueOf(p.getUserId()).equals(userIdTextfield.getText()) && p.getPassword().equals(userPasswordPwfield.getText())) {
-                        Parent A = FXMLLoader.load(getClass().getResource("/srbshakib/SupplyChainManager/SupplyChainManagerDashboardScene.fxml"));
+                        Parent A = FXMLLoader.load(getClass().getResource("/srbshakib.SupplyChainManager/SupplyChainManagerDashboardScene.fxml"));
                         Scene sceneA = new Scene(A);
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(sceneA);                      
@@ -276,21 +317,11 @@ public class SignUpSceneController implements Initializable {
                 }
             } catch (IOException ex) {
             }
-
-        }
-    }
-
-        
-    }
-        
-        
-        
-    
+    }}}
 
     @FXML
     private void registerAsCustomerOnMouseClicked(ActionEvent event) {
     }
-    
     private void Alert(){
         Alert a2 = new Alert(Alert.AlertType.ERROR);
         a2.setTitle("Warning ");
@@ -298,4 +329,5 @@ public class SignUpSceneController implements Initializable {
         a2.setContentText("Wrong ID/Password. Please Try Again");
         a2.showAndWait();
         }
+
 }

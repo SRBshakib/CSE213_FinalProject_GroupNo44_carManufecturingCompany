@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="461.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Dip.HumanResourceManagerHireAndDismissSceneController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="&lt;&lt;Return&lt;&lt;" />
+      <Line endX="468.0" layoutX="151.0" layoutY="57.0" startX="-151.0" />
+      <Label layoutX="262.0" layoutY="18.0" text="Requrment" />
+      <TextField fx:id="nameTF" layoutX="33.0" layoutY="75.0" prefHeight="25.0" prefWidth="187.0" promptText="Full Name" />
+      <ComboBox fx:id="designationCB" layoutX="448.0" layoutY="75.0" prefHeight="25.0" prefWidth="150.0" promptText="Designation" />
+      <DatePicker fx:id="dateofbirthDP" layoutX="252.0" layoutY="75.0" promptText="Date of Birth" />
+      <DatePicker fx:id="dateOfJoinDP" layoutX="252.0" layoutY="113.0" promptText="Date of Join" />
+      <Button layoutX="448.0" layoutY="110.0" mnemonicParsing="false" onAction="#addbuttonOnClick" prefHeight="32.0" prefWidth="150.0" text="Add" />
+      <TableView fx:id="newJoiningTV" layoutX="5.0" layoutY="201.0" prefHeight="234.0" prefWidth="608.0">
+        <columns>
+          <TableColumn fx:id="idTC" prefWidth="61.0" text="ID" />
+          <TableColumn fx:id="nameTC" prefWidth="115.0" text="Name" />
+            <TableColumn fx:id="genderTC" prefWidth="92.0" text="Gender" />
+            <TableColumn fx:id="dateOfBirthTC" prefWidth="141.0" text="Date of Birth" />
+            <TableColumn fx:id="dateOfJoinTC" prefWidth="96.0" text="Date of Join" />
+            <TableColumn fx:id="designationTC" prefWidth="100.0" text="Designation" />
+        </columns>
+      </TableView>
+      <Separator layoutY="153.0" prefHeight="17.0" prefWidth="620.0" />
+      <RadioButton fx:id="maleRBtn" layoutX="33.0" layoutY="117.0" mnemonicParsing="false" text="Male" />
+      <RadioButton fx:id="femaleRBtn" layoutX="91.0" layoutY="117.0" mnemonicParsing="false" text="Female" />
+      <RadioButton fx:id="otherRBtn" layoutX="161.0" layoutY="117.0" mnemonicParsing="false" text="Others" />
+      <Button layoutX="14.0" layoutY="170.0" mnemonicParsing="false" onAction="#loadbuttonOnClick" prefHeight="25.0" prefWidth="57.0" text="Load" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="677.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.CarModelSceneController">
+   <children>
+      <ComboBox fx:id="selectCarTypeComboBox" layoutX="62.0" layoutY="75.0" prefWidth="150.0" promptText="Car Type" />
+      <Label layoutX="192.0" layoutY="24.0" text="Car Model Information" />
+      <TextArea fx:id="featuresTextArea" layoutX="45.0" layoutY="149.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button layoutX="45.0" layoutY="361.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
+      <Button layoutX="137.0" layoutY="361.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
+      <TableView fx:id="carModelTableView" layoutX="103.0" layoutY="427.0" prefHeight="200.0" prefWidth="361.0">
+        <columns>
+          <TableColumn fx:id="carTypeTableColumn" prefWidth="75.0" text="Car Type" />
+          <TableColumn fx:id="carModelTableColumn" prefWidth="126.0" text="Car Model" />
+            <TableColumn fx:id="carModelFeaturesTableColumn" prefWidth="159.0" text="Features" />
+        </columns>
+      </TableView>
+      <TextField fx:id="carModelTextField" layoutX="364.0" layoutY="75.0" />
+      <Label layoutX="283.0" layoutY="80.0" text="Car Model:" />
+      <Button layoutX="486.0" layoutY="19.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
+   </children>
+</AnchorPane>
