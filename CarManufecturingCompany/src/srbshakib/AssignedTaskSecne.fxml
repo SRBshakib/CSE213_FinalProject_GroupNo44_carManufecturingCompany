@@ -84,6 +84,7 @@
                   <TableColumn fx:id="carTypeTableColumn" prefWidth="132.0" text="Assembling Car Type" />
               </columns>
             </TableView>
+            <Button layoutX="20.0" layoutY="64.0" mnemonicParsing="false" onAction="#loadTaskOnMouseClicked" text="Load Task" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

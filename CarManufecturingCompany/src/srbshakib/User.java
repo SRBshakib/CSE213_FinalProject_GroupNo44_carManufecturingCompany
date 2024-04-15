@@ -16,6 +16,7 @@ import java.util.UUID;
  */
 public class User implements Serializable{
 
+
     private String name;
     private int UserId;
     private String password;
@@ -31,10 +32,12 @@ public class User implements Serializable{
 
     public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
 
+
+    public User(String name, int UserId, String password, LocalDate dob, String userType) {
         this.name = name;
         this.UserId = UserId;
         this.password = password;
-        this.DoB = DoB;
+        this.dob = dob;
         this.userType = userType;
     
     }
@@ -63,7 +66,13 @@ public class User implements Serializable{
         this.password = password;
     }
 
+    public LocalDate getDob() {
+        return dob;
+    }
 
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
 
     public String getUserType() {
         return userType;
@@ -73,52 +82,12 @@ public class User implements Serializable{
         this.userType = userType;
     }
 
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public LocalDate getDoB() {
-        return DoB;
-    }
-
-    public void setDoB(LocalDate DoB) {
-        this.DoB = DoB;
-    }
-
-
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + DoB + ", userType=" + userType + '}';
+        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + dob + ", userType=" + userType + '}';
     }
 
-
-    
-    
-    
-    }
-
-
+}
 
     
 
