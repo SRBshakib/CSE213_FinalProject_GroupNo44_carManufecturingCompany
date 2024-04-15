@@ -2,10 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerAssignTasksSceneController">
@@ -21,20 +21,19 @@
                   <TableColumn fx:id="carTypeTableColumn" prefWidth="167.0" text="Assembling Car Type" />
               </columns>
             </TableView>
-            <Label layoutX="57.0" layoutY="44.0" text="Destination: " />
             <Label layoutX="50.0" layoutY="81.0" text="Starting Date:" />
             <Label layoutX="53.0" layoutY="124.0" text="Ending Date:" />
             <Label layoutX="53.0" layoutY="152.0" />
-            <Label layoutX="50.0" layoutY="163.0" text="Assembling Car Model:" />
-            <Label layoutX="50.0" layoutY="209.0" text="Assembling Car Type:" />
-            <TextField fx:id="destinationTextField" layoutX="154.0" layoutY="39.0" />
-            <TextField fx:id="startingDateTextField" layoutX="154.0" layoutY="76.0" />
-            <TextField fx:id="endingDateTextField" layoutX="154.0" layoutY="119.0" />
-            <ComboBox fx:id="selectCarTypeComboBox" layoutX="203.0" layoutY="204.0" onAction="#carTypeSelectOnAction" prefWidth="150.0" />
+            <Label layoutX="33.0" layoutY="204.0" text="Assembling Car Model:" />
+            <Label layoutX="51.0" layoutY="163.0" text="Assembling Car Type:" />
+            <ComboBox fx:id="selectCarTypeComboBox" layoutX="208.0" layoutY="158.0" onAction="#carTypeSelectOnAction" prefWidth="150.0" />
             <Button layoutX="76.0" layoutY="262.0" mnemonicParsing="false" onAction="#submitButtonOnMouseClicked" text="Submit" />
             <Button layoutX="181.0" layoutY="262.0" mnemonicParsing="false" onAction="#loadButtonOnMouseClicked" text="Load" />
             <Button layoutX="741.0" layoutY="24.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
-            <ComboBox fx:id="selectCarModelComboBox" layoutX="214.0" layoutY="158.0" prefWidth="150.0" />
+            <ComboBox fx:id="selectCarModelComboBox" layoutX="200.0" layoutY="199.0" prefWidth="150.0" />
+            <DatePicker fx:id="startingDatePicker" layoutX="145.0" layoutY="76.0" />
+            <DatePicker fx:id="endingDatePicker" layoutX="139.0" layoutY="119.0" />
+            <ComboBox fx:id="destinationComboBox" layoutX="159.0" layoutY="24.0" prefHeight="31.0" prefWidth="186.0" promptText="select Destination" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
