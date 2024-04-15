@@ -122,6 +122,9 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
 
     @FXML
     private void notifyButtonOnClick(ActionEvent event) {
+        if (dept_ComboBox.getValue() == null
+                || date_Picker.getValue() == null
+                || time_Text_Field.getText().isEmpty()) {
 
         MeetingSchedule i = new MeetingSchedule(
                 
@@ -163,4 +166,4 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
         date_Picker.setValue(null);
         System.out.println(tableView);
     }
-}
+}}
