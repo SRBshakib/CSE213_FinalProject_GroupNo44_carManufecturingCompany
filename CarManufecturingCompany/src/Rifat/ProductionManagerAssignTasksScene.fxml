@@ -6,19 +6,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="621.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerAssignTasksSceneController">
    <children>
-      <AnchorPane layoutX="15.0" layoutY="12.0" prefHeight="598.0" prefWidth="859.0" style="-fx-background-color: white; -fx-border-color: black;">
+      <AnchorPane layoutX="15.0" layoutY="12.0" prefHeight="598.0" prefWidth="1046.0" style="-fx-background-color: white; -fx-border-color: black;">
          <children>
-            <TableView fx:id="assignTasksTableView" layoutX="122.0" layoutY="356.0" prefHeight="206.0" prefWidth="651.0">
+            <TableView fx:id="assignTasksTableView" layoutX="43.0" layoutY="356.0" prefHeight="206.0" prefWidth="932.0">
               <columns>
                 <TableColumn fx:id="destinationTableColumn" prefWidth="103.0" text="Destination" />
                 <TableColumn fx:id="startingDateTableColumn" prefWidth="113.0" text="Starting Date" />
                   <TableColumn fx:id="endingDateTableColumn" prefWidth="101.0" text="Ending Date" />
-                  <TableColumn fx:id="assemblingCarModelTableColumn" prefWidth="166.0" text="Assembling Car Model" />
-                  <TableColumn fx:id="carTypeTableColumn" prefWidth="167.0" text="Assembling Car Type" />
+                  <TableColumn fx:id="assemblingCarModelTableColumn" prefWidth="228.0" text="Assembling Car Model" />
+                  <TableColumn fx:id="carTypeTableColumn" prefWidth="192.0" text="Assembling Car Type" />
+                  <TableColumn fx:id="carTypeTableColumn1" prefWidth="192.0" text="Appointed  worker" />
               </columns>
             </TableView>
             <Label layoutX="50.0" layoutY="81.0" text="Starting Date:" />
@@ -34,6 +36,8 @@
             <DatePicker fx:id="startingDatePicker" layoutX="145.0" layoutY="76.0" />
             <DatePicker fx:id="endingDatePicker" layoutX="139.0" layoutY="119.0" />
             <ComboBox fx:id="destinationComboBox" layoutX="159.0" layoutY="24.0" prefHeight="31.0" prefWidth="186.0" promptText="select Destination" />
+            <Label layoutX="417.0" layoutY="81.0" text="Appointed Worker:" />
+            <TextField fx:id="workerNameTextField" layoutX="561.0" layoutY="76.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>

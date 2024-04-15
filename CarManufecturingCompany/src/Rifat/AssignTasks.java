@@ -3,27 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Rifat;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 /**
  *
  * @author Lenovo
  */
+class AssignTasks implements Serializable{
+    public String destination;
+    public LocalDate startingDate;
+    public LocalDate endingDate;
+    public String assemblingCarModel;
+    public String carType;
+    public String worker;
 
-public class AssignTasks implements Serializable {
-    private String destination;
-    private LocalDate startingDate;
-    private LocalDate endingDate;
-    private String assemblingCarModel;
-    private String carType;
-
-    public AssignTasks(String destination, LocalDate startingDate, LocalDate endingDate, String assemblingCarModel, String carType) {
+    public AssignTasks(String destination, LocalDate startingDate, LocalDate endingDate, String assemblingCarModel, String carType, String worker) {
         this.destination = destination;
         this.startingDate = startingDate;
         this.endingDate = endingDate;
         this.assemblingCarModel = assemblingCarModel;
         this.carType = carType;
+        this.worker = worker;
     }
 
     public String getDestination() {
@@ -66,10 +66,19 @@ public class AssignTasks implements Serializable {
         this.carType = carType;
     }
 
+    public String getWorker() {
+        return worker;
+    }
+
+    public void setWorker(String worker) {
+        this.worker = worker;
+    }
+
     @Override
     public String toString() {
-        return "AssignTasks{" + "destination=" + destination + ", startingDate=" + startingDate + ", endingDate=" + endingDate + ", assemblingCarModel=" + assemblingCarModel + ", carType=" + carType + '}';
+        return "AssignTasks{" + "destination=" + destination + ", startingDate=" + startingDate + ", endingDate=" + endingDate + ", assemblingCarModel=" + assemblingCarModel + ", carType=" + carType + ", worker=" + worker + '}';
     }
     
+    
 
-}    
+}
