@@ -108,18 +108,7 @@ public class HumanResourceManagerLeaveRequestReadSceneController implements Init
         reasonTC.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("reasonForLeave"));
         commentTC.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("commentForLeave"));
         statusTC.setCellValueFactory(new PropertyValueFactory<AskForLeave, String>("status"));
-        leaveInformationTV.getItems().addAll(askingLeaveReq);
-//        AskForLeave dummyInstance
-//                = new AskForLeave(
-//                        1,
-//                        LocalDate.of(2023, 02, 02),
-//                        LocalDate.of(2023, 02, 02),
-//                        LocalDate.of(2023, 02, 02),
-//                        "",
-//                        "");
-//        askingLeaveReq = (ObservableList<AskForLeave>) DataReadWrite.readObjectToFile("CrucialTaskPermissionRequest.bin", dummyInstance);
-
-        // TODO
+      
     }
 
     @FXML

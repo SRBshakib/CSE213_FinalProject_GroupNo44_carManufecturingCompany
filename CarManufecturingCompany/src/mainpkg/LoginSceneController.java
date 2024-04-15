@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package mainpkg;
 
 import java.io.File;
@@ -319,9 +315,6 @@ public class LoginSceneController implements Initializable {
             }
     }}}
 
-    @FXML
-    private void registerAsCustomerOnMouseClicked(ActionEvent event) {
-    }
     private void Alert(){
         Alert a2 = new Alert(Alert.AlertType.ERROR);
         a2.setTitle("Warning ");
@@ -329,5 +322,9 @@ public class LoginSceneController implements Initializable {
         a2.setContentText("Wrong ID/Password. Please Try Again");
         a2.showAndWait();
         }
+
+    @FXML
+    private void registerHLOnClick(ActionEvent event) {
+    }
 
 }
