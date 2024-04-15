@@ -35,6 +35,7 @@ import javafx.stage.Stage;
 import Dip.EmployeeList;
 import Dip.NewJoining;
 
+
 /**
  * FXML Controller class
  *
@@ -50,6 +51,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     private DatePicker dobDatePicker;
 
     boolean addUserStatus;
+
     @FXML
     private ComboBox<Integer> selectIdComboBox;
     @FXML
@@ -62,7 +64,9 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     private TextField addressTextField;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
+
     }
 
     @FXML
@@ -78,6 +82,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     @FXML
     private void signUpOnMouseClick(ActionEvent event) throws IOException {
          if(userTypeComboBox.getValue().equals("Assembly Line Worker")){
+
             lineWorkerAndShow();
             Alert a1 = new Alert(Alert.AlertType.INFORMATION);
             a1.setTitle("LogIn Status");
@@ -584,6 +589,7 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     selectNameComboBox.setItems(userNames);
     selectIdComboBox.setItems(userID);
     }
+
         
     }
 

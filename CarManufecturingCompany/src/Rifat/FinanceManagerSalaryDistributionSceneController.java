@@ -92,14 +92,48 @@ public class FinanceManagerSalaryDistributionSceneController implements Initiali
 
     @FXML
     private void distributeButtonOnMouseClick(ActionEvent event) {
-        salaryArr.add(
-                new Salary(
-                        nameTF.getText(),
-                        Integer.parseInt(idTF.getText()),
-                        dOJTF.getText(),
-                        Float.parseFloat(amountTF.getText())));
-        System.out.println(salaryArr.toString());
+        String idText = idTF.getText();
+    String amountText = amountTF.getText();
+
+    // Check if idText is a valid integer and amountText is a valid float
+    if (isInteger(idText) && isFloat(amountText)) {
+        // Parse the input and create a new Salary object
+        int id = Integer.parseInt(idText);
+        float amount = Float.parseFloat(amountText);
+        Salary newSalary = new Salary(nameTF.getText(), id, dOJTF.getText(), amount);
+        
+        // Add the new Salary object to the salaryArr
+        salaryArr.add(newSalary);
+
+        // Print the updated salaryArr for debugging
+        System.out.println("Added salary: " + newSalary.toString());
+        System.out.println("Updated salary list: " + salaryArr.toString());
+    } else {
+        // Handle invalid input
+        System.err.println("Invalid input for ID or Amount.");
+        // You may also show a dialog or set an error message in the UI
     }
+}
+
+        // Helper method to check if a string is a valid integer
+        private boolean isInteger(String str) {
+            try {
+                 Integer.parseInt(str);
+          return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
+
+    // Helper method to check if a string is a valid float
+       private boolean isFloat(String str) {
+    try {
+        Float.parseFloat(str);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
 
     @FXML
     private void showButtonOnMouseClick(ActionEvent event) {
@@ -142,44 +176,47 @@ public class FinanceManagerSalaryDistributionSceneController implements Initiali
     }
 
     @FXML
-    private void loadButtonOnClick(ActionEvent event) {
-        ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
+     private void loadButtonOnClick(ActionEvent event) {
+    ObservableList<EmployeeList> empList = FXCollections.observableArrayList();
 
-        nameTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("name"));
-        idTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("uniqueid"));
-        dOJTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, LocalDate>("doj"));
-        genderTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("gender"));
+    nameTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("name"));
+    idTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, Integer>("uniqueid"));
+    dOJTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, LocalDate>("doj"));
+    genderTC.setCellValueFactory(new PropertyValueFactory<EmployeeList, String>("gender"));
 
-        File f = null;
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
+    File f = null;
+    FileInputStream fis = null;
+    ObjectInputStream ois = null;
 
+    try {
+        f = new File("EmployeeDirectory.bin");
+        fis = new FileInputStream(f);
+        ois = new ObjectInputStream(fis);
+        EmployeeList p;
         try {
-            f = new File("EmployeeDirectory.bin");
-            fis = new FileInputStream(f);
-            ois = new ObjectInputStream(fis);
-            EmployeeList p;
-            try {
-                while (true) {
-                    p = (EmployeeList) ois.readObject();
-                    empList.add(p);
-                    System.out.println(p.toString());
-                }
-            } catch (Exception e) {
+            while (true) {
+                p = (EmployeeList) ois.readObject();
+                empList.add(p);
+                System.out.println(p.toString());
+            }
+        } catch (Exception e) {
+            // Handle end of file or other exceptions
+        }
+    } catch (IOException ex) {
+        // Handle file not found or other IO exceptions
+    } finally {
+        try {
+            if (ois != null) {
+                ois.close();
             }
         } catch (IOException ex) {
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-            } catch (IOException ex) {
-            }
-
+            // Handle closing the ObjectInputStream
         }
-        salaryTV.setItems(empList);
-//        System.out.println(empArr.toString());
+
     }
+    salaryTV.setItems(empList);
+}
+
 
     @FXML
     private void getItem(MouseEvent event) {

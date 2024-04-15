@@ -35,5 +35,6 @@
           <TableColumn fx:id="detailsColumnTable" prefWidth="135.0" text="Audit Details" />
         </columns>
       </TableView>
+      <Button layoutX="698.0" layoutY="26.0" mnemonicParsing="false" onAction="#backButtonOnMouseClick" text="Return" />
     </children>
 </AnchorPane>

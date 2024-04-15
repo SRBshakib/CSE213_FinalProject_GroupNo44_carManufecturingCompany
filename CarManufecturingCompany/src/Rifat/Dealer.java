@@ -13,10 +13,10 @@ public class Dealer implements Serializable{
     public String Name;
     public String Location;
     public String Region;
-    public int MobileNumber;
+    public String MobileNumber;
     public String Email;
 
-    public Dealer(String CountryName, String Name, String Location, int MobileNumber, String Region, String Email) {
+    public Dealer(String CountryName, String Name, String Location, String MobileNumber, String Region, String Email) {
         this.CountryName = CountryName;
         this.Name = Name;
         this.Location = Location;
@@ -57,11 +57,11 @@ public class Dealer implements Serializable{
         this.Region = Region;
     }
 
-    public int getMobileNumber() {
+    public String getMobileNumber() {
         return MobileNumber;
     }
 
-    public void setMobileNumber(int MobileNumber) {
+    public void setMobileNumber(String MobileNumber) {
         this.MobileNumber = MobileNumber;
     }
 

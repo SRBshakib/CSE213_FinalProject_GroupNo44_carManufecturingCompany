@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author DIPAYON
  */
 public class NewJoining implements Serializable{
-    private int uniqueid;
+    private int  uniqueid;
     public String name;
     public String gender;
     public String designation;

@@ -55,6 +55,7 @@ public class FinanceManagerPaymentSceneController implements Initializable {
 
 
 
+    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/FinanceManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -63,9 +64,6 @@ public class FinanceManagerPaymentSceneController implements Initializable {
         window.show();
     }
 
-    @FXML
-    private void saveButtonOnClick(ActionEvent event) {
-    }
 
     
 }

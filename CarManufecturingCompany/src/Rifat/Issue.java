@@ -3,12 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Rifat;
-
+import java.io.Serializable;
 /**
  *
  * @author Lenovo
  */
-public class Issue {
+public class Issue implements Serializable{
     private String title;
     private String description;
 
@@ -35,17 +35,9 @@ public class Issue {
 
     @Override
     public String toString() {
-        return "Issue{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Issue{" + "title=" + title + ", description=" + description + '}';
     }
+    
+}   
 
-    void titleProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
 
-    void descriptionProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-}

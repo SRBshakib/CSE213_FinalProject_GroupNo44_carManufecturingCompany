@@ -4,7 +4,7 @@
  */
 package Dip;
 
-import Rifat.CarModel;
+import Rifat.UpcomingCarModels;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -33,13 +33,13 @@ import javafx.stage.Stage;
 public class ManagingDirectorNewModelsOfCarCheckSceneController implements Initializable {
 
     @FXML
-    private TableView<CarModel> carModelTableView;
+    private TableView<UpcomingCarModels> carModelTableView;
     @FXML
-    private TableColumn<CarModel, String> carTypeTableColumn;
+    private TableColumn<UpcomingCarModels, String> carTypeTableColumn;
     @FXML
-    private TableColumn<CarModel, String> carModelTableColumn;
+    private TableColumn<UpcomingCarModels, String> carModelTableColumn;
     @FXML
-    private TableColumn<CarModel, String> carModelFeaturesTableColumn;
+    private TableColumn<UpcomingCarModels, String> carModelFeaturesTableColumn;
 
     /**
      * Initializes the controller class.
@@ -60,24 +60,23 @@ public class ManagingDirectorNewModelsOfCarCheckSceneController implements Initi
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
-        ObservableList<CarModel> CarModelInfo = FXCollections.observableArrayList();
-        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel,String>("modelName"));
-        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("carType")); 
-        carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<CarModel, String>("features"));
-
+        ObservableList<UpcomingCarModels> UpcomingCarModelsInfo = FXCollections.observableArrayList();
+        carModelTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels,String>("carModel"));
+        carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels, String>("carType"));
+        carModelFeaturesTableColumn.setCellValueFactory(new PropertyValueFactory<UpcomingCarModels, String>("Features"));
         File f = null;
         FileInputStream fis = null;
         ObjectInputStream ois = null;
 
         try {
-            f = new File("CarModelInfo.bin");
+            f = new File("UpcomingCarModelsInfo.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
-            CarModel p;
+            UpcomingCarModels p;
             try {
                 while (true) {
-                    p = (CarModel) ois.readObject();
-                    CarModelInfo.add(p);
+                    p = (UpcomingCarModels) ois.readObject();
+                    UpcomingCarModelsInfo.add(p);
                     System.out.println(p.toString());
                 }
             } catch (Exception e) {
@@ -92,9 +91,10 @@ public class ManagingDirectorNewModelsOfCarCheckSceneController implements Initi
             }
 
         }
-        carModelTableView.setItems(CarModelInfo);
-        System.out.println(CarModelInfo.toString());
+        carModelTableView.setItems(UpcomingCarModelsInfo);
+        System.out.println(UpcomingCarModelsInfo.toString());
     }
+
     
     
 }

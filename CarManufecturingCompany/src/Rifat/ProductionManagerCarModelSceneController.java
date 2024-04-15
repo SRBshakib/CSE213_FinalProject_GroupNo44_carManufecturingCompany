@@ -5,7 +5,6 @@
 package Rifat;
 
 import Dip.AppendableObjectOutputStream;
-import Dip.HumanResourceManagerDirectorySceneController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -163,7 +162,11 @@ public class ProductionManagerCarModelSceneController implements Initializable {
             oos.writeObject(i);
 
         } catch (IOException ex) {
+            Logger.getLogger(ProductionManagerCarModelSceneController.class
+                    .getName()).log(Level.SEVERE, null, ex);
 
+
+            
 
             Logger.getLogger(ProductionManagerCarModelSceneController.class
 
@@ -188,6 +191,8 @@ Logger.getLogger(ProductionManagerCarModelSceneController.class
         carModelTextField.clear();
         featuresTextArea.clear();
     }
+        
+        
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
@@ -250,9 +255,6 @@ Logger.getLogger(ProductionManagerCarModelSceneController.class
         window.setScene(scene1);
         window.show();
     }
-
-    
 }
-
     
 

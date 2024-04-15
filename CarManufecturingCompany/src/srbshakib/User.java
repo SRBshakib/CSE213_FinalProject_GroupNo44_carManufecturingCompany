@@ -24,6 +24,7 @@ public class User implements Serializable{
     private String address;
     private LocalDate DoB;
 
+
     public User() {
     }
 
@@ -31,11 +32,9 @@ public class User implements Serializable{
         this.name = name;
         this.UserId = UserId;
         this.password = password;
-        this.userType = userType;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
         this.DoB = DoB;
+        this.userType = userType;
+    
     }
 
     public String getName() {
@@ -62,6 +61,8 @@ public class User implements Serializable{
         this.password = password;
     }
 
+
+
     public String getUserType() {
         return userType;
     }
@@ -69,6 +70,7 @@ public class User implements Serializable{
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
 
     public String getEmail() {
         return email;
@@ -102,17 +104,21 @@ public class User implements Serializable{
         this.DoB = DoB;
     }
 
+
     @Override
     public String toString() {
-        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", userType=" + userType + ", email=" + email + ", phone=" + phone + ", address=" + address + ", DoB=" + DoB + '}';
+        return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", dob=" + DoB + ", userType=" + userType + '}';
     }
+
 
     
     
     
     }
+
+
+
     
 
-   
     
 

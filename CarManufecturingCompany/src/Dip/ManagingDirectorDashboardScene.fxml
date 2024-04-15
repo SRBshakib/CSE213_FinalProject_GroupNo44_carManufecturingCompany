@@ -25,5 +25,6 @@
             <Button layoutX="199.0" layoutY="254.0" mnemonicParsing="false" onAction="#refreshNoticeBoardOnClick" text="Refresh" />
          </children>
       </AnchorPane>
+      <Button layoutX="54.0" layoutY="468.0" mnemonicParsing="false" onAction="#signOutOnClick" text="Sign Out" />
    </children>
 </AnchorPane>
