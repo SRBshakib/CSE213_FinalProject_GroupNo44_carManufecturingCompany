@@ -4,56 +4,72 @@
  */
 package Rifat;
 
-import java.time.LocalDate;
-import javafx.collections.ObservableList;
-
+import java.io.Serializable;
 /**
  *
  * @author Lenovo
  */
-import javafx.collections.ObservableList;
-import java.time.LocalDate;
 
-public class AssignTasks {
-    private ObservableList<String> destinations;
-    private ObservableList<String> carModels;
-    private ObservableList<String> carTypes;
+public class AssignTasks implements Serializable {
+    private String destination;
+    private String startingDate;
+    private String endingDate;
+    private String assemblingCarModel;
+    private String carType;
 
-    public AssignTasks(String destinations, LocalDate carModels, LocalDate carTypes, String carModel, String carType) {
-        
+    public AssignTasks(String destination, String startingDate, String endingDate, String assemblingCarModel, String carType) {
+        this.destination = destination;
+        this.startingDate = startingDate;
+        this.endingDate = endingDate;
+        this.assemblingCarModel = assemblingCarModel;
+        this.carType = carType;
     }
 
-    public ObservableList<String> getDestinations() {
-        return destinations;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setDestinations(ObservableList<String> destinations) {
-        this.destinations = destinations;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
-    public ObservableList<String> getCarModels() {
-        return carModels;
+    public String getStartingDate() {
+        return startingDate;
     }
 
-    public void setCarModels(ObservableList<String> carModels) {
-        this.carModels = carModels;
+    public void setStartingDate(String startingDate) {
+        this.startingDate = startingDate;
     }
 
-    public ObservableList<String> getCarTypes() {
-        return carTypes;
+    public String getEndingDate() {
+        return endingDate;
     }
 
-    public void setCarTypes(ObservableList<String> carTypes) {
-        this.carTypes = carTypes;
+    public void setEndingDate(String endingDate) {
+        this.endingDate = endingDate;
+    }
+
+    public String getAssemblingCarModel() {
+        return assemblingCarModel;
+    }
+
+    public void setAssemblingCarModel(String assemblingCarModel) {
+        this.assemblingCarModel = assemblingCarModel;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
     }
 
     @Override
     public String toString() {
-        return "AssignTasks{" +
-                "destinations=" + destinations +
-                ", carModels=" + carModels +
-                ", carTypes=" + carTypes +
-                '}';
+        return "AssignTasks{" + "destination=" + destination + ", startingDate=" + startingDate + ", endingDate=" + endingDate + ", assemblingCarModel=" + assemblingCarModel + ", carType=" + carType + '}';
     }
-}
+    
+    
 
+}

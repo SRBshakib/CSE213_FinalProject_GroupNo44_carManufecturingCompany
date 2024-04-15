@@ -15,6 +15,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -314,6 +315,7 @@ public class SupplierOrderSceneController implements Initializable {
             }
 
         }
+        Collections.reverse(supplierOrderListInfo);
         orderInfoTableView.setItems(supplierOrderListInfo);
         System.out.println(supplierOrderListInfo.toString());
     }

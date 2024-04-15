@@ -33,7 +33,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void carModelButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("CarModelScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerCarModelScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -43,7 +43,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void upcomingCarModelsButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("UpcomingCarModelsScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerUpcomingCarModelsScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -52,7 +52,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void carLunchingEventButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("CarLunchingEventScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerCarLunchingEventScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -61,7 +61,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void issueButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("IssueScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerIssueScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -70,7 +70,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void assemblyManuelButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("AssemblyManuelScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerAssemblyManuelScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -79,7 +79,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void assignTasksButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("AssignTasksScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerAssignTasksScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -88,7 +88,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void workingScheduleButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("WorkingScheduleScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerWorkingScheduleScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -97,7 +97,7 @@ public class ProductionManagerDashboardSceneController implements Initializable 
 
     @FXML
     private void carDesignButtonOnClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("CarDesignScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerCarDesignScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
