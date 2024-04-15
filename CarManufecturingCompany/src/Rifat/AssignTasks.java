@@ -10,12 +10,12 @@ import java.time.LocalDate;
  * @author Lenovo
  */
 class AssignTasks implements Serializable{
-    private String destination;
-    private LocalDate startingDate;
-    private LocalDate endingDate;
-    private String assemblingCarModel;
-    private String carType;
-    private String worker;
+    public String destination;
+    public LocalDate startingDate;
+    public LocalDate endingDate;
+    public String assemblingCarModel;
+    public String carType;
+    public String worker;
 
     public AssignTasks(String destination, LocalDate startingDate, LocalDate endingDate, String assemblingCarModel, String carType, String worker) {
         this.destination = destination;
@@ -78,10 +78,7 @@ class AssignTasks implements Serializable{
     public String toString() {
         return "AssignTasks{" + "destination=" + destination + ", startingDate=" + startingDate + ", endingDate=" + endingDate + ", assemblingCarModel=" + assemblingCarModel + ", carType=" + carType + ", worker=" + worker + '}';
     }
+    
+    
 
-    
-    
-    
-    
-    
 }
