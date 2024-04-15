@@ -6,7 +6,10 @@
  */
 package srbshakib;
 
+import Dip.Notice;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,6 +19,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 
@@ -26,6 +31,9 @@ import javafx.stage.Stage;
  * @author SRB Shakib
  */
 public class AssemblyLineWorkerDashboardSceneController implements Initializable {
+
+    @FXML
+    private TextArea noticeShowTA;
 
 
     /**
@@ -130,6 +138,37 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
         window.setScene(scene1);
         window.setTitle("Cars");
         window.show();
+    }
+
+    @FXML
+    private void showNotificationOmMouseClicked(ActionEvent event) {
+                ObjectInputStream ois = null;
+        try {
+            Notice s;
+            FileInputStream fis = new FileInputStream("Notice.bin");
+            ois = new ObjectInputStream(fis);
+
+            noticeShowTA.setText(null);
+
+            while (true) {
+                s = (Notice) ois.readObject();
+
+                noticeShowTA.appendText(s.toString() + "\n");
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        } catch (Exception ex) {
+
+            try {
+                System.out.println(ex.toString());
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex1) {
+            }
+        }
     }
 
 
