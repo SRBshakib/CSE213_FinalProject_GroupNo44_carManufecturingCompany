@@ -171,6 +171,7 @@ public class ProductionManagerCarModelSceneController implements Initializable {
 
             Logger.getLogger(ProductionManagerCarModelSceneController.class
 
+
                     .getName()).log(Level.SEVERE, null, ex);
 
 Logger.getLogger(ProductionManagerCarModelSceneController.class
