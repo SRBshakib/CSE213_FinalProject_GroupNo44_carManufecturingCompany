@@ -21,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import Rifat.CarModel;
 
 /**
  * FXML Controller class
@@ -38,9 +39,9 @@ public class ViewCarsSceneController implements Initializable {
     @FXML
     private PieChart viewCarsAssemblingPieChart;
     @FXML
-    private ComboBox<?> viewcarsCarModelSelectCarTypeComboBox;
+    private ComboBox<String> viewcarsCarModelSelectCarTypeComboBox;
     @FXML
-    private ComboBox<?> viewcarsCarModelSelectCarModelComboBox;
+    private ComboBox<String> viewcarsCarModelSelectCarModelComboBox;
     @FXML
     private ImageView carViewCarImageview;
     @FXML
