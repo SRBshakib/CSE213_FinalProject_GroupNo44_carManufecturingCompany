@@ -65,7 +65,9 @@ public class HumanResourceManagerCreateUserSceneController implements Initializa
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+
         userTypeComboBox.getItems().addAll("Assembly Line Worker","Finance Manager","Managing Director","Suppler","Supply Chain Manager","Customer","Production Manager");
+
 
     }
 

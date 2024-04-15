@@ -15,6 +15,7 @@ import java.util.UUID;
  * @author SRB Shakib
  */
 public class User implements Serializable{
+
     private String name;
     private int UserId;
     private String password;
@@ -29,6 +30,7 @@ public class User implements Serializable{
     }
 
     public User(String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
+
         this.name = name;
         this.UserId = UserId;
         this.password = password;
