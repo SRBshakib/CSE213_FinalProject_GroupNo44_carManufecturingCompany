@@ -20,20 +20,18 @@ public class AskForLeave implements Serializable {
     public String commentForLeave;
     public String status;
 
-    public AskForLeave() {
-    }
-    
-
-    public AskForLeave(Integer howManyWorkingDays, LocalDate forWhichDay, LocalDate fromWhichDay, LocalDate toWhichDay, String reasonForLeave, String commentForLeave) {
+    public AskForLeave(int howManyWorkingDays, LocalDate forWhichDay, LocalDate fromWhichDay, LocalDate toWhichDay, String reasonForLeave, String commentForLeave) {
         this.howManyWorkingDays = howManyWorkingDays;
         this.forWhichDay = forWhichDay;
         this.fromWhichDay = fromWhichDay;
         this.toWhichDay = toWhichDay;
         this.reasonForLeave = reasonForLeave;
         this.commentForLeave = commentForLeave;
-        this.status = status;
     }
 
+    public AskForLeave(String status) {
+        this.status = status;
+    }
     
 
     public int getHowManyWorkingDays() {
@@ -96,9 +94,6 @@ public class AskForLeave implements Serializable {
     public String toString() {
         return "AskForLeave{" + "howManyWorkingDays=" + howManyWorkingDays + ", forWhichDay=" + forWhichDay + ", fromWhichDay=" + fromWhichDay + ", toWhichDay=" + toWhichDay + ", reasonForLeave=" + reasonForLeave + ", commentForLeave=" + commentForLeave + ", status=" + status + '}';
     }
-    
-    
-    
-    
+
     
 }

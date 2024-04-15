@@ -3,30 +3,51 @@ package Dip;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class EmployeeList implements Serializable{
+public class EmployeeList extends NewJoining implements Serializable {
 
-    public String name;
-    public String gender;
-    public String designation;
-    public LocalDate dob;
-    public LocalDate doj;
     public String email;
     public int phone;
     public String address;
     public String education;
-    public int id;
 
-    public EmployeeList(String name, String gender, String designation, LocalDate dob, LocalDate doj, String email, int phone, String address, String education, int id) {
-        this.name = name;
-        this.gender = gender;
-        this.designation = designation;
-        this.dob = dob;
-        this.doj = doj;
+    public EmployeeList(String email, int phone, String address, String education, int uniqueid, String name, String gender, String designation, LocalDate dob, LocalDate doj) {
+        super(uniqueid, name, gender, designation, dob, doj);
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.education = education;
-        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
     }
 
     public String getName() {
@@ -69,51 +90,19 @@ public class EmployeeList implements Serializable{
         this.doj = doj;
     }
 
-    public String getEmail() {
-        return email;
+    @Override
+    public String toString() {
+        return "EmployeeList{" + "email=" + email + ", phone=" + phone + ", address=" + address + ", education=" + education + '}';
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
+    public Object getDOJ() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getId() {
-        return id;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "EmployeeList{" + "name=" + name + ", gender=" + gender + ", designation=" + designation + ", dob=" + dob + ", doj=" + doj + ", email=" + email + ", phone=" + phone + ", address=" + address + ", education=" + education + ", id=" + id + '}';
-    }
-    
-    
+   
 
 }
