@@ -4,9 +4,15 @@
  */
 package srbshakib;
 
+import Dip.Training;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +24,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import Dip.Training;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -25,40 +35,41 @@ import javafx.stage.Stage;
  * @author SRB Shakib
  */
 public class CheckTrainingSceneController implements Initializable {
+    
+    @FXML
+    private TableView<Training> trainingShowTV;
+    @FXML
+    private TableColumn<Training, String> nameShowTC;
+    @FXML
+    private TableColumn<Training, Integer> idShowTC;
+    @FXML
+    private TableColumn<Training, LocalDate> trainingFromTC;
+    @FXML
+    private TableColumn<Training, LocalDate> trainingToTC;
+    @FXML
+    private TableColumn<Training, String> typeTC;
+    @FXML
+    private TableColumn<Training, String> trainingNameTC;
+    @FXML
+    private TableColumn<Training, String> feesTC;
+     @FXML
+    private TableColumn<Training, Integer> trainIdTC;
+    @FXML
+    private TableColumn<Training, String> statusTC;
 
-    @FXML
-    private TableColumn<?, ?> pastTrainigInformationStartingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> pastTrainigInformationEndingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> pastTrainigInformationPlaceTableColumn;
-    @FXML
-    private TableColumn<?, ?> pastTrainigInformationTopicTableColumn;
-    @FXML
-    private TableColumn<?, ?> pastTrainigInformationInstructorTableColumn;
-    @FXML
-    private Label noTrainingForYoulLabel;
-    @FXML
-    private TableColumn<?, ?> trainigStartingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> trainigEndingDateTableColumn;
-    @FXML
-    private TableColumn<?, ?> trainigPlaceTableColumn;
-    @FXML
-    private TableColumn<?, ?> trainigTopicTableColumn;
-    @FXML
-    private TableColumn<?, ?> trainigInstructorTableColumn;
-    @FXML
-    private TableView<?> pastTraingInformationTableView;
-    @FXML
-    private TableView<?> currentTraingInformationTableView;
+   private ArrayList<Training> trainingArr;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        nameShowTC.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
+        idShowTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("empId"));
+        trainingFromTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateFrom"));
+        trainingToTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateTo"));
+        typeTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingType"));
+        trainingNameTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingName"));
+        feesTC.setCellValueFactory(new PropertyValueFactory<Training, String>("payment"));
+        trainIdTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("trainingId"));
+        statusTC.setCellValueFactory(new PropertyValueFactory<Training, String>("status"));
     }    
 
     @FXML
@@ -150,6 +161,41 @@ public class CheckTrainingSceneController implements Initializable {
         window.setScene(scene1);
         window.setTitle("Cars");
         window.show();
+    }
+
+    @FXML
+    private void showButtonOnMouseClick(ActionEvent event) {
+        ObservableList<Training> trainingArr = FXCollections.observableArrayList();
+
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("TrainingInfo.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            Training p;
+            try {
+                while (true) {
+                    p = (Training) ois.readObject();
+                    trainingArr.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+        trainingShowTV.setItems(trainingArr);
+        System.out.println(trainingArr.toString());
     }
     
 }
