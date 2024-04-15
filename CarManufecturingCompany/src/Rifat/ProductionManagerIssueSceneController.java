@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -35,6 +36,7 @@ import srbshakib.FlagAReport;
 
 public class ProductionManagerIssueSceneController implements Initializable {
 
+    
     
     
     @FXML
@@ -49,6 +51,7 @@ public class ProductionManagerIssueSceneController implements Initializable {
     private TableColumn<FlagAReport, String> commentsTableColumn;
     @FXML
     private TableColumn<FlagAReport, String> statusTableColumn;
+    
     @FXML
     private TableView<FlagAReport> issueTableView;
 
@@ -59,6 +62,7 @@ public class ProductionManagerIssueSceneController implements Initializable {
         
     }    
 
+    @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
         Parent mainParent = FXMLLoader.load(getClass().getResource("/Rifat/ProductionManagerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
@@ -66,6 +70,7 @@ public class ProductionManagerIssueSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
 
       
 
@@ -111,10 +116,10 @@ public class ProductionManagerIssueSceneController implements Initializable {
         System.out.println(flagReportInfo.toString());
     }
 
+
     
     
 }
-    
   
-
+        
   

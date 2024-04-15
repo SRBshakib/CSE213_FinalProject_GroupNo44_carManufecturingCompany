@@ -112,10 +112,20 @@ public class Training implements Serializable {
 
     @Override
     public String toString() {
-        return "Training{" + "trainingId=" + trainingId + ", name=" + name + ", empId=" + empId + ", doj=" + doj + ", dateFrom=" + dateFrom + ", dateTo=" + dateTo + ", trainingType=" + trainingType + ", trainingName=" + trainingName + ", payment=" + payment + ", status=" + status + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Training{");
+        sb.append("trainingId=").append(trainingId);
+        sb.append(", name=").append(name);
+        sb.append(", empId=").append(empId);
+        sb.append(", doj=").append(doj);
+        sb.append(", dateFrom=").append(dateFrom);
+        sb.append(", dateTo=").append(dateTo);
+        sb.append(", trainingType=").append(trainingType);
+        sb.append(", trainingName=").append(trainingName);
+        sb.append(", payment=").append(payment);
+        sb.append(", status=").append(status);
+        sb.append('}');
+        return sb.toString();
     }
-
-   
-    
 
 }

@@ -4,9 +4,24 @@
  */
 package Dip;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +29,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -23,12 +42,33 @@ import javafx.stage.Stage;
  */
 public class HumanResourceManagerNoticeBoardManagmentSceneController implements Initializable {
 
+    @FXML
+    private DatePicker noticeDP;
+    @FXML
+    private TextArea noticeTA;
+    @FXML
+    private ComboBox<String> deptCB;
+    @FXML
+    private TextArea noticeShowTA;
+        private ArrayList<Notice> noticeArr;
+
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+                deptCB.getItems().addAll(
+                        "Assambly Line Worker", 
+                "Managing Director", 
+                "Human Resource Manager", 
+                "Finance Manager", 
+                "Supply Chain Manager",
+                "Production Manager", "All Employee");
+                        noticeArr = new ArrayList<Notice>();
+
+
+        
     }    
 
     @FXML
@@ -39,5 +79,123 @@ public class HumanResourceManagerNoticeBoardManagmentSceneController implements 
         window.setScene(scene1);
         window.show();
     }
+
+    @FXML
+    private void sendButtonOnClick(ActionEvent event) {
+        Notice j = new Notice(
+                    
+                    noticeDP.getValue(),
+                    deptCB.getValue(),
+                noticeTA.getText());
+
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            File f = null;
+            try {
+                f = new File("Notice.bin");
+                if (f.exists()) {
+                    fos = new FileOutputStream(f, true);
+                    oos = new AppendableObjectOutputStream(fos);
+                } else {
+                    fos = new FileOutputStream(f);
+                    oos = new ObjectOutputStream(fos);
+                }
+
+                oos.writeObject(j);
+
+            } catch (IOException ex) {
+                Logger.getLogger(HumanResourceManagerNoticeBoardManagmentSceneController.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    if (oos != null) {
+                        oos.close();
+
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(HumanResourceManagerNoticeBoardManagmentSceneController.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+    }
+
+    @FXML
+    private void showButtonOnClick(ActionEvent event) {
+        ObjectInputStream ois = null;
+        try {
+            Notice s;
+            FileInputStream fis = new FileInputStream("Notice.bin");
+            ois = new ObjectInputStream(fis);
+
+            noticeShowTA.setText(null);
+
+            while (true) {
+                s = (Notice) ois.readObject();
+
+                noticeShowTA.appendText(s.toString() + "\n");
+            }
+
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        } catch (Exception ex) {
+
+            try {
+                System.out.println(ex.toString());
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex1) {
+            }
+        }
+//       ObservableList<NewJoining> newjoiningArr = FXCollections.observableArrayList();
+//        callIdTC.setCellValueFactory(new PropertyValueFactory<NewJoining, Integer>("uniqueid"));
+//        callNameTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("name"));
+//        callGenderTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("gender"));
+//        callDateOfJoinTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("dob"));
+//        callDateOfBirthTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("doj"));
+//        callDesignationTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("designation"));
+//
+//        File f = null;
+//        FileInputStream fis = null;
+//        ObjectInputStream ois = null;
+//
+//        try {
+//            f = new File("NewJoining.bin");
+//            fis = new FileInputStream(f);
+//            ois = new ObjectInputStream(fis);
+//            NewJoining p;
+//            try {
+//                while (true) {
+//                    p = (NewJoining) ois.readObject();
+//                    newjoiningArr.add(p);
+//                    System.out.println(p.toString());
+//                }
+//            } catch (Exception e) {
+//            }
+//        } catch (IOException ex) {
+//        } finally {
+//            try {
+//                if (ois != null) {
+//                    ois.close();
+//                }
+//            } catch (IOException ex) {
+//            }
+//
+//        }
+//        callNewJoiningTV.setItems(newjoiningArr);
+//        System.out.println(newjoiningArr.toString());
+         
+    }
+
+    @FXML
+    private void saveButtonOnClick(ActionEvent event) {
+        noticeArr.add(
+            new Notice(  
+                    noticeDP.getValue(),
+                    deptCB.getValue(),
+                    noticeTA.getText()));
+    }
     
 }
+    
