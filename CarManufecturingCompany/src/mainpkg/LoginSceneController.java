@@ -348,7 +348,25 @@ public class LoginSceneController implements Initializable {
                         } catch (IOException ex) {
                         }
                     }
-                }
+                } if (userTypeComboBox.getValue().equals("Human Resource Manager")) {
+        String defaultId = "2221683";
+        String defaultPassword = "dipayon";
+
+        if (userIdTextfield.getText().equals(defaultId) && userPasswordPwfield.getText().equals(defaultPassword)) {
+            try {
+                Parent A = FXMLLoader.load(getClass().getResource("/Dip/HumanResourceManagerDashboardScene.fxml"));
+                Scene sceneA = new Scene(A);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(sceneA);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // If not matched, show an alert for wrong ID/password
+            Alert();
+        }
+    }
             }
         
     
