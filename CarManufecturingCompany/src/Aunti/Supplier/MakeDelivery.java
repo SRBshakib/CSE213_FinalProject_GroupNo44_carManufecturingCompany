@@ -19,7 +19,9 @@ public class MakeDelivery implements Serializable {
     public int unitPrice;
     public String shipment;
     public LocalDate edd;
+
     public int totalPrice;
+
 
     public MakeDelivery() {
     }
@@ -31,7 +33,9 @@ public class MakeDelivery implements Serializable {
         this.unitPrice = unitPrice;
         this.shipment = shipment;
         this.edd = edd;
+
         this.totalPrice = totalPrice;
+
     }
 
     public int getOrderCode() {
@@ -82,6 +86,7 @@ public class MakeDelivery implements Serializable {
         this.edd = edd;
     }
 
+
     public int getTotalPrice() {
         return totalPrice;
     }
@@ -94,6 +99,7 @@ public class MakeDelivery implements Serializable {
     public String toString() {
         return "MakeDelivery{" + "orderCode=" + orderCode + ", productName=" + productName + ", quantity=" + quantity + ", unitPrice=" + unitPrice + ", shipment=" + shipment + ", edd=" + edd + ", totalPrice=" + totalPrice + '}';
     }
+
 
     
 }

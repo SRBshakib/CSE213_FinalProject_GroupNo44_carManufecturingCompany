@@ -4,6 +4,7 @@
  */
 package Aunti.Supplier;
 
+
 import Dip.AppendableObjectOutputStream;
 import java.io.EOFException;
 import java.io.File;
@@ -33,6 +34,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -207,10 +209,12 @@ public class MakeDeliverySceneController implements Initializable {
         makeDeliveryTableView.setItems(MakeDeliveryInfo);
         System.out.println(MakeDeliveryInfo.toString());
     
+
     }
 
     @FXML
     private void deliveryButtonOnMouseClicked(ActionEvent event) {
+
         MakeDelivery i= new MakeDelivery(
                 orderCodeComboBox.getValue(),
                 selectProductTypeComboBox.getValue(),
@@ -256,17 +260,23 @@ public class MakeDeliverySceneController implements Initializable {
         unitPriceTextField.clear();
         shipmentTextField.clear();
         estimatedDeliveryDateDatePicker.setValue(null);
+
     }
 
     @FXML
     private void loadOrderCodeAndProductButtonOnMouseClicked(ActionEvent event) {
+
         String filePath = "OrderForSuppiler.bin";
+
+
 
     // Initialize observable lists to store order details
     ObservableList<Integer> orderCodes = FXCollections.observableArrayList();
     ObservableList<String> productNames = FXCollections.observableArrayList();
     ObservableList<Integer> quantities = FXCollections.observableArrayList();
+
     ObservableList<String> payment = FXCollections.observableArrayList();
+
 
     try (FileInputStream fis = new FileInputStream(filePath);
          ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -291,6 +301,8 @@ public class MakeDeliverySceneController implements Initializable {
     selectProductTypeComboBox.setItems(productNames);
     quantityComboBox.setItems(quantities);
     
+
     
 }
+
 }
