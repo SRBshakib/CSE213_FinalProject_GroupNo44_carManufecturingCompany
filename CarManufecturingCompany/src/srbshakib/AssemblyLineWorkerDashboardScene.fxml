@@ -73,6 +73,7 @@
                   <Button layoutX="46.0" layoutY="11.0" mnemonicParsing="false" onAction="#viewCarsButtonOnMouseClicked" text="View Cars" />
                </children>
             </AnchorPane>
+            <Button layoutX="60.0" layoutY="559.0" mnemonicParsing="false" onAction="#signOUtButtonOnMouseClicked" text="Sign out" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="598.0" prefWidth="647.0" style="-fx-background-color: white; -fx-border-color: black;">

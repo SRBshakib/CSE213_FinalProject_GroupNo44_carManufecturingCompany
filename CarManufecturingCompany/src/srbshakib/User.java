@@ -28,7 +28,7 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(String name, int UserId, String password, LocalDate DoB, String userType) {
+    public User(String name, Integer value1, String password, String userType, String text1, int UserId, String text2, LocalDate DoB) {
 
 
     

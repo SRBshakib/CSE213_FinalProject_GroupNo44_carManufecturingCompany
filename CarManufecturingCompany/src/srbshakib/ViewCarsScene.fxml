@@ -3,12 +3,12 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -102,10 +102,10 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ComboBox fx:id="viewcarsCarModelSelectCarTypeComboBox" layoutX="38.0" layoutY="41.0" onAction="#viewcarsCarTypeSelectcarTypeOnMouseClicked" prefWidth="150.0" promptText="car type" />
-                              <ComboBox fx:id="viewcarsCarModelSelectCarModelComboBox" layoutX="274.0" layoutY="41.0" onAction="#viewcarsCarModelSelectcarTypeOnMouseClicked" prefWidth="150.0" promptText="Car Model" />
+                              <ComboBox fx:id="CarTypeComboBox" layoutX="38.0" layoutY="41.0" onAction="#viewcarsCarTypeSelectcarTypeOnMouseClicked" prefWidth="150.0" promptText="car type" />
+                              <ComboBox fx:id="selectCarModelComboBox" layoutX="274.0" layoutY="41.0" onAction="#selectCarModelComboBoxOnAction" prefWidth="150.0" promptText="Car Model" />
                               <ImageView fx:id="carViewCarImageview" fitHeight="150.0" fitWidth="200.0" layoutX="174.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="carViewcarFeaturesLabel" layoutX="69.0" layoutY="362.0" prefHeight="152.0" prefWidth="428.0" text="features" />
+                              <TextArea fx:id="carViewcarFeaturesLabel" layoutX="38.0" layoutY="315.0" prefHeight="200.0" prefWidth="367.0" />
                            </children>
                         </AnchorPane>
                   </content>

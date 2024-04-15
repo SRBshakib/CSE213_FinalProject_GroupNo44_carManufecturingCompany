@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
@@ -169,6 +169,16 @@ public class AssemblyLineWorkerDashboardSceneController implements Initializable
             } catch (IOException ex1) {
             }
         }
+    }
+
+    @FXML
+    private void signOUtButtonOnMouseClicked(ActionEvent event) throws IOException {
+         Parent mainParent = FXMLLoader.load(getClass().getResource("/mainpkg/LoginScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        
+        window.show();
     }
 
 
