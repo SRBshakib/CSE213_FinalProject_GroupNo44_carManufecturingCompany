@@ -177,6 +177,17 @@ public class ProductionManagerDashboardSceneController implements Initializable 
         }  
         }
 }
+
+    @FXML
+    private void termsAndConditionsReadOnClick(ActionEvent event) throws IOException {
+        Parent mainParent = FXMLLoader.load(getClass().getResource("ProductionManagerTermsAndConditionsReadScene.fxml"));
+        Scene scene1 = new Scene(mainParent);
+        Stage newWindow = new Stage();
+        newWindow.setTitle("Terms And Conditions");
+        newWindow.setScene(scene1);
+        newWindow.show();
     }
+}    
+    
     
 
