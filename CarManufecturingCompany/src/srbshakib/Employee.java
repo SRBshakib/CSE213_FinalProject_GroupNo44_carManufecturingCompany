@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,10 +17,13 @@ public class Employee extends User implements Serializable{
     private float salary;
     private String designation;
 
-    public Employee() {
+    public Employee(LocalDate dateOfJoin, float salary, String designation) {
+        this.dateOfJoin = dateOfJoin;
+        this.salary = salary;
+        this.designation = designation;
     }
 
-    public Employee(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
+    public Employee(LocalDate dateOfJoin, float salary, String designation, String name, int UserId, String password, LocalDate DoB, String userType) {
         super(name, UserId, password, DoB, userType);
         this.dateOfJoin = dateOfJoin;
         this.salary = salary;
@@ -54,6 +58,8 @@ public class Employee extends User implements Serializable{
     public String toString() {
         return "Employee{" + "dateOfJoin=" + dateOfJoin + ", salary=" + salary + ", designation=" + designation + '}';
     }
+
+   
 
     
    
