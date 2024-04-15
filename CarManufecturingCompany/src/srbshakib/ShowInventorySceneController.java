@@ -222,6 +222,6 @@ public class ShowInventorySceneController implements Initializable {
         }
         return matchingInventory;
     }
-    }
+}    
     
 
