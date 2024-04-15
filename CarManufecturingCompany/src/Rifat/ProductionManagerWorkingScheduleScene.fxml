@@ -9,7 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+
 <AnchorPane prefHeight="583.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerWorkingScheduleSceneController">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Rifat.ProductionManagerWorkingScheduleSceneController">
+
    <children>
       <VBox layoutX="43.0" layoutY="14.0" prefHeight="569.0" prefWidth="729.0" spacing="10.0">
          <children>
@@ -28,12 +32,20 @@
             </HBox>
             <Button onAction="#addButtonOnMouseClicked" text="Add Worker" />
             <Button onAction="#loadButtonOnMouseClicked" text="Load" />
+
             <TableView fx:id="scheduleTableView" prefHeight="300.0" prefWidth="579.0">
+
+            <TableView fx:id="scheduleTableView" prefHeight="300.0" prefWidth="514.0">
+
                <columns>
                   <TableColumn fx:id="workerIdColumnTable" prefWidth="100.0" text="Worker ID" />
                   <TableColumn fx:id="workerNameColumnTable" prefWidth="186.0" text="Worker Name" />
                   <TableColumn fx:id="shiftDateColumnTable" prefWidth="148.0" text="Shift Date" />
+
                   <TableColumn fx:id="shiftTimeColumnTable" prefWidth="294.0" text="Shift Time" />
+
+                  <TableColumn fx:id="shiftTimeColumnTable" prefWidth="136.0" text="Shift Time" />
+
                </columns>
             </TableView>
          </children>
