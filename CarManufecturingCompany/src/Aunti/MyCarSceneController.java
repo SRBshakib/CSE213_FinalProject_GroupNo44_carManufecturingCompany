@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -29,6 +30,8 @@ public class MyCarSceneController implements Initializable {
     private TableColumn<?, ?> yearOfLaunchingTableColumn;
     @FXML
     private TableColumn<?, ?> dealerTableColumn;
+    @FXML
+    private Button showCarDetailsOnMouseClicked;
 
     /**
      * Initializes the controller class.
@@ -73,6 +76,10 @@ public class MyCarSceneController implements Initializable {
 
     @FXML
     private void upcomingEventsButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void selectCarComboBox(ActionEvent event) {
     }
     
 }
