@@ -23,7 +23,7 @@ import javafx.scene.control.TableView;
 public class UpdateSceneController implements Initializable {
 
     @FXML
-    private TableColumn<, String> carTypeTableColumn;
+    private TableColumn<?, String> carTypeTableColumn;
     @FXML
     private ComboBox<?> carTypeComboBox;
     @FXML
