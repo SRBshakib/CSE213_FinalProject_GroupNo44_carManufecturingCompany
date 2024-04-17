@@ -31,7 +31,6 @@ public class User implements Serializable{
         this.userType = userType;
     }
 
-
     public String getName() {
         return name;
     }
@@ -76,6 +75,7 @@ public class User implements Serializable{
     public String toString() {
         return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", DoB=" + DoB + ", userType=" + userType + '}';
     }
+
 
 
 
