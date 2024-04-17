@@ -4,13 +4,16 @@
  */
 package Aunti;
 
+import srbshakib.SupplyChainManager.MakeInventorySceneController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+
 
 /**
  * FXML Controller class
@@ -20,11 +23,15 @@ import javafx.scene.control.TableView;
 public class UpdateSceneController implements Initializable {
 
     @FXML
-    private TableView<?> updatedCarDetailsTableView;
+    private TableColumn<?, String> carTypeTableColumn;
     @FXML
-    private TableColumn<?, ?> updatedFeaturesTableColumn;
+    private ComboBox<?> carTypeComboBox;
     @FXML
     private TableColumn<?, ?> carModelsTableColumn;
+    @FXML
+    private ComboBox<?> carModelsComboBox;
+    @FXML
+    private TableView<?> updateTableView;
 
     /**
      * Initializes the controller class.
@@ -34,40 +41,11 @@ public class UpdateSceneController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void homeButtonOnMouseClicked(ActionEvent event) {
-    }
 
     @FXML
-    private void myCarButtonOnMouseClicked(ActionEvent event) {
+    private void loadInfoButtonOnMouseClicked(ActionEvent event) {
+        
     }
 
-    @FXML
-    private void countryDealerButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void updateButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void orderButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void orderHistoryButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void viewCarsButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void preOrderButtonOnMouseClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void upcomingEventsButtonOnMouseClicked(ActionEvent event) {
-    }
     
 }
