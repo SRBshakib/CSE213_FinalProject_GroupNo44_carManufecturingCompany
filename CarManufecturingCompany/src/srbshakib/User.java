@@ -23,7 +23,8 @@ public class User implements Serializable{
      LocalDate DoB;
      String userType;
 
-    public User(String name, int UserId, String password, LocalDate DoB, String userType) {
+    public User(String name, int UserId, String password, String userType, String email, int phone, String address, LocalDate DoB) {
+
         this.name = name;
         this.UserId = UserId;
         this.password = password;
@@ -76,6 +77,12 @@ public class User implements Serializable{
         return "User{" + "name=" + name + ", UserId=" + UserId + ", password=" + password + ", DoB=" + DoB + ", userType=" + userType + '}';
     }
 
+
+
+
+
+
+    
 
 }
 
