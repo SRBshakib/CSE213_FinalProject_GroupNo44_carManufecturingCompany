@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.scene.control.DatePicker;
 
 /**
  * FXML Controller class
@@ -44,24 +45,44 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     @FXML
     private TableColumn<AssignTasks, String> destinationTableColumn;
     @FXML
-    private TableColumn<AssignTasks, String> startingDateTableColumn;
+    private TableColumn<AssignTasks, LocalDate> startingDateTableColumn;
     @FXML
-    private TableColumn<AssignTasks, String> endingDateTableColumn;
-    private TableColumn<AssignTasks, String> carModelTableColumn;
+    private TableColumn<AssignTasks, LocalDate> endingDateTableColumn;
     @FXML
     private TableColumn<AssignTasks, String> carTypeTableColumn;
-    @FXML
-    private TextField destinationTextField;
-    @FXML
-    private TextField startingDateTextField;
-    @FXML
-    private TextField endingDateTextField;
-    @FXML
-    private TextField assemblingCarModelTextField;
+  
+    
+    
     @FXML
     private ComboBox<String> selectCarTypeComboBox;
     @FXML
     private TableColumn<AssignTasks, String> assemblingCarModelTableColumn;
+    @FXML
+    private ComboBox<String> selectCarModelComboBox;
+    
+    private ObservableList<String> sedanCarModels = FXCollections.observableArrayList("Camry", "Corolla", "Avalon");
+    private ObservableList<String> hatchbackCarModels = FXCollections.observableArrayList("Yaris Hatchback", "Corolla Hatchback", "Matrix", "Prius c");
+    private ObservableList<String> suvCarModels = FXCollections.observableArrayList("RAV4", "Highlander", "4Runner");
+    private ObservableList<String> crossoverCarModels = FXCollections.observableArrayList("Corolla Cross", "Corolla Cross Hybrid", "RAV4 Hybrid", "Venza");
+    private ObservableList<String> coupeCarModels = FXCollections.observableArrayList("GT86", "Supra");
+    private ObservableList<String> convertibleCarModels = FXCollections.observableArrayList("Solara");
+    private ObservableList<String> minivanCarModels = FXCollections.observableArrayList("Sienna");
+    private ObservableList<String> truckCarModels = FXCollections.observableArrayList("Tundra", "Tacoma");
+    private ObservableList<String> evCarModels = FXCollections.observableArrayList("Toyota Prius Prime");
+    @FXML
+    private DatePicker startingDatePicker;
+    @FXML
+    private DatePicker endingDatePicker;
+    @FXML
+    private ComboBox<String> destinationComboBox;
+    
+    @FXML
+    private TextField workerNameTextField;
+    @FXML
+    private TableColumn<AssignTasks, String> carTypeTableColumn1;
+    
+   
+    
 
     /**
      * Initializes the controller class.
@@ -70,7 +91,7 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize car type ComboBox
         selectCarTypeComboBox.getItems().addAll("Sedan", "Hatchback", "SUV", "Crossover", "Coupe", "Convertible", "Minivan", "Truck", "Electric Vehicle (EV)");
-                            
+        destinationComboBox.getItems().addAll("Painting","Stamping","Welding","AssemblyInspection");
     }
     
 
@@ -87,13 +108,15 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
     private void submitButtonOnMouseClicked(ActionEvent event) {
         AssignTasks i= new AssignTasks(
               
-                destinationTextField.getText(),
-                startingDateTextField.getText(),
-                endingDateTextField.getText(),
-                assemblingCarModelTextField.getText(),
-                selectCarTypeComboBox.getValue()
+                destinationComboBox.getValue(),
+                startingDatePicker.getValue(),
+                endingDatePicker.getValue(),
+                selectCarModelComboBox.getValue(),
+                selectCarTypeComboBox.getValue(),
+                workerNameTextField.getText()
                 
         );
+        
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         File f = null;
@@ -125,34 +148,30 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         }
         
         
-        destinationTextField.clear();
-        startingDateTextField.clear();
-        endingDateTextField.clear();
-        assemblingCarModelTextField.clear();        
+        destinationComboBox.setValue(null);
+        startingDatePicker.setValue(null);
+        endingDatePicker.setValue(null);
+        selectCarModelComboBox.setValue(null);        
         selectCarTypeComboBox.setValue(null);
+        workerNameTextField.clear();
+        
     }
 
     @FXML
     private void loadButtonOnMouseClicked(ActionEvent event) {
         ObservableList<AssignTasks> AssignTasksInfo = FXCollections.observableArrayList();
-    
-    
-
-
-        
 
         destinationTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks,String>("destination"));
 
-        startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("startingDate"));
+
+        startingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("startingDate"));
         
         
-        endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("endingDate"));
+        endingDateTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, LocalDate>("endingDate"));
+
         assemblingCarModelTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("assemblingCarModel"));
         carTypeTableColumn.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("carType"));
-
-        
-
-        
+        carTypeTableColumn1.setCellValueFactory(new PropertyValueFactory<AssignTasks, String>("worker"));
 
         
         File f = null;
@@ -185,40 +204,42 @@ public class ProductionManagerAssignTasksSceneController implements Initializabl
         assignTasksTableView.setItems(AssignTasksInfo);
         System.out.println(AssignTasksInfo.toString());
     }
-
     @FXML
-    private void carTypeSelectOnAction(ActionEvent event) {String selectedCarType = selectCarTypeComboBox.getValue();
+    private void carTypeSelectOnAction(ActionEvent event) {
+        String selectedCarType = selectCarTypeComboBox.getValue();
+        if (selectedCarType != null) {
         switch (selectedCarType) {
             case "Sedan":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(sedanCarModels);
                 break;
             case "Hatchback":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(hatchbackCarModels);
                 break;
              case "SUV":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(suvCarModels);
                 break;
             case "Crossover":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(crossoverCarModels);
                 break;
             case "Coupe":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(coupeCarModels);
                 break;
             case "Convertible":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(convertibleCarModels);
                 break;
             case "Minivan":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(minivanCarModels);
                 break;
             case "Truck":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(truckCarModels);
                 break;
             case "Electric Vehicle (EV)":
-                assemblingCarModelTextField.getText();
+                selectCarModelComboBox.setItems(evCarModels);
             default:
-                assemblingCarModelTextField.clear(); // Clear the ComboBox if no specific car type is selected
+                selectCarModelComboBox.getItems().clear(); // Clear the ComboBox if no specific car type is selected
                 break;
         }
-        
+    
     }
 }
+}    

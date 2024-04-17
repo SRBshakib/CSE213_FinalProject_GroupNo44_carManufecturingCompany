@@ -29,6 +29,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -50,26 +51,23 @@ public class HumanResourceManagerNoticeBoardManagmentSceneController implements 
     private ComboBox<String> deptCB;
     @FXML
     private TextArea noticeShowTA;
-        private ArrayList<Notice> noticeArr;
-
+    private ArrayList<Notice> noticeArr;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                deptCB.getItems().addAll(
-                        "Assambly Line Worker", 
-                "Managing Director", 
-                "Human Resource Manager", 
-                "Finance Manager", 
+        deptCB.getItems().addAll(
+                "Assambly Line Worker",
+                "Managing Director",
+                "Human Resource Manager",
+                "Finance Manager",
                 "Supply Chain Manager",
                 "Production Manager", "All Employee");
-                        noticeArr = new ArrayList<Notice>();
+        noticeArr = new ArrayList<Notice>();
 
-
-        
-    }    
+    }
 
     @FXML
     private void backButtonOnMouseClick(ActionEvent event) throws IOException {
@@ -83,40 +81,39 @@ public class HumanResourceManagerNoticeBoardManagmentSceneController implements 
     @FXML
     private void sendButtonOnClick(ActionEvent event) {
         Notice j = new Notice(
-                    
-                    noticeDP.getValue(),
-                    deptCB.getValue(),
+                noticeDP.getValue(),
+                deptCB.getValue(),
                 noticeTA.getText());
 
-            FileOutputStream fos = null;
-            ObjectOutputStream oos = null;
-            File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        File f = null;
+        try {
+            f = new File("Notice.bin");
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(j);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HumanResourceManagerNoticeBoardManagmentSceneController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
             try {
-                f = new File("Notice.bin");
-                if (f.exists()) {
-                    fos = new FileOutputStream(f, true);
-                    oos = new AppendableObjectOutputStream(fos);
-                } else {
-                    fos = new FileOutputStream(f);
-                    oos = new ObjectOutputStream(fos);
+                if (oos != null) {
+                    oos.close();
+
                 }
-
-                oos.writeObject(j);
-
             } catch (IOException ex) {
                 Logger.getLogger(HumanResourceManagerNoticeBoardManagmentSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    if (oos != null) {
-                        oos.close();
-
-                    }
-                } catch (IOException ex) {
-                    Logger.getLogger(HumanResourceManagerNoticeBoardManagmentSceneController.class
-                            .getName()).log(Level.SEVERE, null, ex);
-                }
             }
+        }
     }
 
     @FXML
@@ -148,54 +145,26 @@ public class HumanResourceManagerNoticeBoardManagmentSceneController implements 
             } catch (IOException ex1) {
             }
         }
-//       ObservableList<NewJoining> newjoiningArr = FXCollections.observableArrayList();
-//        callIdTC.setCellValueFactory(new PropertyValueFactory<NewJoining, Integer>("uniqueid"));
-//        callNameTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("name"));
-//        callGenderTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("gender"));
-//        callDateOfJoinTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("dob"));
-//        callDateOfBirthTC.setCellValueFactory(new PropertyValueFactory<NewJoining, LocalDate>("doj"));
-//        callDesignationTC.setCellValueFactory(new PropertyValueFactory<NewJoining, String>("designation"));
-//
-//        File f = null;
-//        FileInputStream fis = null;
-//        ObjectInputStream ois = null;
-//
-//        try {
-//            f = new File("NewJoining.bin");
-//            fis = new FileInputStream(f);
-//            ois = new ObjectInputStream(fis);
-//            NewJoining p;
-//            try {
-//                while (true) {
-//                    p = (NewJoining) ois.readObject();
-//                    newjoiningArr.add(p);
-//                    System.out.println(p.toString());
-//                }
-//            } catch (Exception e) {
-//            }
-//        } catch (IOException ex) {
-//        } finally {
-//            try {
-//                if (ois != null) {
-//                    ois.close();
-//                }
-//            } catch (IOException ex) {
-//            }
-//
-//        }
-//        callNewJoiningTV.setItems(newjoiningArr);
-//        System.out.println(newjoiningArr.toString());
-         
+
+
     }
 
     @FXML
     private void saveButtonOnClick(ActionEvent event) {
-        noticeArr.add(
-            new Notice(  
-                    noticeDP.getValue(),
-                    deptCB.getValue(),
-                    noticeTA.getText()));
-    }
-    
-}
-    
+        if (noticeDP.getValue() == null
+                || deptCB.getValue() == null
+                || noticeTA.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all the information");
+            alert.showAndWait();
+        } else {
+            noticeArr.add(
+                    new Notice(
+                            noticeDP.getValue(),
+                            deptCB.getValue(),
+                            noticeTA.getText()));
+        }
+
+    }}

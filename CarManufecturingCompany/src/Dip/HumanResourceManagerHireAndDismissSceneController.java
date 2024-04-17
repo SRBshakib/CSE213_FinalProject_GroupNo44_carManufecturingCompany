@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -125,6 +126,19 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
         } else if (otherRBtn.isSelected()) {
             gender = "Other";
         }
+        
+        if (nameTF.getText().isEmpty() 
+                || gender.isEmpty()
+                || designationCB.getValue() == null 
+        || designationCB.getValue() == null 
+                || dateOfJoinDP.getValue() == null ) {
+            // Show notification to user
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all the information");
+            alert.showAndWait();
+        } else {
 
         NewJoining i = new NewJoining(
                 generateUniqueId(),
@@ -170,7 +184,7 @@ public class HumanResourceManagerHireAndDismissSceneController implements Initia
         dateofbirthDP.setValue(null);
         dateOfJoinDP.setValue(null);
     }
-
+    }
     private int generateUniqueId() {
         return ++idCounter; // Increment the ID counter and return
     }

@@ -17,7 +17,7 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="47.0" prefWidth="158.0">
                      <children>
-                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackLogisticsButtonOnMuseClicked" text="Product Review" />
+                        <Button layoutX="31.0" layoutY="16.0" mnemonicParsing="false" onAction="#trackLogisticsButtonOnMuseClicked" text="Track Logistics" />
                      </children>
                   </AnchorPane>
                </items>

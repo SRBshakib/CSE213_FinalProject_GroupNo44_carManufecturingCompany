@@ -46,7 +46,7 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
     private TableView<MeetingSchedule> tableView;
 //    private TableColumn<MeetingSchedule, String> name_Table_Colm;
     @FXML
-    private TableColumn<MeetingSchedule,String> time_Table_Colm;
+    private TableColumn<MeetingSchedule, String> time_Table_Colm;
     @FXML
     private TableColumn<MeetingSchedule, LocalDate> date_Table_Colm;
 //    private ArrayList<MeetingSchedule> studArr;
@@ -72,13 +72,14 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
     @FXML
     private void showButtonOnClick(ActionEvent event) {
 
         ObservableList<MeetingSchedule> scheduleList = FXCollections.observableArrayList();
 
         name_TableColm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, String>("name"));
-        time_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule,String>("time"));
+        time_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, String>("time"));
         date_Table_Colm.setCellValueFactory(new PropertyValueFactory<MeetingSchedule, LocalDate>("date"));
 
         File f = null;
@@ -86,7 +87,7 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
         ObjectInputStream ois = null;
 
         try {
-            f = new File("Schedule.bin");
+            f = new File("MeetingSchedule.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             MeetingSchedule p;
@@ -122,45 +123,48 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
 
     @FXML
     private void notifyButtonOnClick(ActionEvent event) {
+        if (dept_ComboBox.getValue() == null
+                || date_Picker.getValue() == null
+                || time_Text_Field.getText().isEmpty()) {
 
-        MeetingSchedule i = new MeetingSchedule(
-                
-                dept_ComboBox.getValue(),
-                time_Text_Field.getText(),
-                date_Picker.getValue());
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        File f = null;
-        try {
-            f = new File("Schedule.bin");
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
-            }
-
-            oos.writeObject(i);
-
-        } catch (IOException ex) {
-            Logger.getLogger(ManagingDirectorScheduleSceneController.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        } finally {
+            MeetingSchedule i = new MeetingSchedule(
+                    dept_ComboBox.getValue(),
+                    time_Text_Field.getText(),
+                    date_Picker.getValue());
+            FileOutputStream fos = null;
+            ObjectOutputStream oos = null;
+            File f = null;
             try {
-                if (oos != null) {
-                    oos.close();
-
+                f = new File("MeetingSchedule.bin");
+                if (f.exists()) {
+                    fos = new FileOutputStream(f, true);
+                    oos = new AppendableObjectOutputStream(fos);
+                } else {
+                    fos = new FileOutputStream(f);
+                    oos = new ObjectOutputStream(fos);
                 }
+
+                oos.writeObject(i);
+
             } catch (IOException ex) {
                 Logger.getLogger(ManagingDirectorScheduleSceneController.class
                         .getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            } finally {
+                try {
+                    if (oos != null) {
+                        oos.close();
 
-        dept_ComboBox.setValue(null);
-        time_Text_Field.clear();
-        date_Picker.setValue(null);
-        System.out.println(tableView);
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(ManagingDirectorScheduleSceneController.class
+                            .getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            dept_ComboBox.setValue(null);
+            time_Text_Field.clear();
+            date_Picker.setValue(null);
+            System.out.println(tableView);
+        }
     }
 }

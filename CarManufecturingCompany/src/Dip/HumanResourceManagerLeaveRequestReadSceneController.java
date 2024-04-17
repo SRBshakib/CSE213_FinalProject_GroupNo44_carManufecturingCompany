@@ -120,122 +120,47 @@ public class HumanResourceManagerLeaveRequestReadSceneController implements Init
         window.show();
     }
 
-//    private void refreshTable() {
-//        updatedLeaveReq.clear();
-//        leaveInformationTV.getItems().clear();
-//        updatedLeaveReq = CantonmentBoardMember.acceptOrRejectPendingPermission(askingLeaveReq);
-//        leaveInformationTV.getItems().addAll(updatedLeaveReq);
-//    }
     @FXML
     private void approveButtonOnClick(ActionEvent event) {
-//        try {
-//            if (leaveInformationTV.getSelectionModel().getSelectedItem() == null) {
-//                throw new RuntimeException("Table Selection cannot be empty.");
-//            }
-//            for (AskForLeave taskReqData : askingLeaveReq) {
-//                if (taskReqData == leaveInformationTV.getSelectionModel().getSelectedItem()) {
-//                    taskReqData.setStatus("Accepted");
-//                    break;
-//                }
-//            }
-//                refreshTable();
-//        } catch (RuntimeException e) {
-//            GenerateAlerts.unsuccessfulAlert(e.toString());
-//        }
-//
-//    }
-//        AskForLeave i = new AskForLeave(
-//                askLeaveHowManyWorkingDaysComboBox.getValue(),
-//                askLeaveForSingleDatePIcker.getValue(),
-//                askLeaveForDatePIcker.getValue(),
-//                askLeaveToDatePIcker.getValue(),
-//                askLeaveReasonComboBox.getValue(),
-//                askLeaveTextArea.getText()
-//                status.setText("Aprroved")
-//        );
-//        FileOutputStream fos = null;
-//        ObjectOutputStream oos = null;
-//        File f = null;
-//        try {
-//            f = new File("SalaryInfo.bin");
-//            if (f.exists()) {
-//                fos = new FileOutputStream(f, true);
-//                oos = new AppendableObjectOutputStream(fos);
-//            } else {
-//                fos = new FileOutputStream(f);
-//                oos = new ObjectOutputStream(fos);
-//            }
-//
-//            oos.writeObject(i);
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(HumanResourceManagerLeaveRequestReadSceneController.class
-//                    .getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            try {
-//                if (oos != null) {
-//                    oos.close();
-//
-//                }
-//            } catch (IOException ex) {
-//                Logger.getLogger(HumanResourceManagerLeaveRequestReadSceneController.class
-//                        .getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-
     }
     @FXML
     private void denyButtonOnClick(ActionEvent event) {
-//        try {
-//            if (leaveInformationTV.getSelectionModel().getSelectedItem() == null) {
-//                throw new RuntimeException("Table Selection cannot be empty.");
-//            }
-//            for (AskForLeave taskReqData : askingLeaveReq) {
-//                if (taskReqData == leaveInformationTV.getSelectionModel().getSelectedItem()) {
-//                    taskReqData.setStatus("Rejected");
-//                    break;
-//                }
-//            }
-//                refreshTable();
-//        } catch (RuntimeException e) {
-//            GenerateAlerts.unsuccessfulAlert(e.toString());
-//        }
-//
+
     }
 
     @FXML
-    private void refreshButtonOnClick(ActionEvent event
-    ) {
-//        
-//        File f = null;
-//        FileInputStream fis = null;
-//        ObjectInputStream ois = null;
-//
-//        try {
-//            f = new File("LeaveInfo.bin");
-//            fis = new FileInputStream(f);
-//            ois = new ObjectInputStream(fis);
-//            AskForLeave p;
-//            try {
-//                while (true) {
-//                    p = (AskForLeave) ois.readObject();
-//                    leaveInfo.add(p);
-//                    System.out.println(p.toString());
-//                }
-//            } catch (Exception e) {
-//            }
-//        } catch (IOException ex) {
-//        } finally {
-//            try {
-//                if (ois != null) {
-//                    ois.close();
-//                }
-//            } catch (IOException ex) {
-//            }
-//
-//        }
-//        leaveInformationTV.setItems(leaveInfo);
-//        System.out.println(leaveInfo.toString());
+    private void refreshButtonOnClick(ActionEvent event) {
+        ObservableList<AskForLeave> leaveInfo = FXCollections.observableArrayList();
+
+        File f = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+
+        try {
+            f = new File("LeaveInfo.bin");
+            fis = new FileInputStream(f);
+            ois = new ObjectInputStream(fis);
+            AskForLeave p;
+            try {
+                while (true) {
+                    p = (AskForLeave) ois.readObject();
+                    leaveInfo.add(p);
+                    System.out.println(p.toString());
+                }
+            } catch (Exception e) {
+            }
+        } catch (IOException ex) {
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+            }
+
+        }
+        leaveInformationTV.setItems(leaveInfo);
+        System.out.println(leaveInfo.toString());
     }
 
     @FXML
