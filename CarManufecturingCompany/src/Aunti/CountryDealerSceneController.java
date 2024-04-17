@@ -63,7 +63,7 @@ public class CountryDealerSceneController implements Initializable {
 
     @FXML
     private void homeButtonOnMouseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource(".fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("CustomerDashboardScene.fxml"));
         Scene scene1 = new Scene(mainParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene1);
