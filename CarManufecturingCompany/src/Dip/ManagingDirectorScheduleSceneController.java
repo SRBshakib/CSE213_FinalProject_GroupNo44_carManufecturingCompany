@@ -87,7 +87,7 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
         ObjectInputStream ois = null;
 
         try {
-            f = new File("Schedule.bin");
+            f = new File("MeetingSchedule.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             MeetingSchedule p;
@@ -131,7 +131,7 @@ public class ManagingDirectorScheduleSceneController implements Initializable {
             ObjectOutputStream oos = null;
             File f = null;
             try {
-                f = new File("Schedule.bin");
+                f = new File("MeetingSchedule.bin");
                 if (f.exists()) {
                     fos = new FileOutputStream(f, true);
                     oos = new AppendableObjectOutputStream(fos);

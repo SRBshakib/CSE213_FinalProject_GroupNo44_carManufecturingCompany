@@ -121,14 +121,14 @@ public class HumanResourceManagerTrainingToEmployeeSceneController implements In
         
         
         nameShowTC.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
-        idShowTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("uniqueid"));
-        trainingFromTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("doj"));
-        trainingToTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("gender"));
-        typeTC.setCellValueFactory(new PropertyValueFactory<Training, String>("name"));
-        trainingNameTC.setCellValueFactory(new PropertyValueFactory<Training, String>("uniqueid"));
-        feesTC.setCellValueFactory(new PropertyValueFactory<Training, String>("doj"));
-        trainIdTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("gender"));
-        statusTC.setCellValueFactory(new PropertyValueFactory<Training, String>("gender"));
+        idShowTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("empId"));
+        trainingFromTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateFrom"));
+        trainingToTC.setCellValueFactory(new PropertyValueFactory<Training, LocalDate>("dateTo"));
+        typeTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingType"));
+        trainingNameTC.setCellValueFactory(new PropertyValueFactory<Training, String>("trainingName"));
+        feesTC.setCellValueFactory(new PropertyValueFactory<Training, String>("payment"));
+        trainIdTC.setCellValueFactory(new PropertyValueFactory<Training, Integer>("trainingId"));
+        statusTC.setCellValueFactory(new PropertyValueFactory<Training, String>("status"));
 
     }    
 
@@ -244,7 +244,7 @@ private int generateUniqueId() {
         ObjectInputStream ois = null;
 
         try {
-            f = new File("Training.bin");
+            f = new File("WorkerDirectory.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             WorkerList p;
@@ -278,7 +278,7 @@ private int generateUniqueId() {
         ObjectInputStream ois = null;
 
         try {
-            f = new File("NewJoining.bin");
+            f = new File("Training.bin");
             fis = new FileInputStream(f);
             ois = new ObjectInputStream(fis);
             Training p;

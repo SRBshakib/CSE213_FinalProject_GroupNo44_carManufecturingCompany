@@ -20,6 +20,7 @@ import javafx.scene.control.TableView;
 public class UpdateSceneController implements Initializable {
 
     @FXML
+    private TableColumn<?, String> carTypeTableColumn;
     private TableView<?> updatedCarDetailsTableView;
     @FXML
     private TableColumn<?, ?> updatedFeaturesTableColumn;

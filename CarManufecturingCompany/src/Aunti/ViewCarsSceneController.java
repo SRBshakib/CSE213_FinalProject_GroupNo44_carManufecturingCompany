@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -72,6 +73,14 @@ public class ViewCarsSceneController implements Initializable {
 
     @FXML
     private void upcomingEventsButtonOnMouseClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void selectCarComboBox(MouseEvent event) {
+    }
+
+    @FXML
+    private void selectModelComboBox(ActionEvent event) {
     }
     
 }
