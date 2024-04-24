@@ -35,8 +35,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import srbshakib.SupplyChainManager.MakeSupplierListSceneController;
-import srbshakib.SupplyChainManager.SupplierInformation;
+
 
 /**
  * FXML Controller class
