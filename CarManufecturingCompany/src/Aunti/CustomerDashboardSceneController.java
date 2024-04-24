@@ -91,7 +91,7 @@ public class CustomerDashboardSceneController implements Initializable {
 
     @FXML
     private void upcomingEventsButtonOnMouseClicked(ActionEvent event) throws IOException {
-        Parent mainParent = FXMLLoader.load(getClass().getResource("UpcomingEventsScene.fxml"));
+        Parent mainParent = FXMLLoader.load(getClass().getResource("UpcomingEventScene.fxml"));
         showBorderPane.setCenter(mainParent);
     }
     
